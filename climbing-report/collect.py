@@ -174,7 +174,7 @@ def merge(path, new):
     """같은 날 여러 번 실행: 이전 결과 유지 + 참석 수는 최신 값으로 갱신(끝난 정모는 페이지에서 사라지므로)."""
     old = {}
     if os.path.exists(path):
-        old = {e["key"]: e for e in json.load(open(path, encoding="utf-8")).get("events", [])}
+           old = {e["key"]: e for e in json.load(open(path, encoding="utf-8")).get("events", []) if "key" in e}
     for e in new:
         prev = old.get(e["key"])
         if prev and e["joined"] is None:
