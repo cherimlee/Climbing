@@ -1,0 +1,44 @@
+name: collect-somoim
+
+on:
+  schedule:
+    # GitHub cron은 UTC 기준(KST = UTC+9). 예약은 늦게 시작할 수 있어 30분 일찍 깨움.
+    # collect.py가 09:56 / 17:56 KST까지 기다렸다가 약 30~40초 동안 수집 → 10시·18시 직전 값.
+    - cron: "30 0 * * *"   # 09:30 KST 기상 → 09:56 수집
+    - cron: "30 8 * * *"   # 17:30 KST 기상 → 17:56 수집
+  workflow_dispatch:       # Actions 탭 수동 실행 (기다리지 않고 바로 수집)
+    inputs:
+      start_at:
+        description: "수집 시작 시각 (now / auto / HH:MM KST)"
+        default: "now"
+
+permissions:
+  contents: write          # 수집 결과를 저장소에 커밋하기 위해 필요
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60    # 최대 45분 대기 + 수집
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python collect.py
+        env:
+          START_AT: ${{ github.event.inputs.start_at || 'auto' }}
+          WORKERS: "4"
+          REQUEST_DELAY: "1.0"
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash || true
+          git add docs
+          git diff --cached --quiet || git commit -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          git push
