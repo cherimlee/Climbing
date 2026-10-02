@@ -2,7 +2,14 @@
   // Cloudflare Workers 배포 설정 — GitHub 저장소 맨 위(루트)에 업로드
   "name": "climbing-island",
   "compatibility_date": "2026-10-01",
+  "main": "worker.js",
   "assets": {
-    "directory": "./climbing-report/docs"
+    "directory": "./climbing-report/docs",
+    "binding": "ASSETS"
+  },
+  // 소모임 수집 깨우기 (UTC 기준): 00:30 = 09:30 KST, 08:30 = 17:30 KST
+  // collect.py가 깨어난 뒤 09:56 / 17:56 KST까지 기다렸다가 수집함
+  "triggers": {
+    "crons": ["30 0 * * *", "30 8 * * *"]
   }
 }
