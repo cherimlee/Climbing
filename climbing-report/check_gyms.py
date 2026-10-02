@@ -43,7 +43,6 @@ HOLIDAYS = [(n, dt.date.fromisoformat(a), dt.date.fromisoformat(b)) for n, a, b 
 SCHEDULE_MODE = {"17 5 25 * *": "monthly", "17 5 15 12 *": "yearend", "17 5 * * 1": "holiday"}
 
 HIT = re.compile(r"휴무|휴관|휴업|운영\s?시간|영업\s?시간|단축|임시|세팅|뉴셋|탈거|이전|폐업|폐관|오픈|가격|요금|인상|리뉴얼|연휴|명절|설날|추석|연말|신정")
-GENERIC = {"클라이밍", "클라이밍짐", "클라이밍센터", "짐", "센터", "클라임", "볼더링", "climbing"}
 SKIP_SITE = ("cafe.daum.net", "cafe.naver.com", "blog.naver.com", "m.blog.naver.com", "instagram", "facebook.com",
              "booking.naver.com", "place.naver.com", "map.naver.com", "naver.me", "pf.kakao.com", "qr.kakao.com",
              "map.kakao.com", "site.naver.com")
@@ -83,16 +82,6 @@ def holiday_soon(lo, hi):
 
 def clean(s):
     return html.unescape(re.sub(r"<[^>]+>", "", s or "")).strip()
-
-
-def name_tokens(name):
-    t = [w for w in re.split(r"[\s·()]+", name) if w and w.lower() not in GENERIC]
-    return t or [name]
-
-
-def mentions(name, text):
-    t = text.replace(" ", "").lower()
-    return all(w.replace(" ", "").lower() in t for w in name_tokens(name))
 
 
 def site_text(url):
@@ -144,7 +133,7 @@ def main():
             oldlines = set(old.get("lines", []))
             new_lines = [x for x in t.split("\n") if HIT.search(x) and x not in oldlines and len(x) < 200][:6]
             site_rows.append((gs, u, new_lines))
-        hashes[u] = {"hash": h, "at": TODAY.isoformat(), "lines": [x for x in t.split("\n") if HIT.search(x) and len(x) < 200][:80]}
+        hashes[u] = {"hash": h, "at": TODAY.isoformat(), "lines": [x for x in t.split("\n") if HIT.search(x) and len(x) < 200]}
     HASHES.write_text(json.dumps(hashes, ensure_ascii=False, indent=1), encoding="utf-8")
 
     # 보고서
