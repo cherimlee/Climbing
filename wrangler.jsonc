@@ -11,5 +11,7 @@
   // collect.py가 깨어난 뒤 09:56 / 17:56 KST까지 기다렸다가 수집함
   "triggers": {
     "crons": ["30 0 * * *", "30 8 * * *"]
-  }
+  },
+  // PR 미리보기 빌드(wrangler preview)에 필요. 미리보기에는 크론이 붙지 않음
+  "previews": {}
 }
