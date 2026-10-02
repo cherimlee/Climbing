@@ -5,7 +5,7 @@
 
 - 낮클(day): 시작 시각 **~16:59** / 퇴근클(eve): **17:00~**
 - 참석 인원: 정모 카드에 표시된 집계 숫자만 사용 (멤버 이름 등 개인정보는 읽지도 저장하지도 않음)
-- `gym_id`는 `climbing_gyms.json`·`climbing-map.html`의 암장 id와 같습니다.
+- `gym_id`는 `climbing_gyms.json`·`docs/map.html`의 암장 id와 같습니다.
 
 ## 파일 구성
 
@@ -13,7 +13,8 @@
 |---|---|
 | `collect.py` | 수집·매칭·집계 스크립트 |
 | `crews.json` | 수집 대상 크루 목록 (크루 추가/삭제는 여기서) |
-| `gyms.json` | 암장 id·이름·좌표 (climbing_gyms.json에서 추출) |
+| `sync_map_data.py` | `docs/data/climbing_gyms.json` → `docs/map.html` 안의 암장 데이터·`gyms.json`을 다시 만듦 (아래 '암장 정보 고치기' 참고) |
+| `gyms.json` | 암장 id·이름·좌표 (climbing_gyms.json에서 자동 생성, 직접 고치지 않기) |
 | `collect.yml` | 매일 09:30·17:30 KST에 깨어나 09:56·17:56에 수집(10시·18시 직전 값) — **GitHub에서 `.github/workflows/collect.yml` 위치에 만들어야 함** (3번 참고) |
 | `docs/data/Somoim_MMDD.json` | 날짜별 결과 (같은 날 2회 실행 시 병합) |
 | `docs/data/latest.json` | 가장 최근 결과 — 지도에서 불러올 주소 |
@@ -30,6 +31,15 @@
 5. **첫 실행 테스트** — *Actions* 탭 → (처음이면 *I understand… enable* 클릭) → `collect-somoim` → **Run workflow**. 2~3분 뒤 초록 체크가 뜨고 `docs/data/`에 파일이 생기면 성공
 6. **GitHub Pages 켜기** — *Settings → Pages* → Source: **Deploy from a branch** → Branch: `main`, 폴더: **/docs** → *Save*
    - 1~2분 뒤 `https://<아이디>.github.io/climbing-report/map.html` 에서 지도, `…/data/latest.json` 에서 데이터 확인
+
+## 암장 정보 고치기
+
+암장 정보의 원본은 **`docs/data/climbing_gyms.json` 하나**입니다. map.html 안의 암장 데이터와 `gyms.json`은 여기서 자동으로 만들어지니 직접 고치지 마세요.
+
+- GitHub에서 고칠 때: `climbing_gyms.json`만 고쳐 커밋하면 `sync-map-data` 워크플로가 map.html·gyms.json을 자동으로 맞춰 커밋합니다.
+- 내 컴퓨터에서 고칠 때: `climbing_gyms.json`을 고친 뒤 `python sync_map_data.py` 실행 → 세 파일을 함께 올리기.
+- 지도에는 폐업·폐업추정과 좌표 없는 암장은 빠지고, 상단 카드의 '조사' 날짜는 `updated` 중 가장 최근 날짜로 맞춰집니다.
+- `python sync_map_data.py --check` 로 맞춰져 있는지만 확인할 수 있어요.
 
 ## climbing-map에 연결하기
 
