@@ -2166,11 +2166,33 @@ todayBtn.onclick = () => { if (curList === 'today') { closeRegionList(); return;
 new MutationObserver(() => todayBtn.setAttribute('aria-pressed', curList === 'today')).observe(rlist, { attributes: true, attributeFilter: ['class'] });
 const RO = { open: true, fresh: true, near: false, set7: false, filt: false }; /* P12: 7일 이내 뉴셋 */
 const newSet7 = g => { const a = settingAge(g); return !!a && !a.bi && a.ago <= 6; }; let roPick = null, roSpinning = false;
+// 지금 닫혀 있으면 다음에 문 여는 시각 (오늘 남은 시간 또는 내일). 휴무·정보 없음이면 null
+function nextOpen(g) {
+  if (isUnv(g) || g.status === '폐업' || openStatus(g)?.s === 'on') return null;
+  const rules = parseHours(g.hours); if (!rules) return null;
+  const hols = krHolidays(), t0 = Date.now() + 9 * 3600e3;
+  for (let k = 0; k < 2; k++) {
+    const d = new Date(t0 + k * 864e5), ymd = d.toISOString().slice(0, 10);
+    const r = ruleFor(rules, d.getUTCDay(), hols.includes(ymd)); if (!r) continue;
+    if (r.o > (k ? -1 : d.getUTCHours() * 60 + d.getUTCMinutes())) return { min: r.o, tomorrow: k === 1 };
+  }
+  return null;
+}
+// 밤이라 '영업중만' 후보가 없으면(곧 마감 포함) 다음에 문 여는 곳으로 바꿔서 골라요
+let roLater = false;
+const roLaterLabel = () => kstNow().min < 360 ? '오늘 여는 곳' : '내일 여는 곳';
 function roCands() {
-  return GYMS.map((g, i) => ({ g, i })).filter(({ g }) => !isUnv(g) && g.category !== '키즈' && g.status !== '폐업예정' && (!RO.open || isOpenNow(g)) && (!RO.fresh || !VISITS[g.id]) && (!RO.near || (state.me && distKm(state.me, g) <= 10)) && (!RO.set7 || newSet7(g)) && (!RO.filt || passes(g)));
+  const base = GYMS.map((g, i) => ({ g, i })).filter(({ g }) => !isUnv(g) && g.category !== '키즈' && g.status !== '폐업예정' && (!RO.fresh || !VISITS[g.id]) && (!RO.near || (state.me && distKm(state.me, g) <= 10)) && (!RO.set7 || newSet7(g)) && (!RO.filt || passes(g)));
+  roLater = false;
+  if (!RO.open) return base;
+  // 곧 마감(1시간 이내)인 곳은 가도 운동할 시간이 없어서 빼요
+  const now = base.filter(({ g }) => openStatus(g)?.s === 'on'); if (now.length) return now;
+  const later = base.filter(({ g }) => nextOpen(g)); roLater = later.length > 0;
+  return later;
 }
 function roWhy(g) {
-  const w = []; const st = openStatus(g); if (st) w.push(st.label);
+  const w = []; const st = openStatus(g), nx = st?.s === 'off' && nextOpen(g);
+  if (nx) w.push(`${nx.tomorrow ? '내일 ' : ''}${hm(nx.min)} 오픈`); else if (st) w.push(st.label);
   if (state.me) w.push(fmtKm(distKm(state.me, g)));
   w.push(VISITS[g.id] ? `${visitN(g.id)}회 가 봄` : '안 가본 곳');
   if (newSet7(g)) { const a = settingAge(g).ago; w.push(a === 0 ? '오늘 세팅' : `${a}일 전 세팅`); }
@@ -2183,8 +2205,8 @@ function renderTodayList() {
   document.getElementById('rTitle').textContent = '오늘의 클라이밍';
   document.getElementById('rMeta').innerHTML = `${esc(mdLabel(kstToday()))} · 지금 영업중 <b>${GYMS.filter(g => !isUnv(g) && isOpenNow(g)).length}</b>곳`;
   const pk = roPick != null ? GYMS[roPick] : null;
-  let html = `<div class="today"><div class="ro"><h4>🎲 오늘 어디 가지?</h4><div class="opts">${opt('open', '영업중만')}${opt('fresh', '안 가본 곳')}${opt('near', state.me ? '10km 이내' : '10km 이내 (위치 켜기)')}${opt('set7', '7일 이내 뉴셋')}${opt('filt', '지금 필터 적용')}</div>
-    <div class="roslot" id="roSlot">${pk ? `<div class="nm"><i style="--c:${pk._col}"></i>${esc(pk.name)}</div><div class="why">${roWhy(pk).map(w => `<span>${esc(w)}</span>`).join('')}</div>` : `<div class="sub">후보 <b>${c.length}</b>곳 중에서 골라 드려요</div>`}</div>
+  let html = `<div class="today"><div class="ro"><h4>🎲 오늘 어디 가지?</h4><div class="opts">${opt('open', roLater ? roLaterLabel() : '영업중만')}${opt('fresh', '안 가본 곳')}${opt('near', state.me ? '10km 이내' : '10km 이내 (위치 켜기)')}${opt('set7', '7일 이내 뉴셋')}${opt('filt', '지금 필터 적용')}</div>
+    <div class="roslot" id="roSlot">${pk ? `<div class="nm"><i style="--c:${pk._col}"></i>${esc(pk.name)}</div><div class="why">${roWhy(pk).map(w => `<span>${esc(w)}</span>`).join('')}</div>` : `<div class="sub">${roLater ? '지금은 곧 닫거나 닫은 곳뿐이라, 다음에 문 여는 곳 ' : '후보 '}<b>${c.length}</b>곳 중에서 골라 드려요</div>`}</div>
     <div class="rob"><button data-ro="spin" ${c.length && !roSpinning ? '' : 'disabled'}>${pk ? '다시 돌리기' : '돌리기'}</button>${pk ? '<button class="go" data-ro="go">여기 가 볼래요</button>' : ''}</div></div>`;
   const op = GYMS.map((g, i) => ({ g, i })).filter(x => !isUnv(x.g));
   const t0 = op.filter(x => { const a = settingAge(x.g); return a && !a.bi && a.ago === 0; }), t1 = op.filter(x => { const a = settingAge(x.g); return a && !a.bi && a.ago === 1; });
