@@ -187,6 +187,24 @@ body.rlist-open .hint{display:none}
 .rlist .meetnote a{color:var(--hold-blue)}
 body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 
+
+/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */
+.chip small{font:500 11px var(--f-mono);opacity:.7}
+.chip svg{width:13px;height:13px;flex:none}
+.chip.busy{opacity:.6;pointer-events:none}
+.ostat{font:700 11px var(--f-body);border-radius:6px;padding:3px 7px;color:#fff;background:#14a37f}
+.ostat.soon{background:#e58a00}
+.ostat.off{background:#6c7194}
+.ostat.maybe{background:#b07a00}
+.ritem .os{font-weight:700;margin-right:5px}
+.ritem .os.on{color:#14a37f}.ritem .os.soon{color:#c06f00}.ritem .os.off{color:#8a8fb0}.ritem .os.maybe{color:#b07a00}
+.links a.share{background:var(--ink);color:#fff;box-shadow:none;cursor:pointer}
+.links a.share:hover{background:#2c3466}
+.mepin{position:absolute;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#3d7bff;border:3px solid #fff;box-sizing:border-box;box-shadow:0 0 0 0 rgba(61,123,255,.55),0 3px 10px rgba(0,0,0,.35);z-index:10002;pointer-events:none;animation:mepulse 1.8s infinite}
+.mepin span{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:#3d7bff;color:#fff;font:700 11px var(--f-body);border-radius:999px;padding:3px 8px;white-space:nowrap}
+@keyframes mepulse{0%{box-shadow:0 0 0 0 rgba(61,123,255,.55),0 3px 10px rgba(0,0,0,.35)}70%{box-shadow:0 0 0 16px rgba(61,123,255,0),0 3px 10px rgba(0,0,0,.35)}100%{box-shadow:0 0 0 0 rgba(61,123,255,0),0 3px 10px rgba(0,0,0,.35)}}
+@media (prefers-reduced-motion:reduce){.mepin{animation:none}}
+@media (max-width:720px){body.has-meet .rlist{top:auto}}
 @media (max-width:720px){
   .brandcard{padding:9px 12px}
   .brandcard h1{font-size:18px}
@@ -732,12 +750,69 @@ const REGIONS = [
 ];
 
 /* ---------- 필터 ---------- */
-const state = { showUnv: false, type: null, q: '', meet: false };
+const state = { showUnv: false, type: null, q: '', meet: false, open: false, me: null };
+/* ---------- P0: 운영시간 해석 → 지금 영업중 ----------
+   hours 예) "월~금 10:00~23:00 / 토~일 10:00~20:00 / 공휴일 10:00~20:00", "평일 11:00-23:00, 주말 11:00-20:00"
+   해석 못 하면 null(= 운영시간 미확인). 시간은 항상 한국 시간 기준. */
+// 공휴일(공휴일 운영시간 적용). 새해마다 추가하세요.
+function krHolidays() { return ['2026-10-03','2026-10-05','2026-10-09','2026-12-25','2027-01-01','2027-03-01']; }
+function kstNow() { const d = new Date(Date.now() + 9 * 3600e3); return { ymd: d.toISOString().slice(0, 10), dow: d.getUTCDay(), min: d.getUTCHours() * 60 + d.getUTCMinutes() }; }
+const _hoursCache = new Map();
+function parseHours(str) {
+  if (!str) return null;
+  if (_hoursCache.has(str)) return _hoursCache.get(str);
+  const DN = '일월화수목금토', rules = [];
+  for (const seg of String(str).replace(/\([^)]*\)/g, ' ').split(/\s*[\/,]\s*/)) {
+    const tm = seg.match(/(\d{1,2}):(\d{2})\s*[~\-–]\s*(\d{1,2}):(\d{2})/); if (!tm) continue;
+    const o = +tm[1] * 60 + +tm[2]; let c = +tm[3] * 60 + +tm[4]; if (c <= o) c += 1440;
+    let dp = seg.slice(0, tm.index); const days = new Set(); let hol = false;
+    if (/평일/.test(dp)) [1, 2, 3, 4, 5].forEach(d => days.add(d));
+    if (/주말/.test(dp)) [0, 6].forEach(d => days.add(d));
+    if (/공휴일/.test(dp)) hol = true;
+    dp = dp.replace(/평일|주말|공휴일|요일/g, ' ');
+    dp = dp.replace(/([월화수목금토일])\s*~\s*([월화수목금토일])/g, (_, a, b) => { for (let d = DN.indexOf(a); ; d = (d + 1) % 7) { days.add(d); if (d === DN.indexOf(b)) break; } return ' '; });
+    for (const ch of dp) { const k = DN.indexOf(ch); if (k >= 0) days.add(k); }
+    if (days.size || hol) rules.push({ days, hol, o, c });
+  }
+  const r = rules.length ? rules : null; _hoursCache.set(str, r); return r;
+}
+const hm = m => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`.replace(/^00:00$/, '24:00');
+function ruleFor(rules, dow, isHol) {
+  let r = null;
+  if (isHol) r = rules.filter(x => x.hol).pop();
+  if (!r) r = rules.filter(x => x.days.has(dow)).pop();
+  return r || null;
+}
+// { s: 'on'|'soon'|'off'|'maybe', label } 또는 null(정보 없음)
+function openStatus(g, now = kstNow()) {
+  if (isUnv(g) || g.status === '폐업') return null;
+  const rules = parseHours(g.hours); if (!rules) return null;
+  const hols = krHolidays();
+  const isHol = hols.includes(now.ymd);
+  const yd = new Date(Date.parse(now.ymd + 'T00:00:00Z') - 864e5).toISOString().slice(0, 10);
+  const yr = ruleFor(rules, (now.dow + 6) % 7, hols.includes(yd));
+  const tr = ruleFor(rules, now.dow, isHol);
+  const txt = `${g.hours || ''} ${g.closed || ''}`;
+  const irregular = /매달|매월|마지막|격주|첫째|둘째|셋째|넷째|다섯째/.test(txt) && txt.includes('일월화수목금토'[now.dow] + '요일');
+  const holNote = isHol ? ' · 공휴일' : '';
+  let open = null;
+  if (yr && yr.c > 1440 && now.min < yr.c - 1440) open = yr.c - 1440;
+  else if (tr && now.min >= tr.o && now.min < tr.c) open = tr.c;
+  if (open != null) {
+    if (irregular) return { s: 'maybe', label: `오늘 휴무일 수 있음 · 확인 필요` };
+    const left = open - now.min;
+    return left <= 60 ? { s: 'soon', label: `곧 마감 · ${hm(open)}까지${holNote}` } : { s: 'on', label: `영업중 · ${hm(open)}까지${holNote}` };
+  }
+  if (tr && now.min < tr.o) return { s: 'off', label: `영업 전 · ${hm(tr.o)} 오픈${holNote}` };
+  return { s: 'off', label: tr ? `오늘 영업 종료${holNote}` : `오늘 휴무${holNote}` };
+}
+const isOpenNow = g => { const st = openStatus(g); return !!st && (st.s === 'on' || st.s === 'soon'); };
+
 /* 소모임 정모 데이터 (data/latest.json) — gym_id로 암장과 연결 */
 const MEET = new Map(); let MEET_META = null; let MEET_EVENTS = new Map();
 const meetOf = g => MEET.get(g.id);
 const TYPE_CHIPS = [['일반 암장','일반','#ff5a5f'],['키즈 전용','키즈','#ffc933'],['공공·야외','공공','#22c39a']];
-const passes = g => (state.showUnv || !isUnv(g)) && (!state.type || g.category === state.type) && (!state.meet || MEET.has(g.id));
+const passes = g => (state.showUnv || !isUnv(g)) && (!state.type || g.category === state.type) && (!state.meet || MEET.has(g.id)) && (!state.open || isOpenNow(g));
 const visibleGyms = () => GYMS.filter(passes);
 function applyFilter() {
   gymObjs.forEach(o => { o.grp.visible = passes(o.g) || o === sel; });
@@ -753,10 +828,21 @@ function applyFilter() {
 }
 function renderChips() {
   const el = document.getElementById('chips'); el.innerHTML = '';
+  { // 내 주변
+    const b = document.createElement('button'); b.className = 'chip' + (locating ? ' busy' : ''); b.id = 'nearChip';
+    b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>${locating ? '위치 찾는 중…' : '내 주변'}`;
+    b.setAttribute('aria-pressed', curList === 'near'); b.onclick = () => curList === 'near' ? closeRegionList() : locateMe(); el.append(b);
+  }
   if (MEET.size) {
     const m = document.createElement('button'); m.className = 'chip'; m.style.setProperty('--c', '#7b61ff');
-    m.innerHTML = `<span class="dot"></span>${esc(meetDayWord())} 정모 ${MEET.size}곳`; m.setAttribute('aria-pressed', state.meet);
+    m.innerHTML = `<span class="dot"></span>${esc(meetDayWord())} 정모 ${MEET.size}곳${collectedHM() ? ` <small>${esc(collectedHM())} 기준</small>` : ''}`; m.setAttribute('aria-pressed', state.meet);
     m.onclick = () => toggleMeet(!state.meet); el.append(m);
+  }
+  { // 지금 영업중
+    const n = GYMS.filter(g => (state.showUnv || !isUnv(g)) && isOpenNow(g)).length;
+    const o = document.createElement('button'); o.className = 'chip'; o.style.setProperty('--c', '#14a37f');
+    o.innerHTML = `<span class="dot"></span>지금 영업중 ${n}곳`; o.setAttribute('aria-pressed', state.open);
+    o.onclick = () => toggleOpen(); el.append(o);
   }
   TYPE_CHIPS.forEach(([lab, t, c]) => {
     const b = document.createElement('button'); b.className = 'chip'; b.style.setProperty('--c', c);
@@ -794,11 +880,12 @@ const groupOf = g => g.sido === '서울' ? g.sigungu : city(g);
 const shortPrice = g => { const m = (g.price_day || '').match(/(\d{1,3}(?:,\d{3})+|\d{4,})\s*원/); return m ? m[1].replace(/,000$/, '천').replace(/,(\d)00$/, '.$1천') : ''; };
 function renderRegionList(key) {
   if (key === 'meet') return renderMeetList();
+  if (key === 'near') return renderNearList();
   const r = REGIONS.find(x => x.key === key); if (!r || !r.f) return;
   const list = GYMS.map((g, i) => ({ g, i })).filter(({ g }) => r.f(g) && passes(g));
   document.getElementById('rTitle').textContent = r.label;
   const nOpen = list.filter(x => !isUnv(x.g)).length, nUnv = list.length - nOpen;
-  document.getElementById('rMeta').innerHTML = `운영중 <b>${nOpen}</b>곳${nUnv ? ` · 확인필요 <b>${nUnv}</b>곳` : ''}${state.type ? ` · ${esc(TYPE_CHIPS.find(t => t[1] === state.type)[0])}만` : ''}`;
+  document.getElementById('rMeta').innerHTML = `운영중 <b>${nOpen}</b>곳${nUnv ? ` · 확인필요 <b>${nUnv}</b>곳` : ''}${state.type ? ` · ${esc(TYPE_CHIPS.find(t => t[1] === state.type)[0])}만` : ''}${state.open ? ' · 지금 영업중만<br>운영시간이 확인된 곳만 보여요' : ''}`;
   const groups = new Map();
   const gkey = key === 'all' ? (g => REGIONS.find(x => x.f && x.key !== 'all' && x.f(g))?.label || '기타') : groupOf;
   for (const x of list) { const k = gkey(x.g); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(x); }
@@ -812,7 +899,7 @@ function renderRegionList(key) {
       const badge = g.status === '폐업예정' ? '<span class="badge soon">폐업예정</span>' : isUnv(g) ? '<span class="badge">확인필요</span>' : '';
       const kind = g.category === '키즈' ? ' · 키즈' : g.category === '공공' ? (g.venue === '실외' ? ' · 공공 야외' : ' · 공공') : '';
       const mt = state.meet && meetOf(g);
-      return `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${badge}</span>${mt ? `<span class="mj">${mt.total.joined}명</span>` : `<span class="pr">${esc(shortPrice(g))}</span>`}<span class="sub">${esc(sub)}${kind}</span></button></li>`;
+      return `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${badge}</span>${mt ? `<span class="mj">${mt.total.joined}명</span>` : `<span class="pr">${esc(shortPrice(g))}</span>`}<span class="sub">${osHTML(g)}${esc(sub)}${kind}</span></button></li>`;
     }).join('') + '</ul>';
   }
   document.getElementById('rBody').innerHTML = html || '<p class="empty">이 조건에 맞는 암장이 없어요. 위쪽 필터를 바꿔 보세요.</p>';
@@ -943,13 +1030,13 @@ function gymView(o) {
 }
 function select(i) {
   const o = gymObjs[i]; if (!o) return;
-  if (!passes(o.g)) { if (isUnv(o.g)) state.showUnv = true; state.type = null; if (state.meet && !MEET.has(o.g.id)) { state.meet = false; setPillars(false); if (curList === 'meet') closeRegionList(); } renderChips(); applyFilter(); }
+  if (!passes(o.g)) { if (isUnv(o.g)) state.showUnv = true; state.type = null; state.open = false; if (state.meet && !MEET.has(o.g.id)) { state.meet = false; setPillars(false); if (curList === 'meet') closeRegionList(); } renderChips(); applyFilter(); }
   if (sel && sel !== o && !sel.unv) sel.roof.material.emissive.setHex(0);
   const from = (climber.visible && homeObj && homeObj !== o) ? homeObj : null;
   if (sel === o && (climb || travel)) { openPanel(o.g); return; }
   sel = o; homeObj = o;
   if (!o.unv) o.roof.material.emissive.setHex(0x333333);
-  openPanel(o.g); markListSel();
+  openPanel(o.g); markListSel(); setHash('#' + o.g.id);
   if (from) { startTravel(from, o); return; }
   const [target, pos] = gymView(o);
   flyTo(target, pos, camera.position.distanceTo(target) > 80 ? 2.1 : 1.2);
@@ -975,8 +1062,8 @@ function openPanel(g) {
   document.getElementById('pName').textContent = g.name;
   const unv = isUnv(g);
   const kindTag = g.category === '키즈' ? '키즈 전용' : g.category === '공공' ? (g.venue === '실외' ? '공공 · 야외' : '공공 · 실내') : null;
-  document.getElementById('pTags').innerHTML = `<span class="status${unv ? ' unv' : g.status === '폐업예정' ? ' soon' : ''}">${esc(g.status)}</span>` + (kindTag ? `<span class="tag">${kindTag}</span>` : '') + (g.type || []).slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join('') + (g.opened ? `<span class="tag">${esc(g.opened)} 개장</span>` : '');
-  const rows = [['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day], ['회원권·강습', g.price_other], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', g.setting], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
+  document.getElementById('pTags').innerHTML = `<span class="status${unv ? ' unv' : g.status === '폐업예정' ? ' soon' : ''}">${esc(g.status)}</span>` + (kindTag ? `<span class="tag">${kindTag}</span>` : '') + (g.type || []).slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join('') + (g.opened ? `<span class="tag">${esc(g.opened)} 개장</span>` : '') + ostatTag(g);
+  const rows = [...(state.me ? [['내 위치에서', `직선 ${fmtKm(distKm(state.me, g))}`]] : []), ['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day], ['회원권·강습', g.price_other], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', g.setting], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
   const gi = GYMS.indexOf(g);
   const near = GYMS.map((h, i) => ({ h, i, d: Math.hypot((h.lat - g.lat) * 111, (h.lng - g.lng) * 111 * COS) })).filter(x => x.i !== gi && passes(x.h)).sort((a, b) => a.d - b.d).slice(0, 4);
   const links = [];
@@ -984,6 +1071,7 @@ function openPanel(g) {
   if (safeUrl(g.website)) links.push(`<a href="${esc(g.website)}" target="_blank" rel="noopener">웹사이트</a>`);
   if (safeUrl(g.naver_map)) links.push(`<a href="${esc(g.naver_map)}" target="_blank" rel="noopener">네이버지도</a>`);
   if (g.kakao_map) links.push(`<a href="${esc(kakaoUrl(g.kakao_map))}" target="_blank" rel="noopener">카카오맵</a>`);
+  links.push(`<a href="#${esc(g.id)}" class="share" data-share="${esc(g.id)}">링크 공유</a>`);
   const src = (g.sources || []).filter(safeUrl);
   document.getElementById('pBody').innerHTML = `
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
@@ -997,7 +1085,7 @@ function openPanel(g) {
   panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); document.body.classList.add('panel-open'); updateViewOffset();
   document.getElementById('pBody').scrollTop = 0;
 }
-document.getElementById('pBody').addEventListener('click', e => { const b = e.target.closest('.near button[data-i]'); if (b) select(+b.dataset.i); });
+document.getElementById('pBody').addEventListener('click', e => { const sh = e.target.closest('[data-share]'); if (sh) { e.preventDefault(); shareGym(sh.dataset.share); return; } const b = e.target.closest('.near button[data-i]'); if (b) select(+b.dataset.i); });
 function kakaoUrl(u) { try { return encodeURI(decodeURI(u)); } catch { return u; } }
 function decodeURIComponentSafe(u) { try { return decodeURIComponent(u); } catch { return u; } }
 function setProgress(k) { const b = document.getElementById('pBar'), p = document.getElementById('pPct'); if (b) b.style.width = (k * 100).toFixed(0) + '%'; if (p) p.textContent = (k * 100).toFixed(0) + '%'; }
@@ -1005,7 +1093,7 @@ function markSent() { setProgress(1); const m = document.querySelector('.climbms
 function closePanel() {
   panel.classList.remove('open'); panel.setAttribute('aria-hidden', 'true'); document.body.classList.remove('panel-open'); updateViewOffset();
   if (sel && !sel.unv) sel.roof.material.emissive.setHex(0);
-  sel = null; markListSel();
+  sel = null; markListSel(); setHash(state.meet ? '#meet' : '');
 }
 document.getElementById('closePanel').onclick = closePanel;
 addEventListener('keydown', e => { if (e.key === 'Escape') { if (!listview.hidden) closeList(); else if (panel.classList.contains('open')) closePanel(); else closeRegionList(); } });
@@ -1103,7 +1191,7 @@ function toggleMeet(on) {
     closePanel(); openRegionList('meet');
     const list = GYMS.filter(g => MEET.has(g.id)); if (list.length) { const [c, p] = viewBox(list, 1); flyTo(c, p); }
   } else if (curList === 'meet') closeRegionList();
-  if (sel) openPanel(sel.g);
+  if (sel) openPanel(sel.g); else setHash(state.meet ? '#meet' : '');
 }
 async function loadMeet() {
   let doc = null;
@@ -1127,6 +1215,76 @@ async function loadMeet() {
   if (new URLSearchParams(location.search).has('meet') || location.hash === '#meet') setTimeout(() => toggleMeet(true), 450);
 }
 
+/* ---------- P0: 영업 상태 표시 ---------- */
+function ostatTag(g) { const st = openStatus(g); return st ? `<span class="ostat ${st.s === 'on' ? '' : st.s}" id="pOpen">${esc(st.label)}</span>` : (isUnv(g) ? '' : '<span class="tag" id="pOpen">운영시간 미확인</span>'); }
+function osHTML(g) { const st = openStatus(g); if (!st) return ''; const w = { on: '영업중', soon: '곧 마감', off: st.label.startsWith('영업 전') ? st.label.replace('영업 전 · ', '') : '영업종료', maybe: '휴무 확인' }[st.s]; return `<b class="os ${st.s}">${esc(w)}</b>`; }
+function toggleOpen() {
+  state.open = !state.open; renderChips(); applyFilter();
+  if (state.open) {
+    if (!curList) openRegionList(curRegion === 'kr' ? 'all' : curRegion);
+    const list = visibleGyms(); if (list.length && curList !== 'near') { const [c, p] = viewBox(list, 1); flyTo(c, p); }
+    showToast(`영업중 ${visibleGyms().length}곳`);
+  }
+  if (sel) openPanel(sel.g);
+}
+// 1분마다 영업 상태 갱신
+setInterval(() => { if (state.open) applyFilter(); renderChips(); const t = document.getElementById('pOpen'); if (t && sel) t.outerHTML = ostatTag(sel.g); }, 60e3);
+
+/* ---------- P0: 내 주변 암장 ---------- */
+let locating = false;
+const distKm = (a, g) => Math.hypot((g.lat - a.lat) * 111, (g.lng - a.lng) * 111 * Math.cos(a.lat * Math.PI / 180));
+const fmtKm = d => d < 1 ? Math.round(d * 1000) + 'm' : d < 10 ? d.toFixed(1) + 'km' : Math.round(d) + 'km';
+const mePin = document.createElement('div'); mePin.className = 'mepin'; mePin.hidden = true; mePin.innerHTML = '<span>내 위치</span>'; document.getElementById('labels').append(mePin);
+const meV = new THREE.Vector3();
+function updateMePin() {
+  if (!state.me) return;
+  meV.set(toX(state.me.lng), 3.25, toZ(state.me.lat)).project(camera);
+  const on = meV.z < 1 && Math.abs(meV.x) < 1.2 && Math.abs(meV.y) < 1.2; mePin.hidden = !on;
+  if (on) mePin.style.transform = `translate(${(meV.x * .5 + .5) * innerWidth}px,${(-meV.y * .5 + .5) * innerHeight}px)`;
+}
+function locateMe() {
+  if (!navigator.geolocation) { showToast('위치 기능이 없어요'); return; }
+  if (locating) return;
+  locating = true; renderChips();
+  navigator.geolocation.getCurrentPosition(p => {
+    locating = false;
+    state.me = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy };
+    closePanel(); openRegionList('near'); renderChips();
+    const near = GYMS.filter(passes).sort((a, b) => distKm(state.me, a) - distKm(state.me, b)).slice(0, 5);
+    const pts = [{ _x: toX(state.me.lng), _z: toZ(state.me.lat) }, ...near.filter(g => distKm(state.me, g) < 15)];
+    const [c, pos] = viewBox(pts, 1); flyTo(c, pos);
+  }, err => {
+    locating = false; renderChips();
+    showToast(err.code === 1 ? '위치 권한을 허용해 주세요' : '위치를 찾지 못했어요');
+  }, { enableHighAccuracy: false, timeout: 12000, maximumAge: 120000 });
+}
+function renderNearList() {
+  const me = state.me; if (!me) return;
+  const list = GYMS.map((g, i) => ({ g, i, d: distKm(me, g) })).filter(x => passes(x.g)).sort((a, b) => a.d - b.d).slice(0, 20);
+  document.getElementById('rTitle').textContent = '내 주변 암장';
+  const far = list.length && list[0].d > 40;
+  document.getElementById('rMeta').innerHTML = `가까운 순 <b>${list.length}</b>곳 · 직선거리${state.type ? ` · ${esc(TYPE_CHIPS.find(t => t[1] === state.type)[0])}만` : ''}${state.meet ? ' · 정모 있는 곳만' : ''}${state.open ? ' · 지금 영업중만' : ''}${me.acc > 1500 ? '<br>위치 정확도가 낮아요(±' + fmtKm(me.acc / 1000) + ')' : ''}${far ? '<br>서울·경기 밖이라 가장 가까운 곳도 멀어요' : ''}`;
+  document.getElementById('rBody').innerHTML = list.length ? '<ul>' + list.map(({ g, i, d }) => {
+    const badge = g.status === '폐업예정' ? '<span class="badge soon">폐업예정</span>' : isUnv(g) ? '<span class="badge">확인필요</span>' : '';
+    const mt = state.meet && meetOf(g);
+    return `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${badge}</span><span class="pr">${fmtKm(d)}${mt ? `<br>${mt.total.joined}명` : ''}</span><span class="sub">${osHTML(g)}${esc(g.station || g.sigungu)}</span></button></li>`;
+  }).join('') + '</ul>' : '<p class="empty">이 조건에 맞는 암장이 없어요. 위쪽 필터를 바꿔 보세요.</p>';
+}
+
+/* ---------- P0: 암장별 공유 링크 (map.html#SEL-001) ---------- */
+function setHash(h) { try { if ((location.hash || '') !== h) history.replaceState(null, '', location.pathname + location.search + h); } catch (e) {} }
+function gymIndexFromHash() { const id = decodeURIComponentSafe(location.hash.slice(1)); return id && id !== 'meet' ? GYMS.findIndex(g => g.id === id) : -1; }
+async function shareGym(id) {
+  const g = GYMS.find(x => x.id === id); if (!g) return;
+  const url = location.origin + location.pathname + '#' + id;
+  if (navigator.share && matchMedia('(pointer:coarse)').matches) { try { await navigator.share({ title: g.name, text: `${g.name} · 서울·경기 암장 지도`, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+  try { await navigator.clipboard.writeText(url); showToast('링크 복사!'); return; } catch (e) {}
+  const t = document.createElement('textarea'); t.value = url; t.style.position = 'fixed'; t.style.opacity = '0'; document.body.append(t); t.select();
+  let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} t.remove();
+  showToast(ok ? '링크 복사!' : '복사하지 못했어요');
+}
+addEventListener('hashchange', () => { const i = gymIndexFromHash(); if (i >= 0 && (!sel || sel.g !== GYMS[i])) select(i); });
+
 /* ---------- 시작 ---------- */
 document.getElementById('cOpen').textContent = GYMS.filter(g => !isUnv(g)).length;
 document.getElementById('cUnv').textContent = GYMS.filter(isUnv).length;
@@ -1139,6 +1297,7 @@ renderChips(); applyFilter();
 }
 document.getElementById('loading').remove();
 loadMeet();
+{ const i = gymIndexFromHash(); if (i >= 0) setTimeout(() => select(i), 1200); }
 
 function updateViewOffset() {
   const w = innerWidth, h = innerHeight;
@@ -1167,7 +1326,7 @@ renderer.setAnimationLoop(() => {
     for (const o of gymObjs) if (o === hov && o !== sel) o.grp.scale.y = 1 + Math.sin(seaT * 8) * .02; else if (o.grp.scale.y !== 1) o.grp.scale.y = 1;
   }
   renderer.render(scene, camera);
-  updateLabels();
+  updateLabels(); updateMePin();
 });
 
 </script>
