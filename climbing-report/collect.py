@@ -4,7 +4,7 @@
 - 수집: 각 크루 공개 페이지의 '정모 일정' 카드 → 오늘(KST) 정모의 시간·장소·참석/정원
 - 개인정보: 멤버·운영진 영역은 잘라내고 읽지 않음. 참석은 카드의 집계 숫자만 사용
 - 낮클/퇴근클: 시작 시각 ~16:59 = day, 17:00~ = eve
-- 출력: docs/data/Somoim_MMDD.json (같은 날 여러 번 실행하면 병합), docs/data/latest.json, docs/index.html
+- 출력: docs/data/Somoim_MMDD.json (같은 날 여러 번 실행하면 병합), docs/data/latest.json (지도 map.html이 읽음)
 - 실행 타이밍: GitHub 예약은 늦게 시작할 수 있어 9:30/17:30에 깨운 뒤, 9:56/17:56까지 기다렸다가 수집
   (10시·18시 정모가 시작되기 직전의 참석 인원을 잡기 위함). 늦게 깨어났으면 기다리지 않고 바로 수집.
 """
@@ -208,25 +208,6 @@ def aggregate(events):
     return sorted(out, key=lambda r: (-r["total"]["joined"], -r["total"]["events"]))
 
 
-def render_html(doc):
-    m, rows = doc["meta"], []
-    for r in doc["gyms"]:
-        rows.append(f'<tr><td>{html.escape(r["name"])}</td><td>{r["day"]["events"]}건 · {r["day"]["joined"]}명</td>'
-                    f'<td>{r["eve"]["events"]}건 · {r["eve"]["joined"]}명</td></tr>')
-    return f"""<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>클라이밍 정모 리포트</title><style>
-:root{{--bg:#f6f7f9;--card:#fff;--fg:#1c1e21;--muted:#6b7280;--line:#e5e7eb}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#0f1115;--card:#171a21;--fg:#e5e7eb;--muted:#9ca3af;--line:#2a2f3a}}}}
-body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,"Malgun Gothic",sans-serif}}
-main{{max-width:720px;margin:0 auto;padding:16px}}table{{width:100%;border-collapse:collapse;background:var(--card)}}
-td,th{{padding:8px;border-bottom:1px solid var(--line);text-align:left}}small{{color:var(--muted)}}</style></head>
-<body><main><h1>🧗 클라이밍 정모 리포트</h1>
-<small>{m["date"]} · 수집 {m["collected_at"]} · 소모임 · 30명 이상 크루 {m["crews"]}곳 · 낮클 ~16:59 / 퇴근클 17:00~</small>
-<p>정모 {m["summary"]["events_at_gyms"]}건 · 암장 {m["summary"]["gyms"]}곳 · 참석 {m["summary"]["joined_total"]}명</p>
-<table><tr><th>암장</th><th>☀️ 낮클</th><th>🌙 퇴근클</th></tr>{''.join(rows)}</table>
-<p><small>데이터: <a href="data/latest.json">latest.json</a></small></p></main></body></html>"""
-
-
 def main():
     os.makedirs(OUT, exist_ok=True)
     d = str(TODAY)
@@ -243,7 +224,6 @@ def main():
            "gyms": gyms, "events": events}
     for p in (path, os.path.join(OUT, "latest.json")):
         json.dump(doc, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    open(os.path.join(BASE, "docs", "index.html"), "w", encoding="utf-8").write(render_html(doc))
     print(json.dumps(doc["meta"]["summary"], ensure_ascii=False), "errors", errors)
     if errors > len(CREWS) // 2:  # 절반 이상 실패 = 차단/구조 변경 의심 → 실패로 표시
         sys.exit(1)

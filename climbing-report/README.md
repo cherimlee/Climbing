@@ -17,7 +17,6 @@
 | `collect.yml` | 매일 09:30·17:30 KST에 깨어나 09:56·17:56에 수집(10시·18시 직전 값) — **GitHub에서 `.github/workflows/collect.yml` 위치에 만들어야 함** (3번 참고) |
 | `docs/data/Somoim_MMDD.json` | 날짜별 결과 (같은 날 2회 실행 시 병합) |
 | `docs/data/latest.json` | 가장 최근 결과 — 지도에서 불러올 주소 |
-| `docs/index.html` | 간단한 리포트 페이지 |
 
 ## 설정 순서 (처음 한 번, 약 15분)
 
@@ -30,7 +29,7 @@
 4. **쓰기 권한 허용** — 저장소 *Settings → Actions → General → Workflow permissions* → **Read and write permissions** → *Save*
 5. **첫 실행 테스트** — *Actions* 탭 → (처음이면 *I understand… enable* 클릭) → `collect-somoim` → **Run workflow**. 2~3분 뒤 초록 체크가 뜨고 `docs/data/`에 파일이 생기면 성공
 6. **GitHub Pages 켜기** — *Settings → Pages* → Source: **Deploy from a branch** → Branch: `main`, 폴더: **/docs** → *Save*
-   - 1~2분 뒤 `https://<아이디>.github.io/climbing-report/` 에서 리포트, `…/data/latest.json` 에서 데이터 확인
+   - 1~2분 뒤 `https://<아이디>.github.io/climbing-report/map.html` 에서 지도, `…/data/latest.json` 에서 데이터 확인
 
 ## climbing-map에 연결하기
 
