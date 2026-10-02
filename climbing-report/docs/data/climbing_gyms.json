@@ -1693,7 +1693,9 @@
     "lng": 126.817052,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험 25,000원 (2025-09)",
@@ -1723,9 +1725,14 @@
       "https://place.map.kakao.com/1176420694",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-038",
@@ -2958,7 +2965,9 @@
     "lng": 127.074747,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -2988,9 +2997,14 @@
       "https://place.map.kakao.com/498707344",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-065",
@@ -3276,7 +3290,9 @@
     "lng": 127.054926,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "체험강습 25,000원 (2026-05)",
@@ -3306,9 +3322,14 @@
       "https://place.map.kakao.com/1993300418",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-072",
@@ -4300,7 +4321,9 @@
     "lng": 126.910205,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 11:00~22:00 / 토~일 10:00~16:00",
     "closed": null,
     "price_day": "체험강습 25,000원 (2025-09)",
@@ -4330,9 +4353,14 @@
       "https://place.map.kakao.com/1225322806",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-094",
@@ -5743,9 +5771,14 @@
       "https://www.daangn.com/kr/local-profile/몽키즈클라이밍-목동점-dwtdom3qtxzn/",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-123",
@@ -5923,7 +5956,9 @@
     "lng": 126.89588,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -5952,9 +5987,14 @@
     "sources": [
       "https://place.map.kakao.com/1107340927",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-127",
@@ -7087,7 +7127,9 @@
     "lng": 127.09377,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -7117,9 +7159,14 @@
       "https://place.map.kakao.com/1817443322",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "SEL-151",
@@ -7372,7 +7419,9 @@
     "lng": 126.833296,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 14:00~20:00 / 토 10:00~17:00 / 일 11:00~18:00",
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -7403,9 +7452,14 @@
       "http://koreaclimbing.blogspot.com/p/blog-page_5.html",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-005",
@@ -7798,7 +7852,9 @@
     "lng": 126.791011,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -7828,9 +7884,14 @@
       "https://place.map.kakao.com/1959034574",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-014",
@@ -8253,9 +8314,14 @@
     "last_activity": "2026-10",
     "notes": "어린이·여성 전용. 공식 지점안내에 등재(2026-10 확인). 카카오 미검색.",
     "sources": [
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-023",
@@ -8409,7 +8475,9 @@
     "lng": 127.230403,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 13:30~20:30 / 토 09:30~18:30",
     "closed": "일요일 휴무",
     "price_day": null,
@@ -8433,9 +8501,14 @@
     "last_activity": "2026-09-23",
     "notes": null,
     "sources": [
-      "https://place.map.kakao.com/1524394778"
+      "https://place.map.kakao.com/1524394778",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-027",
@@ -8945,9 +9018,14 @@
       "https://www.ajaschool.com/shop/item/H1569473727",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-038",
@@ -9485,7 +9563,9 @@
     "lng": 126.762519,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 14:00~20:00 / 토~일 10:00~18:00",
     "closed": null,
     "price_day": "일일체험강습 25,000원 (2024-11)",
@@ -9515,9 +9595,14 @@
       "https://place.map.kakao.com/536949958",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-050",
@@ -10077,7 +10162,9 @@
     "lng": 127.150106,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 14:00~20:00 / 토~일 10:00~18:00",
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -10107,9 +10194,14 @@
       "https://place.map.kakao.com/1324097805",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-062",
@@ -10459,7 +10551,9 @@
     "lng": 126.953629,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -10489,9 +10583,14 @@
       "https://place.map.kakao.com/180386579",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-070",
@@ -11464,7 +11563,9 @@
     "lng": 126.730671,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 14:00~22:00 / 토 10:00~18:00 / 일 10:00~16:00 / 공휴일 14:00~19:00",
     "closed": null,
     "price_day": "일일체험 25,000원 (2023-10)",
@@ -11494,9 +11595,14 @@
       "https://place.map.kakao.com/2083530053",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-091",
@@ -12266,7 +12372,9 @@
     "lng": 126.96129,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": null,
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -12296,9 +12404,14 @@
       "https://place.map.kakao.com/415193341",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-108",
@@ -12743,9 +12856,14 @@
       "https://www.daangn.com/kr/local-profile/%EB%AA%BD%ED%82%A4%EC%A6%88%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D-%EC%96%91%EC%A3%BC%EC%98%A5%EC%A0%95%EC%A0%90-c61zw8vs82f3/",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-117",
@@ -13305,9 +13423,14 @@
       "https://learns.academy/academies/95a3637f-eda1-410b-9847-c11b4d6ac94d",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-129",
@@ -13494,9 +13617,14 @@
       "https://learns.academy/academies/af564ed7-745c-4d6b-abe6-bee720eb3bb3",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-133",
@@ -14196,7 +14324,9 @@
     "lng": 126.750945,
     "venue": "실내",
     "category": "키즈",
-    "type": [],
+    "type": [
+      "키즈"
+    ],
     "hours": "월~금 14:00~20:00 / 토~일 10:00~18:00",
     "closed": null,
     "price_day": "일일체험(강습) 25,000원 (Kakao 다수 지점 2025-2026) — 자유이용 1일권 개념 없음, 강습 위주",
@@ -14226,9 +14356,14 @@
       "https://place.map.kakao.com/140829074",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-149",
@@ -14869,9 +15004,14 @@
       "https://www.instagram.com/p/DL1vSBlJByq/",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-163",
@@ -15172,9 +15312,14 @@
       "https://www.instagram.com/mongkids_dongtan_bs/",
       "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
       "https://mongkids.co.kr/",
-      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/"
+      "https://mongkids.co.kr/%ec%a7%80%ec%a0%90%ec%95%88%eb%82%b4/",
+      "https://mongkids.co.kr/?kboard_id=3&mod=document&uid=111"
     ],
-    "updated": "2026-10-01"
+    "updated": "2026-10-02",
+    "category_also": [
+      "일반"
+    ],
+    "audience": "어린이·성인 여성 전용 (성인 남성 이용 불가)"
   },
   {
     "id": "GGI-169",
