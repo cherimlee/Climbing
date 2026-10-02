@@ -2,7 +2,7 @@
    - 지도 페이지·데이터: 네트워크 먼저, 안 되면 저장본 (항상 최신 우선)
    - three.js·글꼴 등 외부 파일: 저장본 먼저 (버전 고정 파일)
    ※ 방문 기록(localStorage)은 여기서 건드리지 않아요. */
-const VER = 'cm-p8-2';
+const VER = 'cm-p13-1';
 const CORE = ['./map.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

@@ -171,6 +171,14 @@ body.rlist-open .hint{display:none}
 /* 정모 레이어 */
 .brandcard .meetline{margin-top:2px}
 .brandcard .meetline a{color:var(--ink-soft)}
+/* ---------- P13 패치: 워터마크 · 캐치프레이즈 ---------- */
+.madeby{font-size:11px;color:#9aa0b5;letter-spacing:.01em}
+.brandcard .madeby{margin:6px 0 0;padding-top:5px;border-top:1px solid var(--line)}
+.guide .madeby{text-align:center;margin:12px 0 0}
+.rbody .madeby,#rBody .madeby{text-align:center;margin:14px 0 8px}
+@media (max-width:720px){.brandcard .madeby{display:none}}
+@media (min-width:721px){#rBody .madeby{display:none}}
+.guide .catch{font:700 14px var(--f-body);color:var(--ink);margin:-4px 0 8px}
 .glabel .mb{font:600 10.5px var(--f-mono);background:var(--hold-yellow);color:var(--ink);border-radius:6px;padding:1px 5px;margin-left:5px;white-space:nowrap}
 .glabel.big .mb{font-size:12px}
 .meet{background:#f1eeff;border-radius:12px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:10px}
@@ -196,7 +204,7 @@ body.rlist-open .hint{display:none}
 body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 
 
-/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */ /* P2 패치 적용 */ /* P3 패치 적용 */ /* P4 패치 적용 */ /* P5 패치 적용 */ /* P6 패치 적용 */ /* P7 패치 적용 */ /* P8 아이콘 교체 */
+/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */ /* P2 패치 적용 */ /* P3 패치 적용 */ /* P4 패치 적용 */ /* P5 패치 적용 */ /* P6 패치 적용 */ /* P7 패치 적용 */ /* P8 아이콘 교체 */ /* P13 워터마크·캐치프레이즈 */
 .chip small{font:500 11px var(--f-mono);opacity:.7}
 .chip svg{width:13px;height:13px;flex:none}
 .chip.busy{opacity:.6;pointer-events:none}
@@ -452,10 +460,6 @@ body.rlist-open.mine-open .minebtn{display:none}
 .guide.keep li.kwarn{background:#fff3e6}
 .guide.keep li.kok{background:#e7f8f2}
 /* ---------- P10 패치: 웹 앱으로 열기 안내 ---------- */
-.guide .webapp{background:#fff3e6;box-shadow:inset 0 0 0 1.5px #ff8c42;border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:12.5px;line-height:1.5;color:var(--ink)}
-.guide .webapp b{color:var(--ink)}
-.guide .webapp .sh{background:#fff;border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
-.guide .webapp button{margin-top:7px;border:0;border-radius:999px;padding:7px 12px;font:700 12px var(--f-body);background:var(--ink);color:#fff;cursor:pointer}
 .guide.keep .gf label{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
 .guide.keep li .t b{display:inline;font-size:inherit;color:var(--ink)}
 .guide.keep li .t b.sh{background:#fff;border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
@@ -482,6 +486,7 @@ body.rlist-open.mine-open .minebtn{display:none}
     <h1>서울·경기 암장 지도</h1>
     <p>운영중 <b id="cOpen">0</b>곳 · 확인필요 <b id="cUnv">0</b>곳 · 2026.10.1 조사</p>
     <p class="meetline" id="meetLine" hidden></p>
+    <p class="madeby">Made by 이채림 in 아냥🐱</p>
   </div>
 </div>
 
@@ -2133,10 +2138,9 @@ updateGems(); updateMineBtn();
 function showGuide() {
   const g = document.createElement('div'); g.className = 'guide'; g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', '사용 안내');
   const li = (ic, t, d) => `<li><span class="ic" aria-hidden="true">${ic}</span><div><b>${t}</b><span class="t">${d}</span></div></li>`;
-  const webapp = KEEP.ios && !KEEP.inapp && !KEEP.standalone() ? `<div class="webapp"><b>📲 홈 화면 아이콘으로 열었는데 사파리 화면이 나오나요?</b><br>‘웹 앱으로 열기’가 꺼진 채 저장된 거예요. 먼저 <span class="sh">✓ 내 기록 → 기록 지키기 → 코드 복사</span>를 한 뒤, 아이콘을 지우고 <span class="sh">공유 ⬆︎ → 홈 화면에 추가</span>에서 <span class="sh">웹 앱으로 열기</span>를 켜고 다시 저장하세요.<br><button id="guideWebapp">방법 자세히 보기</button></div>` : '';
   g.innerHTML = `<div class="gc">
-    ${webapp}
     <h2>서울·경기 암장 지도</h2>
+    <p class="catch">클라이머들이 모이는 섬 🏝</p>
     <p class="lead">서울·경기 클라이밍 암장 ${GYMS.filter(x => !isUnv(x)).length}곳을 3D 지도로 모았어요. 영업시간·가격·세팅일·소모임 정모까지 한눈에 보세요.</p>
     <h3>지도 조작</h3>
     <ul>
@@ -2155,6 +2159,7 @@ function showGuide() {
       ${li('✓', '내 기록', '오른쪽 아래 ‘✓ 내 기록’ 버튼에서 다녀온 곳·즐겨찾기 목록, 업적, 노선 도장깨기, 여권 카드(이미지)를 볼 수 있어요.')}
       ${li('🛡', '기록은 이 브라우저에 저장', '홈 화면에 추가하면 더 오래 안전해요. ‘내 기록’ → ‘기록 지키기’에서 백업 파일도 만들 수 있어요.')}
     </ul>
+    <p class="madeby">Made by 이채림 in 아냥🐱</p>
     <div class="gf"><label><input type="checkbox" id="guideHide"> 오늘 다시 보지 않기</label><button class="ok" id="guideOk">시작하기</button></div>
   </div>`;
   document.body.append(g);
@@ -2163,7 +2168,6 @@ function showGuide() {
     g.remove();
   };
   g.querySelector('#guideOk').onclick = close;
-  const wb = g.querySelector('#guideWebapp'); if (wb) wb.onclick = () => { close(); openKeep(); };
   g.addEventListener('click', e => { if (e.target === g) close(); });
   addEventListener('keydown', function esc(e) { if (e.key === 'Escape' && g.isConnected) { close(); removeEventListener('keydown', esc); } });
   g.querySelector('#guideOk').focus({ preventScroll: true }); g.querySelector('.gc').scrollTop = 0;
@@ -2508,6 +2512,7 @@ function onKeepFile(e) {
   if (f.size > 2e6) { showToast('파일이 너무 커요'); return; }
   f.text().then(t => { keepPending = parseBackup(t); drawKeep(); }).catch(() => showToast('백업 파일이 아니에요'));
 }
+{ const _rm = renderMineList; renderMineList = function () { _rm(); const b = document.getElementById('rBody'); if (b && !b.querySelector('.madeby')) b.insertAdjacentHTML('beforeend', '<p class="madeby">Made by 이채림 in 아냥🐱</p>'); }; }
 document.getElementById('rBody').addEventListener('click', e => { const k = e.target.closest('[data-keep="open"]'); if (k) { e.stopPropagation(); openKeep(); } }, true);
 updateMineBtn();
 
