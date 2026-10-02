@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#1b2144">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="암장지도">
+<meta name="apple-mobile-web-app-title" content="클라이밍 섬">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -451,6 +451,12 @@ body.rlist-open.mine-open .minebtn{display:none}
 .guide.keep .kstat b{font:600 13px var(--f-mono);color:var(--ink);margin-left:3px}
 .guide.keep li.kwarn{background:#fff3e6}
 .guide.keep li.kok{background:#e7f8f2}
+/* ---------- P10 패치: 웹 앱으로 열기 안내 ---------- */
+.guide .webapp{background:#fff3e6;box-shadow:inset 0 0 0 1.5px #ff8c42;border-radius:12px;padding:10px 12px;margin:0 0 12px;font-size:12.5px;line-height:1.5;color:var(--ink)}
+.guide .webapp b{color:var(--ink)}
+.guide .webapp .sh{background:#fff;border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
+.guide .webapp button{margin-top:7px;border:0;border-radius:999px;padding:7px 12px;font:700 12px var(--f-body);background:var(--ink);color:#fff;cursor:pointer}
+.guide.keep .gf label{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
 .guide.keep li .t b{display:inline;font-size:inherit;color:var(--ink)}
 .guide.keep li .t b.sh{background:#fff;border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
 .guide.keep .kb{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
@@ -2127,7 +2133,9 @@ updateGems(); updateMineBtn();
 function showGuide() {
   const g = document.createElement('div'); g.className = 'guide'; g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', '사용 안내');
   const li = (ic, t, d) => `<li><span class="ic" aria-hidden="true">${ic}</span><div><b>${t}</b><span class="t">${d}</span></div></li>`;
+  const webapp = KEEP.ios && !KEEP.inapp && !KEEP.standalone() ? `<div class="webapp"><b>📲 홈 화면 아이콘으로 열었는데 사파리 화면이 나오나요?</b><br>‘웹 앱으로 열기’가 꺼진 채 저장된 거예요. 먼저 <span class="sh">✓ 내 기록 → 기록 지키기 → 코드 복사</span>를 한 뒤, 아이콘을 지우고 <span class="sh">공유 ⬆︎ → 홈 화면에 추가</span>에서 <span class="sh">웹 앱으로 열기</span>를 켜고 다시 저장하세요.<br><button id="guideWebapp">방법 자세히 보기</button></div>` : '';
   g.innerHTML = `<div class="gc">
+    ${webapp}
     <h2>서울·경기 암장 지도</h2>
     <p class="lead">서울·경기 클라이밍 암장 ${GYMS.filter(x => !isUnv(x)).length}곳을 3D 지도로 모았어요. 영업시간·가격·세팅일·소모임 정모까지 한눈에 보세요.</p>
     <h3>지도 조작</h3>
@@ -2155,6 +2163,7 @@ function showGuide() {
     g.remove();
   };
   g.querySelector('#guideOk').onclick = close;
+  const wb = g.querySelector('#guideWebapp'); if (wb) wb.onclick = () => { close(); openKeep(); };
   g.addEventListener('click', e => { if (e.target === g) close(); });
   addEventListener('keydown', function esc(e) { if (e.key === 'Escape' && g.isConnected) { close(); removeEventListener('keydown', esc); } });
   g.querySelector('#guideOk').focus({ preventScroll: true }); g.querySelector('.gc').scrollTop = 0;
@@ -2377,7 +2386,7 @@ function openKeep() {
   g.addEventListener('change', onKeepFile);
   addEventListener('keydown', function escK(e) { if (e.key === 'Escape' && g.isConnected) { closeKeep(); removeEventListener('keydown', escK); } });
 }
-function closeKeep() { if (keepEl) keepEl.remove(); keepEl = null; keepPending = null; if (curList === 'mine') renderMineList(); updateMineBtn(); }
+function closeKeep() { if (keepEl && keepEl.dataset.hello && keepEl.querySelector('#keepHide')?.checked) { try { localStorage.setItem('cm_pwa_hello', kstToday()); } catch (e) {} } if (keepEl) keepEl.remove(); keepEl = null; keepPending = null; if (curList === 'mine') renderMineList(); updateMineBtn(); }
 function drawKeep() {
   const g = keepEl; if (!g) return;
   const b = bkInfo(), n = Object.keys(VISITS).length, sa = KEEP.standalone();
@@ -2388,6 +2397,7 @@ function drawKeep() {
   else if (KEEP.inapp) inst = li('⚠️', '앱 안 브라우저예요', '오른쪽 위 메뉴(⋯)에서 ‘브라우저로 열기’를 누른 뒤 홈 화면에 추가하세요.', 'kwarn');
   else if (KEEP.prompt) inst = li('📲', '홈 화면에 추가', '앱처럼 바로 열리고, 브라우저가 기록을 함부로 지우지 않아요.<span class="kb"><button class="go" data-keep="install">홈 화면에 추가</button></span>');
   else if (KEEP.ios) inst = li('📲', '홈 화면에 추가 (아이폰·아이패드)', '사파리 아래쪽 <b class="sh">공유 ⬆︎</b> → <b class="sh">홈 화면에 추가</b>. 사파리는 7일 동안 안 들어오면 기록을 지울 수 있지만, 홈 화면 앱은 그렇지 않아요.')
+    + li('🔛', '‘웹 앱으로 열기’를 켠 채로 추가', '홈 화면에 추가 화면에서 <b class="sh">웹 앱으로 열기</b>가 켜져 있는지 꼭 확인하고 <b class="sh">추가</b>를 누르세요. 꺼져 있으면 사파리 탭으로 열려 기록이 보호되지 않아요.', 'kwarn')
     + li('🔁', '추가하기 전에 꼭', '아이폰은 홈 화면 앱과 사파리가 기록을 <b>따로</b> 보관해요. 아래 <b>코드 복사</b>를 누른 뒤, 홈 화면 앱을 열어 <b>코드 붙여넣기</b> 하면 그대로 옮겨져요.', 'kwarn');
   else inst = li('📲', '홈 화면에 추가', '브라우저 메뉴(⋮)에서 ‘홈 화면에 추가’ 또는 ‘앱 설치’를 누르세요.');
   const ps = KEEP.persisted === true ? '보호됨 — 저장 공간이 부족해도 브라우저가 지우지 않아요' : KEEP.persisted === false ? '일반 — 저장 공간이 부족하면 지워질 수 있어요' : '이 브라우저는 확인할 수 없어요';
@@ -2413,8 +2423,10 @@ function drawKeep() {
     ${imp}
     <p class="kfine">저장 상태: ${ps}</p>
     <input type="file" id="keepFile" accept=".json,application/json" hidden>
-    <div class="gf"><span class="kfine" style="margin:0">로그인 없이 쓰는 대신, 백업은 직접 챙겨 주세요.</span><button class="ok" data-keep="close">닫기</button></div>
+    ${g.dataset.hello ? '<p class="kfine">로그인 없이 쓰는 대신, 백업은 직접 챙겨 주세요.</p>' : ''}
+    <div class="gf">${g.dataset.hello ? `<label><input type="checkbox" id="keepHide"${g.dataset.hide ? ' checked' : ''}> 오늘 다시 보지 않기</label>` : '<span class="kfine" style="margin:0">로그인 없이 쓰는 대신, 백업은 직접 챙겨 주세요.</span>'}<button class="ok" data-keep="close">닫기</button></div>
   </div>`;
+  if (g.dataset.hello) g.querySelector('.lead').innerHTML = '홈 화면 앱으로 열었어요. <b>사파리에서 쓰던 기록</b>이 있으면 거기서 ‘코드 복사’를 한 뒤 아래에 붙여넣으세요.';
   if (keepPending) g.querySelector('.kprev').scrollIntoView({ block: 'center' });
 }
 const b64e = s => { const u = new TextEncoder().encode(s); let r = ''; for (let i = 0; i < u.length; i += 8192) r += String.fromCharCode.apply(null, u.subarray(i, i + 8192)); return btoa(r); };
@@ -2490,6 +2502,7 @@ function onKeepClick(e) {
   else if (a === 'cancel') { keepPending = null; delete keepEl.dataset.sure; drawKeep(); }
 }
 function onKeepFile(e) {
+  if (e.target.id === 'keepHide') { if (e.target.checked) keepEl.dataset.hide = '1'; else delete keepEl.dataset.hide; return; }
   if (e.target.id !== 'keepFile' || !e.target.files[0]) return;
   const f = e.target.files[0];
   if (f.size > 2e6) { showToast('파일이 너무 커요'); return; }
@@ -2500,8 +2513,8 @@ updateMineBtn();
 
 /* 아이폰 홈 화면 앱을 처음 열었는데 기록이 비어 있으면: 사파리 기록 옮기기 안내 */
 if (KEEP.standalone() && !Object.keys(VISITS).length && !FAV.size) {
-  let seen = false; try { seen = !!localStorage.getItem('cm_pwa_hello'); localStorage.setItem('cm_pwa_hello', '1'); } catch (e) {}
-  if (!seen) setTimeout(() => { document.querySelector('.guide:not(.keep)')?.remove(); openKeep(); keepEl.dataset.paste = '1'; drawKeep(); keepEl.querySelector('.lead').innerHTML = '홈 화면 앱으로 처음 열었어요. <b>사파리에서 쓰던 기록</b>이 있으면 거기서 ‘코드 복사’를 한 뒤 아래에 붙여넣으세요.'; }, 900);
+  let seen = false; try { seen = localStorage.getItem('cm_pwa_hello') === kstToday(); } catch (e) {}
+  if (!seen) setTimeout(() => { document.querySelector('.guide:not(.keep)')?.remove(); openKeep(); keepEl.dataset.paste = '1'; keepEl.dataset.hello = '1'; drawKeep(); }, 900);
 }
 
 </script>
