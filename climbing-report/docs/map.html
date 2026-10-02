@@ -94,6 +94,9 @@ button{font-family:inherit;color:inherit}
 .glabel.big{font-size:15px;padding:8px 12px 8px 10px;background:var(--paper);color:var(--ink);border:2px solid var(--ink)}
 .glabel.big small{display:block;font:500 11px var(--f-body);color:var(--ink-soft)}
 .glabel.unv{background:#6c7194}
+.rbub{position:absolute;left:0;top:0;pointer-events:auto;cursor:pointer;border:0;display:flex;align-items:center;gap:6px;background:var(--paper);color:var(--ink);font:700 13px var(--f-body);border-radius:999px;padding:6px 6px 6px 12px;box-shadow:0 4px 14px -4px rgba(27,33,68,.45);white-space:nowrap}
+.rbub b{font:600 12px var(--f-mono);background:var(--hold-yellow);border-radius:999px;padding:2px 8px}
+.rbub:hover,.rbub:focus-visible{background:var(--ink);color:#fff}
 .ctag{position:absolute;left:0;top:0;transform:translate(-50%,-100%);background:var(--hold-yellow);color:var(--ink);font:700 12px var(--f-body);border-radius:999px;padding:5px 10px;white-space:nowrap;box-shadow:0 6px 14px -6px rgba(0,0,0,.5);z-index:10001;pointer-events:none}
 .ctag::after{content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;background:inherit;transform:translateX(-50%) rotate(45deg)}
 .plabel{position:absolute;left:0;top:0;transform:translate(-50%,-50%);font-family:var(--f-display);font-size:18px;color:rgba(27,33,68,.55);white-space:nowrap;text-align:center;line-height:1.1}
@@ -1472,6 +1475,23 @@ const provLabels = Object.entries(provCenters).map(([id, c]) => {
   el.innerHTML = `${c.ko}<small>${n ? `운영중 암장 ${n}곳` : '조사 예정'}</small>`;
   labelsEl.append(el); return { el, v: new THREE.Vector3(c.x, c.h + 2, c.z), id };
 });
+/* 멀리서 볼 때: 생활권별 암장 수 말풍선 (누르면 그 지역으로) — 가까워지면 암장 이름표로 바뀜 */
+const RB_AT = { se: [127.1, 37.49], cnw: [126.91, 37.585], sw: [126.88, 37.47], ne: [127.08, 37.64], gs: [127.06, 37.29], gsw: [126.84, 37.38], gn: [126.93, 37.72] };
+const regionBubbles = REGIONS.filter(r => RB_AT[r.key]).map(r => {
+  const el = document.createElement('button'); el.className = 'rbub'; el.type = 'button';
+  el.addEventListener('click', e => { e.stopPropagation(); goRegion(r.key); });
+  labelsEl.append(el);
+  return { r, el, n: -1, v: new THREE.Vector3(toX(RB_AT[r.key][0]), 4, toZ(RB_AT[r.key][1])) };
+});
+// 서울 4곳 말풍선이 서로 겹치면(작은 화면·먼 거리) '서울 N' 하나로 합쳐요
+const SEOUL_RB = ['se', 'cnw', 'sw', 'ne'];
+const seoulBub = (() => {
+  const el = document.createElement('button'); el.className = 'rbub'; el.type = 'button';
+  el.addEventListener('click', e => { e.stopPropagation(); const list = visibleGyms().filter(g => g.sido === '서울' && !isUnv(g)); if (list.length) { const [c, p] = viewBox(list); flyTo(c, p); } });
+  labelsEl.append(el);
+  return { el, n: -1, v: new THREE.Vector3(toX(126.99), 4, toZ(37.555)) };
+})();
+const RB_NEAR = 150, RB_FAR = 1100;
 const pv = new THREE.Vector3();
 function updateLabels() {
   const w = innerWidth, h = innerHeight, camD = camera.position.distanceTo(controls.target);
@@ -1516,10 +1536,33 @@ function updateLabels() {
     ctag.textContent = `${travel.o.g.name}(으)로 이동 중`;
     ctag.style.transform = `translate(${(pv.x*.5+.5)*w}px,${(-pv.y*.5+.5)*h}px) translate(-50%,-100%)`;
   } else if (!ctag.hidden) ctag.hidden = true;
+  // 암장 이름표가 여럿 뜰 만큼 가까워지면 말풍선은 숨겨요
+  const rbOn = camD > RB_NEAR && camD < RB_FAR && !sel && !travel && shown.size < 5;
+  const rbPlace = (b, label, n) => {
+    if (n !== b.n) { b.n = n; b.el.innerHTML = `${label}<b>${n}</b>`; b.el.setAttribute('aria-label', `${label} 암장 ${n}곳 보기`); b.w = 0; }
+    pv.copy(b.v).project(camera);
+    b.on = n > 0 && pv.z < 1 && Math.abs(pv.x) < 1.05 && Math.abs(pv.y) < 1.05;
+    b.sx = (pv.x * .5 + .5) * w; b.sy = (-pv.y * .5 + .5) * h;
+  };
+  if (rbOn) {
+    for (const b of regionBubbles) rbPlace(b, b.r.label, gymObjs.reduce((k, o) => k + (o.grp.visible && !o.unv && b.r.f(o.g) ? 1 : 0), 0));
+    const sb = regionBubbles.filter(b => SEOUL_RB.includes(b.r.key) && b.on);
+    const box = b => { if (!b.w) { b.el.style.display = ''; b.w = b.el.offsetWidth || 90; } return [b.sx - b.w / 2 - 3, b.sy - 16, b.sx + b.w / 2 + 3, b.sy + 16]; };
+    const hit = (a, c) => a[0] < c[2] && a[2] > c[0] && a[1] < c[3] && a[3] > c[1];
+    const merge = sb.some((a, i) => sb.slice(i + 1).some(c => hit(box(a), box(c))));
+    sb.forEach(b => { if (merge) b.on = false; });
+    rbPlace(seoulBub, '서울', merge ? sb.reduce((k, b) => k + b.n, 0) : 0);
+  }
+  for (const b of [...regionBubbles, seoulBub]) {
+    const vis = rbOn && b.on;
+    b.el.style.display = vis ? '' : 'none';
+    if (vis) b.el.style.transform = `translate(${b.sx}px,${b.sy}px) translate(-50%,-50%)`;
+  }
   for (const p of provLabels) {
     pv.copy(p.v).project(camera);
     const small = ['seoul','gyeonggi','incheon'].includes(p.id);
-    const vis = pv.z < 1 && (small ? camD > 140 : camD > 380);
+    // 서울·경기 이름은 생활권 말풍선이 떠 있을 땐 숨겨요(겹침 방지)
+    const vis = pv.z < 1 && (small ? camD > 140 : camD > 380) && !(rbOn && (p.id === 'seoul' || p.id === 'gyeonggi'));
     p.el.style.display = vis ? '' : 'none';
     if (vis) p.el.style.transform = `translate(${(pv.x*.5+.5)*w}px,${(-pv.y*.5+.5)*h}px) translate(-50%,-50%)`;
   }
