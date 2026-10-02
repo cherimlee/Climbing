@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>서울·경기 암장 지도</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1b2144">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="암장지도">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -188,7 +196,7 @@ body.rlist-open .hint{display:none}
 body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 
 
-/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */ /* P2 패치 적용 */ /* P3 패치 적용 */ /* P4 패치 적용 */ /* P5 패치 적용 */ /* P6 패치 적용 */
+/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */ /* P2 패치 적용 */ /* P3 패치 적용 */ /* P4 패치 적용 */ /* P5 패치 적용 */ /* P6 패치 적용 */ /* P7 패치 적용 */ /* P8 아이콘 교체 */
 .chip small{font:500 11px var(--f-mono);opacity:.7}
 .chip svg{width:13px;height:13px;flex:none}
 .chip.busy{opacity:.6;pointer-events:none}
@@ -288,7 +296,7 @@ body.rlist-open.mine-open .minebtn{display:none}
 .mine .hero .ha{display:flex;gap:6px}
 .mine .hero .ha button{flex:1;border:0;border-radius:10px;padding:8px 6px;font:700 12px var(--f-body);cursor:pointer;background:#fff;color:var(--ink)}
 .mine .hero .ha button.y{background:var(--hold-yellow)}
-.mine .hero svg.deco{position:absolute;right:-8px;top:-8px;width:90px;height:90px;opacity:.25}
+.mine .hero svg.deco{position:absolute;right:-6px;top:-10px;width:110px;height:110px;opacity:.35}
 .mine .tabs{flex-wrap:wrap}
 .mine .tabs button{font-size:12px;padding:7px 4px}
 .ach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin:6px}
@@ -425,6 +433,35 @@ body.rlist-open.mine-open .minebtn{display:none}
   .panel header{padding-top:52px}
 }
 @media (prefers-reduced-motion:reduce){ .panel,.toast,.glabel{transition:none} }
+/* ---------- P7 패치: 기록 지키기 ---------- */
+.minebtn.needbk::after{content:"";position:absolute;top:-2px;right:-2px;width:11px;height:11px;border-radius:50%;background:var(--hold-red,#ff5a5f);box-shadow:0 0 0 2px var(--paper)}
+.keeprow{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;margin:0 6px 6px;width:calc(100% - 12px);padding:9px 12px;border-radius:12px;background:var(--chalk)}
+.keeprow .ki{flex:none;width:26px;height:26px;border-radius:8px;background:#fff;display:grid;place-items:center;font:700 14px var(--f-body)}
+.keeprow .kt{min-width:0;flex:1;display:flex;flex-direction:column}
+.keeprow .kt b{font:700 13px var(--f-body);color:var(--ink)}
+.keeprow .kt small{font-size:11.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.keeprow .ka{font:700 18px var(--f-body);color:var(--ink-soft)}
+.keeprow.lv1{background:#fff8e1;box-shadow:inset 0 0 0 1.5px var(--hold-yellow)}
+.keeprow.lv1 .ki{background:var(--hold-yellow);color:var(--ink)}
+.keeprow.lv2{background:#ffecec;box-shadow:inset 0 0 0 1.5px #ff5a5f}
+.keeprow.lv2 .ki{background:#ff5a5f;color:#fff}
+.keeprow:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.guide.keep .kstat{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 4px}
+.guide.keep .kstat span{background:var(--chalk);border-radius:9px;padding:5px 9px;font-size:12px;color:var(--ink-soft)}
+.guide.keep .kstat b{font:600 13px var(--f-mono);color:var(--ink);margin-left:3px}
+.guide.keep li.kwarn{background:#fff3e6}
+.guide.keep li.kok{background:#e7f8f2}
+.guide.keep li .t b{display:inline;font-size:inherit;color:var(--ink)}
+.guide.keep li .t b.sh{background:#fff;border-radius:6px;padding:0 5px;font-weight:700;white-space:nowrap}
+.guide.keep .kb{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.guide.keep .kb button{border:0;border-radius:999px;padding:8px 13px;font:700 12.5px var(--f-body);background:#fff;color:var(--ink);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line)}
+.guide.keep .kb button.go{background:var(--ink);color:#fff;box-shadow:none}
+.guide.keep .kpaste{margin-top:8px}
+.guide.keep .kpaste textarea{width:100%;box-sizing:border-box;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;font:500 13px var(--f-body);resize:vertical;background:#fff}
+.guide.keep .kprev{margin-top:10px;border-radius:12px;padding:10px 12px;background:#eef1ff;box-shadow:inset 0 0 0 1.5px #3d7bff;display:flex;flex-direction:column;gap:3px;font-size:13px}
+.guide.keep .kprev .t{font-size:12px;color:var(--ink-soft)}
+.guide.keep .kfine{font-size:11.5px;color:var(--ink-soft);line-height:1.5;margin:12px 2px 0}
+@media (min-width:721px){ .guide.keep{align-items:center} }
 </style>
 
 </head>
@@ -434,12 +471,7 @@ body.rlist-open.mine-open .minebtn{display:none}
 <div class="fallback" id="loading">지도를 쌓는 중…</div>
 
 <div class="brandcard">
-  <svg class="logo" viewBox="0 0 40 40" aria-hidden="true">
-    <rect x="2" y="2" width="36" height="36" rx="10" fill="#1b2144"/>
-    <path d="M10 31 L20 9 L30 31 Z" fill="#22c39a"/>
-    <circle cx="15" cy="24" r="2.6" fill="#ff5a5f"/><circle cx="21" cy="17" r="2.2" fill="#ffc933"/>
-    <circle cx="24" cy="25" r="2.4" fill="#3d7bff"/><circle cx="19" cy="28.5" r="1.8" fill="#ff6fb5"/>
-  </svg>
+  <svg class="logo" viewBox="0 0 512 512" aria-hidden="true"><defs><clipPath id="logoClip"><rect width="512" height="512" rx="120"/></clipPath></defs><g clip-path="url(#logoClip)"><rect width="512" height="512" fill="#2b3170"/><rect x="62" y="96" width="10" height="10" fill="#ffffff" opacity=".5"/><rect x="430" y="70" width="8" height="8" fill="#ffffff" opacity=".5"/><rect x="446" y="200" width="6" height="6" fill="#ffffff" opacity=".5"/><rect x="76" y="222" width="7" height="7" fill="#ffffff" opacity=".5"/><path d="M256.0 200.0 L421.0 295.2 L256.0 390.4 L91.0 295.2 Z" fill="#22c39a"/><path d="M91.0 295.2 L256.0 390.4 L256.0 432.4 L91.0 337.2 Z" fill="#8a5a3c"/><path d="M256.0 390.4 L421.0 295.2 L421.0 337.2 L256.0 432.4 Z" fill="#6e472f"/><path d="M91.0 337.2 L256.0 432.4 L256.0 487.4 Z" fill="#5a3a26"/><path d="M256.0 432.4 L421.0 337.2 L256.0 487.4 Z" fill="#4a2f1f"/><g transform="matrix(165 -95.205 165 95.205 91 295.205)"><rect x="0.12" y="0.75" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.7" y="0.1" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.85" y="0.5" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.5" y="0.88" width=".08" height=".08" fill="#1a9e7c"/></g><path d="M205.0 102.0 L275.0 142.4 L205.0 182.8 L135.0 142.4 Z" fill="#f4f1ea"/><path d="M135.0 142.4 L205.0 182.8 L205.0 304.8 L135.0 264.4 Z" fill="#f4f1ea"/><path d="M205.0 182.8 L275.0 142.4 L275.0 264.4 L205.0 304.8 Z" fill="#d9d3c3"/><g transform="matrix(70 40.39 0 122 135 142.39)"><rect x="0" y="0" width="1" height=".15" fill="#fbe7a6"/></g><g transform="matrix(70 -40.39 0 122 205 182.78)"><rect x="0" y="0" width="1" height=".15" fill="#fbe7a6"/></g><g transform="matrix(70 40.39 0 122 135 142.39)"><path d="M0.1668 0.3406 Q0.1828 0.2788 0.3001 0.2855 L0.3448 0.2881 Q0.4622 0.2948 0.4457 0.3583 L0.4394 0.3824 Q0.4229 0.4458 0.3061 0.4374 L0.2615 0.4343 Q0.1447 0.4259 0.1607 0.3641 Z" fill="#cc484c" transform="translate(0 0.0145)"/><path d="M0.1668 0.3406 Q0.1828 0.2788 0.3001 0.2855 L0.3448 0.2881 Q0.4622 0.2948 0.4457 0.3583 L0.4394 0.3824 Q0.4229 0.4458 0.3061 0.4374 L0.2615 0.4343 Q0.1447 0.4259 0.1607 0.3641 Z" fill="#ff5a5f"/><path d="M0.2169 0.3067 L0.3997 0.3130 L0.3324 0.3470 L0.2217 0.3602 Z" fill="#ff989b" opacity=".8"/><ellipse cx="0.3158" cy="0.3779" rx="0.0308" ry="0.0177" fill="#8c3134"/><path d="M0.5326 0.5648 Q0.5159 0.5076 0.6229 0.4942 L0.6636 0.4891 Q0.7706 0.4758 0.7878 0.5345 L0.7943 0.5569 Q0.8115 0.6156 0.7041 0.6274 L0.6632 0.6319 Q0.5558 0.6437 0.5390 0.5866 Z" fill="#3062cc" transform="translate(0 0.0134)"/><path d="M0.5326 0.5648 Q0.5159 0.5076 0.6229 0.4942 L0.6636 0.4891 Q0.7706 0.4758 0.7878 0.5345 L0.7943 0.5569 Q0.8115 0.6156 0.7041 0.6274 L0.6632 0.6319 Q0.5558 0.6437 0.5390 0.5866 Z" fill="#3d7bff"/><path d="M0.5599 0.5266 L0.7246 0.5021 L0.6821 0.5432 L0.5910 0.5731 Z" fill="#86adff" opacity=".8"/><ellipse cx="0.6829" cy="0.5732" rx="0.0286" ry="0.0164" fill="#21438c"/><path d="M0.2347 0.7876 Q0.2691 0.7284 0.3827 0.7467 L0.4259 0.7537 Q0.5394 0.7720 0.5040 0.8328 L0.4905 0.8560 Q0.4550 0.9168 0.3425 0.8969 L0.2997 0.8893 Q0.1871 0.8694 0.2216 0.8102 Z" fill="#7c4ab7" transform="translate(0 0.0145)"/><path d="M0.2347 0.7876 Q0.2691 0.7284 0.3827 0.7467 L0.4259 0.7537 Q0.5394 0.7720 0.5040 0.8328 L0.4905 0.8560 Q0.4550 0.9168 0.3425 0.8969 L0.2997 0.8893 Q0.1871 0.8694 0.2216 0.8102 Z" fill="#9b5de5"/><path d="M0.2942 0.7593 L0.4725 0.7836 L0.3959 0.8104 L0.2829 0.8124 Z" fill="#c19aee" opacity=".8"/><ellipse cx="0.3702" cy="0.8392" rx="0.0308" ry="0.0177" fill="#55337d"/></g><g transform="matrix(70 -40.39 0 122 205 182.78)"><path d="M0.2251 0.2837 Q0.2236 0.2503 0.2866 0.2476 L0.3106 0.2466 Q0.3736 0.2439 0.3751 0.2782 L0.3757 0.2913 Q0.3773 0.3256 0.3143 0.3274 L0.2903 0.3281 Q0.2273 0.3299 0.2257 0.2965 Z" fill="#cccccc" transform="translate(0 0.0077)"/><path d="M0.2251 0.2837 Q0.2236 0.2503 0.2866 0.2476 L0.3106 0.2466 Q0.3736 0.2439 0.3751 0.2782 L0.3757 0.2913 Q0.3773 0.3256 0.3143 0.3274 L0.2903 0.3281 Q0.2273 0.3299 0.2257 0.2965 Z" fill="#ffffff"/><path d="M0.2461 0.2632 L0.3436 0.2568 L0.3136 0.2783 L0.2573 0.2912 Z" fill="#ffffff" opacity=".8"/><ellipse cx="0.3098" cy="0.2955" rx="0.0165" ry="0.0095" fill="#8c8c8c"/><path d="M0.6291 0.2729 Q0.6426 0.2404 0.7047 0.2472 L0.7284 0.2497 Q0.7904 0.2565 0.7765 0.2899 L0.7711 0.3026 Q0.7572 0.3360 0.6955 0.3284 L0.6720 0.3255 Q0.6103 0.3179 0.6239 0.2853 Z" fill="#cccccc" transform="translate(0 0.0077)"/><path d="M0.6291 0.2729 Q0.6426 0.2404 0.7047 0.2472 L0.7284 0.2497 Q0.7904 0.2565 0.7765 0.2899 L0.7711 0.3026 Q0.7572 0.3360 0.6955 0.3284 L0.6720 0.3255 Q0.6103 0.3179 0.6239 0.2853 Z" fill="#ffffff"/><path d="M0.6585 0.2562 L0.7556 0.2645 L0.7169 0.2808 L0.6568 0.2849 Z" fill="#ffffff" opacity=".8"/><ellipse cx="0.7056" cy="0.2969" rx="0.0165" ry="0.0095" fill="#8c8c8c"/><path d="M0.2586 0.7430 Q0.2571 0.7118 0.3159 0.7092 L0.3383 0.7083 Q0.3971 0.7057 0.3986 0.7378 L0.3992 0.7500 Q0.4006 0.7820 0.3418 0.7837 L0.3194 0.7844 Q0.2606 0.7861 0.2592 0.7549 Z" fill="#3062cc" transform="translate(0 0.0072)"/><path d="M0.2586 0.7430 Q0.2571 0.7118 0.3159 0.7092 L0.3383 0.7083 Q0.3971 0.7057 0.3986 0.7378 L0.3992 0.7500 Q0.4006 0.7820 0.3418 0.7837 L0.3194 0.7844 Q0.2606 0.7861 0.2592 0.7549 Z" fill="#3d7bff"/><path d="M0.2781 0.7238 L0.3691 0.7178 L0.3411 0.7379 L0.2886 0.7499 Z" fill="#86adff" opacity=".8"/><ellipse cx="0.3376" cy="0.7539" rx="0.0154" ry="0.0088" fill="#21438c"/><path d="M0.6040 0.7349 Q0.6139 0.7042 0.6723 0.7087 L0.6946 0.7104 Q0.7530 0.7150 0.7428 0.7465 L0.7390 0.7585 Q0.7288 0.7900 0.6707 0.7847 L0.6485 0.7826 Q0.5904 0.7773 0.6003 0.7466 Z" fill="#cc5890" transform="translate(0 0.0072)"/><path d="M0.6040 0.7349 Q0.6139 0.7042 0.6723 0.7087 L0.6946 0.7104 Q0.7530 0.7150 0.7428 0.7465 L0.7390 0.7585 Q0.7288 0.7900 0.6707 0.7847 L0.6485 0.7826 Q0.5904 0.7773 0.6003 0.7466 Z" fill="#ff6fb5"/><path d="M0.6301 0.7184 L0.7213 0.7234 L0.6866 0.7397 L0.6309 0.7452 Z" fill="#ffa5d1" opacity=".8"/><ellipse cx="0.6774" cy="0.7550" rx="0.0154" ry="0.0088" fill="#8c3d63"/><path d="M0.7764 0.8773 Q0.7750 0.8483 0.8296 0.8459 L0.8504 0.8451 Q0.9050 0.8427 0.9064 0.8725 L0.9069 0.8838 Q0.9083 0.9136 0.8537 0.9151 L0.8328 0.9157 Q0.7782 0.9173 0.7769 0.8883 Z" fill="#1b9c7b" transform="translate(0 0.0067)"/><path d="M0.7764 0.8773 Q0.7750 0.8483 0.8296 0.8459 L0.8504 0.8451 Q0.9050 0.8427 0.9064 0.8725 L0.9069 0.8838 Q0.9083 0.9136 0.8537 0.9151 L0.8328 0.9157 Q0.7782 0.9173 0.7769 0.8883 Z" fill="#22c39a"/><path d="M0.7945 0.8595 L0.8790 0.8539 L0.8530 0.8725 L0.8042 0.8837 Z" fill="#75d9c0" opacity=".8"/><ellipse cx="0.8498" cy="0.8875" rx="0.0143" ry="0.0082" fill="#126b54"/><rect x="0.2700" y="0.3000" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.6700" y="0.3000" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3328" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3328" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3656" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3656" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3984" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3984" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.4311" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.4311" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6700" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3843" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.5557" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3271" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3843" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.5557" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.2700" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3271" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6700" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.2700" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.3271" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.6129" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.6700" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/></g><path d="M205.0 79.1 L287.0 126.4 L205.0 173.7 L123.0 126.4 Z" fill="#ffe066"/><path d="M123.0 126.4 L205.0 173.7 L205.0 189.7 L123.0 142.4 Z" fill="#ffd23f"/><path d="M205.0 173.7 L287.0 126.4 L287.0 142.4 L205.0 189.7 Z" fill="#f0bd1c"/><rect x="201" y="48.389999999999986" width="8" height="80" fill="#eef0f6"/><rect x="209" y="50.389999999999986" width="54" height="34" fill="#ffc933"/><rect x="209" y="76.38999999999999" width="54" height="8" fill="#f0b400"/><rect x="310" y="258" width="16" height="16" fill="#f2c6a0"/><rect x="310" y="258" width="16" height="5" fill="#ffc933"/><rect x="308" y="274" width="20" height="20" fill="#ff6fb5"/><rect x="310" y="294" width="7" height="12" fill="#1b2144"/><rect x="319" y="294" width="7" height="12" fill="#1b2144"/><rect x="264" y="272" width="16" height="16" fill="#f2c6a0"/><rect x="264" y="272" width="16" height="5" fill="#3a2a1e"/><rect x="262" y="288" width="20" height="20" fill="#3d7bff"/><rect x="264" y="308" width="7" height="12" fill="#1b2144"/><rect x="273" y="308" width="7" height="12" fill="#1b2144"/><rect x="334" y="282" width="16" height="16" fill="#f2c6a0"/><rect x="334" y="282" width="16" height="5" fill="#8a5a3c"/><rect x="332" y="298" width="20" height="20" fill="#9b5de5"/><rect x="334" y="318" width="7" height="12" fill="#1b2144"/><rect x="343" y="318" width="7" height="12" fill="#1b2144"/><rect x="286" y="298" width="16" height="16" fill="#f2c6a0"/><rect x="286" y="298" width="16" height="5" fill="#3a2a1e"/><rect x="284" y="314" width="20" height="20" fill="#ff8c42"/><rect x="286" y="334" width="7" height="12" fill="#1b2144"/><rect x="295" y="334" width="7" height="12" fill="#1b2144"/></g></svg>
   <div>
     <h1>서울·경기 암장 지도</h1>
     <p>운영중 <b id="cOpen">0</b>곳 · 확인필요 <b id="cUnv">0</b>곳 · 2026.10.1 조사</p>
@@ -1375,12 +1407,12 @@ function openPanel(g) {
   document.getElementById('pBody').innerHTML = `
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
     ${actsHTML(g)}
-    ${meetSection(g)}
     ${g.notes ? `<p class="note">${esc(g.notes)}</p>` : ''}
     ${rows.length ? `<dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : '<p class="note">아직 수집된 상세 정보가 없어요.</p>'}
     <div class="links">${links.join('')}</div>
-    ${src.length ? `<div class="sec"><h3>출처</h3><ol class="sources">${src.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(decodeURIComponentSafe(u).replace(/^https?:\/\/(www\.)?/, '').slice(0, 60))}</a></li>`).join('')}</ol></div>` : ''}
-    <div id="pHist">${histSection(g)}</div>`;
+    ${meetSection(g)}
+    <div id="pHist">${histSection(g)}</div>
+    ${src.length ? `<div class="sec"><h3>출처</h3><ol class="sources">${src.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(decodeURIComponentSafe(u).replace(/^https?:\/\/(www\.)?/, '').slice(0, 60))}</a></li>`).join('')}</ol></div>` : ''}`;
   panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); document.body.classList.add('panel-open'); updateViewOffset();
   document.getElementById('pBody').scrollTop = 0;
   if (!HIST && MEET.size) loadHistory();
@@ -1513,7 +1545,7 @@ async function loadMeet() {
   applyMeetDoc(doc);
   if (!MEET.size) return;
   const ml = document.getElementById('meetLine');
-  ml.innerHTML = `정모 <b>${MEET_META.summary?.events_total ?? '-'}</b>건 · 참석 <b>${MEET_META.summary?.joined_total ?? '-'}</b>명 · ${esc(mdLabel(MEET_META.date))} ${esc(collectedHM())} 수집 · <a href="${REPORT_URL}" target="_blank" rel="noopener">리포트</a>`;
+  ml.innerHTML = `정모 <b>${MEET_META.summary?.events_total ?? '-'}</b>건 · 참석 <b>${MEET_META.summary?.joined_total ?? '-'}</b>명 · ${esc(mdLabel(MEET_META.date))} ${esc(collectedHM())} 수집`;
   ml.hidden = false; document.body.classList.add('has-meet');
   renderChips();
   if (sel) openPanel(sel.g);
@@ -1673,7 +1705,7 @@ document.getElementById('rMeta').addEventListener('click', async e => {
   const doc = await fetchDay(b.dataset.day); if (!doc) { showToast('데이터가 없어요'); return; }
   applyMeetDoc(doc); renderChips(); applyFilter(); renderMeetList();
   const ml = document.getElementById('meetLine');
-  ml.innerHTML = `정모 <b>${MEET_META.summary?.events_total ?? '-'}</b>건 · 참석 <b>${MEET_META.summary?.joined_total ?? '-'}</b>명 · ${esc(mdLabel(MEET_META.date))} ${esc(collectedHM())} 수집 · <a href="${REPORT_URL}" target="_blank" rel="noopener">리포트</a>`;
+  ml.innerHTML = `정모 <b>${MEET_META.summary?.events_total ?? '-'}</b>건 · 참석 <b>${MEET_META.summary?.joined_total ?? '-'}</b>명 · ${esc(mdLabel(MEET_META.date))} ${esc(collectedHM())} 수집`;
   const list = GYMS.filter(g => MEET.has(g.id)); if (list.length) { const [c, p] = viewBox(list, 1); flyTo(c, p); }
   if (sel) openPanel(sel.g);
 });
@@ -1697,13 +1729,13 @@ function renderMineList() {
   const nDone = done.filter(x => !isUnv(x.g)).length, pct = all.length ? nDone / all.length * 100 : 0;
   const A = achList(), got = A.filter(a => a.got).length, total = Object.values(VISITS).reduce((t, v) => t + Math.max(1, v.d.length), 0);
   document.getElementById('rTitle').textContent = '내 클라이밍 기록';
-  document.getElementById('rMeta').innerHTML = `이 브라우저에만 저장돼요 · 다른 기기로 옮길 땐 ‘내 지도 링크’`;
-  let html = `<div class="mine"><div class="hero"><svg class="deco" viewBox="0 0 40 40"><path d="M10 31 L20 9 L30 31 Z" fill="#22c39a"/><circle cx="15" cy="24" r="2.6" fill="#ff5a5f"/><circle cx="21" cy="17" r="2.2" fill="#ffc933"/><circle cx="24" cy="25" r="2.4" fill="#3d7bff"/></svg>
+  document.getElementById('rMeta').innerHTML = `이 브라우저에만 저장돼요 · ‘기록 지키기’로 백업하세요`;
+  let html = `<div class="mine"><div class="hero"><svg class="deco" viewBox="40 40 432 432"><path d="M256.0 200.0 L421.0 295.2 L256.0 390.4 L91.0 295.2 Z" fill="#22c39a"/><path d="M91.0 295.2 L256.0 390.4 L256.0 432.4 L91.0 337.2 Z" fill="#8a5a3c"/><path d="M256.0 390.4 L421.0 295.2 L421.0 337.2 L256.0 432.4 Z" fill="#6e472f"/><path d="M91.0 337.2 L256.0 432.4 L256.0 487.4 Z" fill="#5a3a26"/><path d="M256.0 432.4 L421.0 337.2 L256.0 487.4 Z" fill="#4a2f1f"/><g transform="matrix(165 -95.205 165 95.205 91 295.205)"><rect x="0.12" y="0.75" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.7" y="0.1" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.85" y="0.5" width=".08" height=".08" fill="#1a9e7c"/><rect x="0.5" y="0.88" width=".08" height=".08" fill="#1a9e7c"/></g><path d="M205.0 102.0 L275.0 142.4 L205.0 182.8 L135.0 142.4 Z" fill="#f4f1ea"/><path d="M135.0 142.4 L205.0 182.8 L205.0 304.8 L135.0 264.4 Z" fill="#f4f1ea"/><path d="M205.0 182.8 L275.0 142.4 L275.0 264.4 L205.0 304.8 Z" fill="#d9d3c3"/><g transform="matrix(70 40.39 0 122 135 142.39)"><rect x="0" y="0" width="1" height=".15" fill="#fbe7a6"/></g><g transform="matrix(70 -40.39 0 122 205 182.78)"><rect x="0" y="0" width="1" height=".15" fill="#fbe7a6"/></g><g transform="matrix(70 40.39 0 122 135 142.39)"><path d="M0.1668 0.3406 Q0.1828 0.2788 0.3001 0.2855 L0.3448 0.2881 Q0.4622 0.2948 0.4457 0.3583 L0.4394 0.3824 Q0.4229 0.4458 0.3061 0.4374 L0.2615 0.4343 Q0.1447 0.4259 0.1607 0.3641 Z" fill="#cc484c" transform="translate(0 0.0145)"/><path d="M0.1668 0.3406 Q0.1828 0.2788 0.3001 0.2855 L0.3448 0.2881 Q0.4622 0.2948 0.4457 0.3583 L0.4394 0.3824 Q0.4229 0.4458 0.3061 0.4374 L0.2615 0.4343 Q0.1447 0.4259 0.1607 0.3641 Z" fill="#ff5a5f"/><path d="M0.2169 0.3067 L0.3997 0.3130 L0.3324 0.3470 L0.2217 0.3602 Z" fill="#ff989b" opacity=".8"/><ellipse cx="0.3158" cy="0.3779" rx="0.0308" ry="0.0177" fill="#8c3134"/><path d="M0.5326 0.5648 Q0.5159 0.5076 0.6229 0.4942 L0.6636 0.4891 Q0.7706 0.4758 0.7878 0.5345 L0.7943 0.5569 Q0.8115 0.6156 0.7041 0.6274 L0.6632 0.6319 Q0.5558 0.6437 0.5390 0.5866 Z" fill="#3062cc" transform="translate(0 0.0134)"/><path d="M0.5326 0.5648 Q0.5159 0.5076 0.6229 0.4942 L0.6636 0.4891 Q0.7706 0.4758 0.7878 0.5345 L0.7943 0.5569 Q0.8115 0.6156 0.7041 0.6274 L0.6632 0.6319 Q0.5558 0.6437 0.5390 0.5866 Z" fill="#3d7bff"/><path d="M0.5599 0.5266 L0.7246 0.5021 L0.6821 0.5432 L0.5910 0.5731 Z" fill="#86adff" opacity=".8"/><ellipse cx="0.6829" cy="0.5732" rx="0.0286" ry="0.0164" fill="#21438c"/><path d="M0.2347 0.7876 Q0.2691 0.7284 0.3827 0.7467 L0.4259 0.7537 Q0.5394 0.7720 0.5040 0.8328 L0.4905 0.8560 Q0.4550 0.9168 0.3425 0.8969 L0.2997 0.8893 Q0.1871 0.8694 0.2216 0.8102 Z" fill="#7c4ab7" transform="translate(0 0.0145)"/><path d="M0.2347 0.7876 Q0.2691 0.7284 0.3827 0.7467 L0.4259 0.7537 Q0.5394 0.7720 0.5040 0.8328 L0.4905 0.8560 Q0.4550 0.9168 0.3425 0.8969 L0.2997 0.8893 Q0.1871 0.8694 0.2216 0.8102 Z" fill="#9b5de5"/><path d="M0.2942 0.7593 L0.4725 0.7836 L0.3959 0.8104 L0.2829 0.8124 Z" fill="#c19aee" opacity=".8"/><ellipse cx="0.3702" cy="0.8392" rx="0.0308" ry="0.0177" fill="#55337d"/></g><g transform="matrix(70 -40.39 0 122 205 182.78)"><path d="M0.2251 0.2837 Q0.2236 0.2503 0.2866 0.2476 L0.3106 0.2466 Q0.3736 0.2439 0.3751 0.2782 L0.3757 0.2913 Q0.3773 0.3256 0.3143 0.3274 L0.2903 0.3281 Q0.2273 0.3299 0.2257 0.2965 Z" fill="#cccccc" transform="translate(0 0.0077)"/><path d="M0.2251 0.2837 Q0.2236 0.2503 0.2866 0.2476 L0.3106 0.2466 Q0.3736 0.2439 0.3751 0.2782 L0.3757 0.2913 Q0.3773 0.3256 0.3143 0.3274 L0.2903 0.3281 Q0.2273 0.3299 0.2257 0.2965 Z" fill="#ffffff"/><path d="M0.2461 0.2632 L0.3436 0.2568 L0.3136 0.2783 L0.2573 0.2912 Z" fill="#ffffff" opacity=".8"/><ellipse cx="0.3098" cy="0.2955" rx="0.0165" ry="0.0095" fill="#8c8c8c"/><path d="M0.6291 0.2729 Q0.6426 0.2404 0.7047 0.2472 L0.7284 0.2497 Q0.7904 0.2565 0.7765 0.2899 L0.7711 0.3026 Q0.7572 0.3360 0.6955 0.3284 L0.6720 0.3255 Q0.6103 0.3179 0.6239 0.2853 Z" fill="#cccccc" transform="translate(0 0.0077)"/><path d="M0.6291 0.2729 Q0.6426 0.2404 0.7047 0.2472 L0.7284 0.2497 Q0.7904 0.2565 0.7765 0.2899 L0.7711 0.3026 Q0.7572 0.3360 0.6955 0.3284 L0.6720 0.3255 Q0.6103 0.3179 0.6239 0.2853 Z" fill="#ffffff"/><path d="M0.6585 0.2562 L0.7556 0.2645 L0.7169 0.2808 L0.6568 0.2849 Z" fill="#ffffff" opacity=".8"/><ellipse cx="0.7056" cy="0.2969" rx="0.0165" ry="0.0095" fill="#8c8c8c"/><path d="M0.2586 0.7430 Q0.2571 0.7118 0.3159 0.7092 L0.3383 0.7083 Q0.3971 0.7057 0.3986 0.7378 L0.3992 0.7500 Q0.4006 0.7820 0.3418 0.7837 L0.3194 0.7844 Q0.2606 0.7861 0.2592 0.7549 Z" fill="#3062cc" transform="translate(0 0.0072)"/><path d="M0.2586 0.7430 Q0.2571 0.7118 0.3159 0.7092 L0.3383 0.7083 Q0.3971 0.7057 0.3986 0.7378 L0.3992 0.7500 Q0.4006 0.7820 0.3418 0.7837 L0.3194 0.7844 Q0.2606 0.7861 0.2592 0.7549 Z" fill="#3d7bff"/><path d="M0.2781 0.7238 L0.3691 0.7178 L0.3411 0.7379 L0.2886 0.7499 Z" fill="#86adff" opacity=".8"/><ellipse cx="0.3376" cy="0.7539" rx="0.0154" ry="0.0088" fill="#21438c"/><path d="M0.6040 0.7349 Q0.6139 0.7042 0.6723 0.7087 L0.6946 0.7104 Q0.7530 0.7150 0.7428 0.7465 L0.7390 0.7585 Q0.7288 0.7900 0.6707 0.7847 L0.6485 0.7826 Q0.5904 0.7773 0.6003 0.7466 Z" fill="#cc5890" transform="translate(0 0.0072)"/><path d="M0.6040 0.7349 Q0.6139 0.7042 0.6723 0.7087 L0.6946 0.7104 Q0.7530 0.7150 0.7428 0.7465 L0.7390 0.7585 Q0.7288 0.7900 0.6707 0.7847 L0.6485 0.7826 Q0.5904 0.7773 0.6003 0.7466 Z" fill="#ff6fb5"/><path d="M0.6301 0.7184 L0.7213 0.7234 L0.6866 0.7397 L0.6309 0.7452 Z" fill="#ffa5d1" opacity=".8"/><ellipse cx="0.6774" cy="0.7550" rx="0.0154" ry="0.0088" fill="#8c3d63"/><path d="M0.7764 0.8773 Q0.7750 0.8483 0.8296 0.8459 L0.8504 0.8451 Q0.9050 0.8427 0.9064 0.8725 L0.9069 0.8838 Q0.9083 0.9136 0.8537 0.9151 L0.8328 0.9157 Q0.7782 0.9173 0.7769 0.8883 Z" fill="#1b9c7b" transform="translate(0 0.0067)"/><path d="M0.7764 0.8773 Q0.7750 0.8483 0.8296 0.8459 L0.8504 0.8451 Q0.9050 0.8427 0.9064 0.8725 L0.9069 0.8838 Q0.9083 0.9136 0.8537 0.9151 L0.8328 0.9157 Q0.7782 0.9173 0.7769 0.8883 Z" fill="#22c39a"/><path d="M0.7945 0.8595 L0.8790 0.8539 L0.8530 0.8725 L0.8042 0.8837 Z" fill="#75d9c0" opacity=".8"/><ellipse cx="0.8498" cy="0.8875" rx="0.0143" ry="0.0082" fill="#126b54"/><rect x="0.2700" y="0.3000" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.6700" y="0.3000" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3328" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3328" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3328" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3656" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3656" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3656" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.3984" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.3984" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.3984" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.4311" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.3843" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4414" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.4986" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.5557" y="0.4311" width="0.0594" height="0.0341" fill="#3a2a1e"/><rect x="0.6700" y="0.4311" width="0.0594" height="0.0341" fill="#f2c6a0"/><rect x="0.2700" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6700" y="0.4639" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.4967" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.5295" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3843" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4414" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.4986" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.5557" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.6129" y="0.5623" width="0.0594" height="0.0341" fill="#22c39a"/><rect x="0.3271" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3843" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.5557" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.5951" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3271" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3843" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.5557" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.6279" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.2700" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.3271" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6129" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.6700" y="0.6607" width="0.0594" height="0.0341" fill="#3d4a8a"/><rect x="0.2700" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.3271" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.6129" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/><rect x="0.6700" y="0.6934" width="0.0594" height="0.0341" fill="#ff5a5f"/></g><path d="M205.0 79.1 L287.0 126.4 L205.0 173.7 L123.0 126.4 Z" fill="#ffe066"/><path d="M123.0 126.4 L205.0 173.7 L205.0 189.7 L123.0 142.4 Z" fill="#ffd23f"/><path d="M205.0 173.7 L287.0 126.4 L287.0 142.4 L205.0 189.7 Z" fill="#f0bd1c"/><rect x="201" y="48.389999999999986" width="8" height="80" fill="#eef0f6"/><rect x="209" y="50.389999999999986" width="54" height="34" fill="#ffc933"/><rect x="209" y="76.38999999999999" width="54" height="8" fill="#f0b400"/><rect x="310" y="258" width="16" height="16" fill="#f2c6a0"/><rect x="310" y="258" width="16" height="5" fill="#ffc933"/><rect x="308" y="274" width="20" height="20" fill="#ff6fb5"/><rect x="310" y="294" width="7" height="12" fill="#1b2144"/><rect x="319" y="294" width="7" height="12" fill="#1b2144"/><rect x="264" y="272" width="16" height="16" fill="#f2c6a0"/><rect x="264" y="272" width="16" height="5" fill="#3a2a1e"/><rect x="262" y="288" width="20" height="20" fill="#3d7bff"/><rect x="264" y="308" width="7" height="12" fill="#1b2144"/><rect x="273" y="308" width="7" height="12" fill="#1b2144"/><rect x="334" y="282" width="16" height="16" fill="#f2c6a0"/><rect x="334" y="282" width="16" height="5" fill="#8a5a3c"/><rect x="332" y="298" width="20" height="20" fill="#9b5de5"/><rect x="334" y="318" width="7" height="12" fill="#1b2144"/><rect x="343" y="318" width="7" height="12" fill="#1b2144"/><rect x="286" y="298" width="16" height="16" fill="#f2c6a0"/><rect x="286" y="298" width="16" height="5" fill="#3a2a1e"/><rect x="284" y="314" width="20" height="20" fill="#ff8c42"/><rect x="286" y="334" width="7" height="12" fill="#1b2144"/><rect x="295" y="334" width="7" height="12" fill="#1b2144"/></svg>
     <span class="ttl" style="${GRADE >= 0 ? `background:${GRADES[GRADE][1]};color:${isLight(GRADES[GRADE][1]) ? '#1b2144' : '#fff'}` : ''}">${esc(myTitle(nDone))}</span><div class="nick">${esc(NICK || '클라이머')}</div>
     <div class="st"><b>${nDone}</b> / ${all.length}곳 · 총 <b>${total}</b>회 방문 · 업적 <b>${got}</b>/${A.length}</div>
     <div class="bar"><span style="width:${Math.min(100, pct).toFixed(1)}%"></span></div>
     <div class="ha"><button class="y" data-m="passport">여권 카드 만들기</button><button data-m="link">내 지도 링크 복사</button></div></div>
-    <div class="tabs t5"><button data-mtab="done" aria-pressed="${mineTab === 'done'}">다녀온 곳<small>${done.length}</small></button><button data-mtab="fav" aria-pressed="${mineTab === 'fav'}">즐겨찾기<small>${fav.length}</small></button><button data-mtab="ach" aria-pressed="${mineTab === 'ach'}">업적<small>${got}</small></button><button data-mtab="line" aria-pressed="${mineTab === 'line'}">노선<small>${lineStats().filter(l => l.n).length}</small></button><button data-mtab="grade" aria-pressed="${mineTab === 'grade'}">색깔<small>${GRADE >= 0 ? `<i style="background:${GRADES[GRADE][1]}"></i>${GRADES[GRADE][0]}` : '-'}</small></button></div>`;
+    ${keepRowHTML()}<div class="tabs t5"><button data-mtab="done" aria-pressed="${mineTab === 'done'}">다녀온 곳<small>${done.length}</small></button><button data-mtab="fav" aria-pressed="${mineTab === 'fav'}">즐겨찾기<small>${fav.length}</small></button><button data-mtab="ach" aria-pressed="${mineTab === 'ach'}">업적<small>${got}</small></button><button data-mtab="line" aria-pressed="${mineTab === 'line'}">노선<small>${lineStats().filter(l => l.n).length}</small></button><button data-mtab="grade" aria-pressed="${mineTab === 'grade'}">색깔<small>${GRADE >= 0 ? `<i style="background:${GRADES[GRADE][1]}"></i>${GRADES[GRADE][0]}` : '-'}</small></button></div>`;
   const row = ({ g, i }, right) => `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${FAV.has(g.id) && mineTab !== 'fav' ? '<span class="mk">★</span>' : ''}${mineTab === 'fav' && VISITS[g.id] ? '<span class="mk done">✓</span>' : ''}</span>${right}<span class="sub">${osHTML(g)}${esc(g.station || g.sigungu)}${VISITS[g.id]?.memo ? ' · ' + esc(VISITS[g.id].memo) : ''}</span></button></li>`;
   if (mineTab === 'done') {
     const regs = REGIONS.filter(r => r.f && r.key !== 'all').map(r => { const t = all.filter(r.f).length, n = done.filter(x => !isUnv(x.g) && r.f(x.g)).length; return { l: r.label, n, t }; }).filter(r => r.t);
@@ -2113,7 +2145,7 @@ function showGuide() {
     <ul>
       ${li('★', '즐겨찾기 · 다녀왔어요', '암장 정보 패널의 버튼으로 표시해요. 다녀온 암장 지붕엔 금빛 보석이 떠요.')}
       ${li('✓', '내 기록', '오른쪽 아래 ‘✓ 내 기록’ 버튼에서 다녀온 곳·즐겨찾기 목록, 업적, 노선 도장깨기, 여권 카드(이미지)를 볼 수 있어요.')}
-      ${li('🔗', '기록은 이 브라우저에 저장', '다른 기기로 옮기거나 친구에게 자랑할 땐 ‘내 지도 링크’를 쓰세요.')}
+      ${li('🛡', '기록은 이 브라우저에 저장', '홈 화면에 추가하면 더 오래 안전해요. ‘내 기록’ → ‘기록 지키기’에서 백업 파일도 만들 수 있어요.')}
     </ul>
     <div class="gf"><label><input type="checkbox" id="guideHide"> 오늘 다시 보지 않기</label><button class="ok" id="guideOk">시작하기</button></div>
   </div>`;
@@ -2266,6 +2298,211 @@ renderer.setAnimationLoop(() => {
   renderer.render(scene, camera);
   updateLabels(); updateMePin(); spinGems();
 });
+
+
+/* ---------- P7 패치: 기록 지키기 (홈 화면 추가 · 저장 유지 요청 · 백업/불러오기) ---------- */
+const KEEP = (() => {
+  const ua = navigator.userAgent || '';
+  const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  const kakao = /KAKAOTALK/i.test(ua), inapp = kakao || /Instagram|FBAN|FBAV|NAVER\(inapp|Line\//i.test(ua);
+  const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  return { ios, kakao, inapp, standalone, prompt: null, persisted: null, asked: false, nagged: false };
+})();
+const BK_KEYS = ['cm_visits', 'cm_fav', 'cm_nick', 'cm_grade'];
+function bkData() {
+  return { cm_visits: VISITS, cm_fav: [...FAV], cm_nick: NICK || '', cm_grade: GRADE };
+}
+function bkSig() { const s = JSON.stringify(bkData()); let h = 5381; for (let i = 0; i < s.length; i++) h = (h * 33 + s.charCodeAt(i)) >>> 0; return h.toString(36); }
+function bkInfo() { try { return JSON.parse(localStorage.getItem('cm_backup') || 'null') || {}; } catch (e) { return {}; } }
+function bkMark() { try { localStorage.setItem('cm_backup', JSON.stringify({ at: kstToday(), sig: bkSig() })); } catch (e) {} }
+const bkTotal = () => Object.values(VISITS).reduce((t, v) => t + Math.max(1, v.d.length), 0);
+const daysSince = d => d ? Math.round((Date.parse(kstToday()) - Date.parse(d)) / 864e5) : Infinity;
+function bkNeed() {
+  const n = bkTotal(), f = FAV.size; if (!n && !f) return false;
+  const b = bkInfo(); if (b.sig === bkSig()) return false;
+  return b.at ? daysSince(b.at) >= 14 : (n >= 3 || f >= 5);
+}
+function keepLevel() { // 0 괜찮음 · 1 권장 · 2 주의
+  if (KEEP.inapp && (bkTotal() || FAV.size)) return 2;
+  if (bkNeed()) return KEEP.ios && !KEEP.standalone() ? 2 : 1;
+  return 0;
+}
+
+/* 저장 유지 요청: 기록이 처음 생기거나 홈 화면 앱으로 열 때만 (Firefox는 이때 허용 창을 띄움) */
+async function askPersist(force) {
+  if (!navigator.storage || !navigator.storage.persist) { KEEP.persisted = null; return null; }
+  try {
+    if (await navigator.storage.persisted()) return (KEEP.persisted = true);
+    if (!force && KEEP.asked) return KEEP.persisted;
+    KEEP.asked = true; KEEP.persisted = await navigator.storage.persist(); return KEEP.persisted;
+  } catch (e) { return null; }
+}
+if (navigator.storage && navigator.storage.persisted) navigator.storage.persisted().then(v => { KEEP.persisted = v; if (!v && KEEP.standalone()) askPersist(); }).catch(() => {});
+
+/* 기록이 바뀔 때마다: 저장 유지 요청 + 백업 알림 점 */
+function onKeepChange() {
+  if ((bkTotal() || FAV.size) && !KEEP.persisted) askPersist();
+  updateMineBtn();
+  if (!KEEP.nagged && keepLevel()) {
+    let day = ''; try { day = localStorage.getItem('cm_backup_nag') || ''; } catch (e) {}
+    if (day !== kstToday()) { KEEP.nagged = true; try { localStorage.setItem('cm_backup_nag', kstToday()); } catch (e) {} setTimeout(() => showToast('기록 백업할 때가 됐어요'), 2600); }
+  }
+}
+{ const _sv = saveVisits; saveVisits = function () { _sv(); onKeepChange(); }; }
+{ const _set = LS.set; LS.set = function (k, v) { _set.call(LS, k, v); if (k === 'cm_fav') onKeepChange(); }; }
+{ const _u = updateMineBtn; updateMineBtn = function () { _u(); mineBtn.classList.toggle('needbk', keepLevel() > 0); }; }
+
+/* 설치(홈 화면 추가) */
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); KEEP.prompt = e; if (curList === 'mine') renderMineList(); });
+addEventListener('appinstalled', () => { KEEP.prompt = null; askPersist(true); showToast('홈 화면에 추가했어요'); });
+if ('serviceWorker' in navigator && isSecureContext && /^https?:$/.test(location.protocol)) addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+
+/* 내 기록 서랍 안의 한 줄 */
+function keepRowHTML() {
+  try { KEEP; } catch (e) { return ''; }
+  const lv = keepLevel(), b = bkInfo();
+  const st = KEEP.inapp ? '앱 안 브라우저라 기록이 사라지기 쉬워요'
+    : lv ? (b.at ? `마지막 백업 ${daysSince(b.at)}일 전 · 새 기록이 있어요` : '아직 백업이 없어요')
+    : KEEP.standalone() ? `홈 화면 앱 · ${b.at ? '백업 ' + fmtVisit(b.at) : '백업 없음'}` : (b.at ? `백업 ${fmtVisit(b.at)} · 최신` : '홈 화면 추가 · 백업 파일');
+  return `<button class="keeprow lv${lv}" data-keep="open"><span class="ki" aria-hidden="true">${lv ? '!' : '🛡'}</span><span class="kt"><b>기록 지키기</b><small>${esc(st)}</small></span><span class="ka" aria-hidden="true">›</span></button>`;
+}
+
+/* 기록 지키기 시트 */
+let keepEl = null, keepPending = null;
+function openKeep() {
+  if (keepEl) keepEl.remove();
+  const g = keepEl = document.createElement('div'); g.className = 'guide keep'; g.setAttribute('role', 'dialog'); g.setAttribute('aria-modal', 'true'); g.setAttribute('aria-label', '기록 지키기');
+  document.body.append(g); drawKeep();
+  g.addEventListener('click', onKeepClick);
+  g.addEventListener('change', onKeepFile);
+  addEventListener('keydown', function escK(e) { if (e.key === 'Escape' && g.isConnected) { closeKeep(); removeEventListener('keydown', escK); } });
+}
+function closeKeep() { if (keepEl) keepEl.remove(); keepEl = null; keepPending = null; if (curList === 'mine') renderMineList(); updateMineBtn(); }
+function drawKeep() {
+  const g = keepEl; if (!g) return;
+  const b = bkInfo(), n = Object.keys(VISITS).length, sa = KEEP.standalone();
+  const li = (ic, t, d, cls = '') => `<li class="${cls}"><span class="ic" aria-hidden="true">${ic}</span><div><b>${t}</b><span class="t">${d}</span></div></li>`;
+  let inst;
+  if (sa) inst = li('✅', '홈 화면 앱으로 쓰는 중', '브라우저 탭보다 기록이 오래 안전하게 남아요.', 'kok');
+  else if (KEEP.kakao) inst = li('⚠️', '카카오톡 안에서 열려 있어요', '이 화면에서 쌓은 기록은 사라지기 쉬워요. 크롬·사파리로 열어 홈 화면에 추가하세요.<span class="kb"><button data-keep="ext">기본 브라우저로 열기</button></span>', 'kwarn');
+  else if (KEEP.inapp) inst = li('⚠️', '앱 안 브라우저예요', '오른쪽 위 메뉴(⋯)에서 ‘브라우저로 열기’를 누른 뒤 홈 화면에 추가하세요.', 'kwarn');
+  else if (KEEP.prompt) inst = li('📲', '홈 화면에 추가', '앱처럼 바로 열리고, 브라우저가 기록을 함부로 지우지 않아요.<span class="kb"><button class="go" data-keep="install">홈 화면에 추가</button></span>');
+  else if (KEEP.ios) inst = li('📲', '홈 화면에 추가 (아이폰·아이패드)', '사파리 아래쪽 <b class="sh">공유 ⬆︎</b> → <b class="sh">홈 화면에 추가</b>. 사파리는 7일 동안 안 들어오면 기록을 지울 수 있지만, 홈 화면 앱은 그렇지 않아요.')
+    + li('🔁', '추가하기 전에 꼭', '아이폰은 홈 화면 앱과 사파리가 기록을 <b>따로</b> 보관해요. 아래 <b>코드 복사</b>를 누른 뒤, 홈 화면 앱을 열어 <b>코드 붙여넣기</b> 하면 그대로 옮겨져요.', 'kwarn');
+  else inst = li('📲', '홈 화면에 추가', '브라우저 메뉴(⋮)에서 ‘홈 화면에 추가’ 또는 ‘앱 설치’를 누르세요.');
+  const ps = KEEP.persisted === true ? '보호됨 — 저장 공간이 부족해도 브라우저가 지우지 않아요' : KEEP.persisted === false ? '일반 — 저장 공간이 부족하면 지워질 수 있어요' : '이 브라우저는 확인할 수 없어요';
+  let imp = '';
+  if (keepPending) {
+    const p = keepPending, pn = Object.keys(p.cm_visits).length, pv = Object.values(p.cm_visits).reduce((t, v) => t + Math.max(1, v.d.length), 0);
+    const nw = Object.keys(p.cm_visits).filter(id => !VISITS[id]).length;
+    imp = `<div class="kprev"><b>불러온 기록</b><span>${p.cm_nick ? esc(p.cm_nick) + ' · ' : ''}다녀온 곳 ${pn}곳(${pv}회) · 즐겨찾기 ${p.cm_fav.length}곳${p._at ? ' · ' + esc(p._at) + ' 저장' : ''}</span>
+      <span class="t">지금 이 기기: 다녀온 곳 ${n}곳 · 즐겨찾기 ${FAV.size}곳 → 합치면 새로 ${nw}곳이 더해져요.</span>
+      <div class="kb"><button class="go" data-keep="merge">합치기 (권장)</button><button data-keep="replace">이 기록으로 바꾸기</button><button data-keep="cancel">취소</button></div></div>`;
+  }
+  g.innerHTML = `<div class="gc">
+    <h2>기록 지키기</h2>
+    <p class="lead">방문 기록·즐겨찾기·메모는 서버가 아니라 <b>이 브라우저 안에만</b> 저장돼요. 방문 기록 삭제, 기기 변경, 오래 안 쓰면 사라질 수 있어요.</p>
+    <div class="kstat"><span>다녀온 곳 <b>${n}</b></span><span>즐겨찾기 <b>${FAV.size}</b></span><span>마지막 백업 <b>${b.at ? esc(fmtVisit(b.at)) : '없음'}</b></span></div>
+    <h3>1. 홈 화면에 추가</h3>
+    <ul>${inst}</ul>
+    <h3>2. 백업해 두기</h3>
+    <ul>${li('💾', '백업 파일 · 코드', '파일은 카톡 ‘나와의 채팅’, 메일, 드라이브에 올려 두면 폰을 바꿔도 되살릴 수 있어요.<span class="kb"><button class="go" data-keep="export">파일로 저장</button><button data-keep="copy">코드 복사</button></span>')}</ul>
+    <h3>3. 불러오기</h3>
+    <ul>${li('📥', '다른 기기 · 예전 백업에서', '파일이나 코드를 넣으면 지금 기록과 합쳐요. 겹치는 날짜는 한 번만 셉니다.<span class="kb"><button data-keep="file">파일 불러오기</button><button data-keep="paste">코드 붙여넣기</button></span>')}</ul>
+    <div class="kpaste" ${g.dataset.paste ? '' : 'hidden'}><textarea id="keepCode" rows="3" placeholder="복사해 둔 코드(CM1:…)를 여기에 붙여넣으세요"></textarea><div class="kb"><button class="go" data-keep="readcode">확인</button></div></div>
+    ${imp}
+    <p class="kfine">저장 상태: ${ps}</p>
+    <input type="file" id="keepFile" accept=".json,application/json" hidden>
+    <div class="gf"><span class="kfine" style="margin:0">로그인 없이 쓰는 대신, 백업은 직접 챙겨 주세요.</span><button class="ok" data-keep="close">닫기</button></div>
+  </div>`;
+  if (keepPending) g.querySelector('.kprev').scrollIntoView({ block: 'center' });
+}
+const b64e = s => { const u = new TextEncoder().encode(s); let r = ''; for (let i = 0; i < u.length; i += 8192) r += String.fromCharCode.apply(null, u.subarray(i, i + 8192)); return btoa(r); };
+const b64d = s => new TextDecoder().decode(Uint8Array.from(atob(s), c => c.charCodeAt(0)));
+function bkPayload() { return JSON.stringify({ app: 'cherimlee-climbing-map', v: 1, at: new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 16).replace('T', ' '), data: bkData() }); }
+function parseBackup(txt) {
+  txt = String(txt || '').trim();
+  const m = txt.match(/CM1:([A-Za-z0-9+/=_-]+)/); if (m) txt = b64d(m[1].replace(/-/g, '+').replace(/_/g, '/'));
+  const o = JSON.parse(txt), d = o && (o.data || o);
+  if (!d || typeof d.cm_visits !== 'object') throw new Error('형식');
+  const visits = {};
+  for (const [id, v] of Object.entries(d.cm_visits || {})) {
+    if (!GYMS.some(g => g.id === id) || !v || typeof v !== 'object') continue;
+    visits[id] = { d: (Array.isArray(v.d) ? v.d : []).filter(x => /^\d{4}-\d\d-\d\d$/.test(x)).sort(), memo: typeof v.memo === 'string' ? v.memo.slice(0, 500) : '', feel: v.feel ?? null };
+  }
+  const g = parseInt(d.cm_grade, 10);
+  return { cm_visits: visits, cm_fav: (Array.isArray(d.cm_fav) ? d.cm_fav : []).filter(id => GYMS.some(x => x.id === id)), cm_nick: typeof d.cm_nick === 'string' ? d.cm_nick.slice(0, 12) : '', cm_grade: g >= 0 && g < GRADES.length ? g : -1, _at: o.at || '' };
+}
+function applyBackup(p, replace) {
+  if (replace) { for (const k of Object.keys(VISITS)) delete VISITS[k]; FAV.clear(); }
+  for (const [id, v] of Object.entries(p.cm_visits)) {
+    const cur = VISITS[id] || (VISITS[id] = { d: [], memo: '', feel: null });
+    for (const d of v.d) if (!cur.d.includes(d)) cur.d.push(d); cur.d.sort();
+    if (!cur.memo && v.memo) cur.memo = v.memo; if (cur.feel == null && v.feel != null) cur.feel = v.feel;
+  }
+  for (const id of p.cm_fav) FAV.add(id); LS.set('cm_fav', [...FAV]);
+  if (p.cm_nick && (replace || !NICK)) { NICK = p.cm_nick; try { localStorage.setItem('cm_nick', NICK); } catch (e) {} }
+  if (p.cm_grade >= 0 && (replace || GRADE < 0)) { GRADE = p.cm_grade; try { localStorage.setItem('cm_grade', String(GRADE)); } catch (e) {} }
+  refreshVisitUI(null); checkAch(null); askPersist(true);
+}
+async function exportFile() {
+  const txt = bkPayload(), name = `암장기록_${kstToday().replace(/-/g, '')}.json`;
+  const blob = new Blob([txt], { type: 'application/json' });
+  const mobile = matchMedia('(pointer:coarse)').matches;
+  try {
+    const file = new File([blob], name, { type: 'application/json' });
+    if (mobile && navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: '암장 지도 기록 백업' }); bkMark(); showToast('백업했어요'); drawKeep(); return; }
+  } catch (e) { if (e && e.name === 'AbortError') return; }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  bkMark(); showToast('백업 파일을 저장했어요'); drawKeep();
+}
+async function copyCode() {
+  const code = 'CM1:' + b64e(bkPayload());
+  let ok = false;
+  try { await navigator.clipboard.writeText(code); ok = true; } catch (e) {
+    const t = document.createElement('textarea'); t.value = code; t.style.cssText = 'position:fixed;opacity:0'; document.body.append(t); t.select();
+    try { ok = document.execCommand('copy'); } catch (er) {} t.remove();
+  }
+  if (ok) { bkMark(); showToast('코드를 복사했어요'); drawKeep(); } else showToast('복사하지 못했어요');
+}
+function onKeepClick(e) {
+  if (e.target === keepEl) { closeKeep(); return; }
+  const b = e.target.closest('[data-keep]'); if (!b) return; const a = b.dataset.keep;
+  if (a === 'close') closeKeep();
+  else if (a === 'install') { const p = KEEP.prompt; if (!p) return; p.prompt(); p.userChoice.then(() => { KEEP.prompt = null; drawKeep(); }).catch(() => {}); }
+  else if (a === 'ext') location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href.split('#')[0]);
+  else if (a === 'export') exportFile();
+  else if (a === 'copy') copyCode();
+  else if (a === 'file') keepEl.querySelector('#keepFile').click();
+  else if (a === 'paste') {
+    keepEl.dataset.paste = '1'; keepEl.querySelector('.kpaste').hidden = false;
+    const t = keepEl.querySelector('#keepCode'); t.focus();
+    if (navigator.clipboard && navigator.clipboard.readText) navigator.clipboard.readText().then(s => { if (/CM1:/.test(s) && !t.value) t.value = s; }).catch(() => {});
+  }
+  else if (a === 'readcode') { try { keepPending = parseBackup(keepEl.querySelector('#keepCode').value); delete keepEl.dataset.paste; drawKeep(); } catch (er) { showToast('코드를 읽지 못했어요'); } }
+  else if (a === 'merge' || a === 'replace') {
+    if (!keepPending) return;
+    if (a === 'replace' && Object.keys(VISITS).length && !keepEl.dataset.sure) { keepEl.dataset.sure = '1'; b.textContent = '지금 기록이 지워져요 · 한 번 더 누르기'; return; }
+    const n = Object.keys(keepPending.cm_visits).length; applyBackup(keepPending, a === 'replace'); keepPending = null; delete keepEl.dataset.sure;
+    showToast(a === 'merge' ? `${n}곳 기록을 합쳤어요` : '기록을 바꿨어요'); drawKeep();
+  }
+  else if (a === 'cancel') { keepPending = null; delete keepEl.dataset.sure; drawKeep(); }
+}
+function onKeepFile(e) {
+  if (e.target.id !== 'keepFile' || !e.target.files[0]) return;
+  const f = e.target.files[0];
+  if (f.size > 2e6) { showToast('파일이 너무 커요'); return; }
+  f.text().then(t => { keepPending = parseBackup(t); drawKeep(); }).catch(() => showToast('백업 파일이 아니에요'));
+}
+document.getElementById('rBody').addEventListener('click', e => { const k = e.target.closest('[data-keep="open"]'); if (k) { e.stopPropagation(); openKeep(); } }, true);
+updateMineBtn();
+
+/* 아이폰 홈 화면 앱을 처음 열었는데 기록이 비어 있으면: 사파리 기록 옮기기 안내 */
+if (KEEP.standalone() && !Object.keys(VISITS).length && !FAV.size) {
+  let seen = false; try { seen = !!localStorage.getItem('cm_pwa_hello'); localStorage.setItem('cm_pwa_hello', '1'); } catch (e) {}
+  if (!seen) setTimeout(() => { document.querySelector('.guide:not(.keep)')?.remove(); openKeep(); keepEl.dataset.paste = '1'; drawKeep(); keepEl.querySelector('.lead').innerHTML = '홈 화면 앱으로 처음 열었어요. <b>사파리에서 쓰던 기록</b>이 있으면 거기서 ‘코드 복사’를 한 뒤 아래에 붙여넣으세요.'; }, 900);
+}
 
 </script>
 </body>

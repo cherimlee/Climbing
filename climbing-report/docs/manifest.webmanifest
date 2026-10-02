@@ -1,0 +1,17 @@
+{
+  "name": "서울·경기 암장 지도",
+  "short_name": "암장지도",
+  "description": "서울·경기 클라이밍 암장 3D 지도 · 오늘 정모 · 내 방문 기록",
+  "lang": "ko",
+  "id": "./map.html",
+  "start_url": "./map.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f4f1ea",
+  "theme_color": "#1b2144",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
