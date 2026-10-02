@@ -3,7 +3,9 @@ name: collect-somoim
 on:
   schedule:
     - cron: "30 0 * * *"   # 09:30 KST 기상 → 09:56 수집
+    - cron: "50 0 * * *"   # 09:50 KST 예비
     - cron: "30 8 * * *"   # 17:30 KST 기상 → 17:56 수집
+    - cron: "50 8 * * *"   # 17:50 KST 예비
   workflow_dispatch:
     inputs:
       start_at:
