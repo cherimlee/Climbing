@@ -188,7 +188,7 @@ body.rlist-open .hint{display:none}
 body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 
 
-/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */
+/* ---------- P0 패치: 내 주변 · 영업중 · 공유 ---------- */ /* P1 패치 적용 */ /* P2 패치 적용 */
 .chip small{font:500 11px var(--f-mono);opacity:.7}
 .chip svg{width:13px;height:13px;flex:none}
 .chip.busy{opacity:.6;pointer-events:none}
@@ -248,6 +248,33 @@ body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 .datenav button:disabled{opacity:.35;cursor:default}
 .datenav span{font:600 12.5px var(--f-body);color:var(--ink)}
 @media (max-width:720px){.fsheet{position:fixed;left:16px;right:16px;width:auto;top:calc(176px + env(safe-area-inset-top,0px))}}
+
+/* ---------- P2 패치: 내 기록 ---------- */
+.minebtn{position:fixed;right:16px;bottom:calc(124px + env(safe-area-inset-bottom,0px));z-index:4;border:0;border-radius:999px;padding:9px 14px;background:var(--paper);box-shadow:0 2px 8px -2px rgba(27,33,68,.25);font:600 13px var(--f-body);cursor:pointer;display:inline-flex;gap:10px;align-items:center;color:var(--ink)}
+.minebtn b{font:600 13px var(--f-mono)}
+.minebtn .d{color:#14a37f}.minebtn .f{color:#d99a00}
+.minebtn[aria-pressed="true"]{background:var(--ink);color:#fff}
+.minebtn[aria-pressed="true"] .d,.minebtn[aria-pressed="true"] .f{color:#fff}
+.mine .tabs{display:flex;gap:6px;margin:8px 6px 6px}
+.mine .tabs button{flex:1;border:0;border-radius:10px;padding:8px 6px;font:600 13px var(--f-body);background:var(--chalk);cursor:pointer}
+.mine .tabs button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.mine .prog{margin:8px 6px 4px;background:var(--chalk);border-radius:12px;padding:10px 12px}
+.mine .prog .big{display:flex;align-items:baseline;gap:6px;font-size:12px;color:var(--ink-soft)}
+.mine .prog .big b{font:600 22px var(--f-mono);color:var(--ink)}
+.mine .bar{height:8px;background:#fff;border-radius:99px;overflow:hidden;margin:7px 0 8px;box-shadow:inset 0 0 0 1px var(--line)}
+.mine .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--hold-green),var(--hold-yellow),var(--hold-red));border-radius:99px}
+.mine .regs{display:flex;flex-wrap:wrap;gap:4px}
+.mine .regs span{font-size:11px;background:#fff;border-radius:7px;padding:3px 7px;color:var(--ink-soft)}
+.mine .regs span b{font:600 11px var(--f-mono);color:var(--ink)}
+.mine .regs span.full{background:#dff6ee}
+.mine .tip{font-size:12px;color:var(--ink-soft);line-height:1.6;margin:14px 8px}
+.mine .fine{font-size:11px;color:var(--ink-soft);line-height:1.5;margin:12px 6px 0}
+.ritem .dt{font:500 11px var(--f-mono);color:var(--ink-soft);grid-row:span 2;text-align:right}
+body.rlist-open.mine-open .minebtn{display:none}
+@media (max-width:720px){
+  .minebtn{bottom:calc(118px + env(safe-area-inset-bottom,0px));padding:8px 12px}
+  body.panel-open .minebtn,body.rlist-open .minebtn{display:none}
+}
 @media (max-width:720px){
   .brandcard{padding:9px 12px}
   .brandcard h1{font-size:18px}
@@ -311,6 +338,7 @@ body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
   </header>
   <div class="rbody" id="rBody"></div>
 </aside>
+<button class="minebtn" id="mineBtn" aria-pressed="false"></button>
 <button class="chip listbtn" id="listBtn">목록으로 보기</button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -862,6 +890,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
 };
 const FAV = new Set(LS.get('cm_fav')), DONE = new Set(LS.get('cm_done'));
+const DONE_AT = (() => { try { return JSON.parse(localStorage.getItem('cm_done_at') || '{}') || {}; } catch (e) { return {}; } })();
 function passF(g) {
   const f = state.f;
   if (f.fav && !FAV.has(g.id)) return false;
@@ -1014,6 +1043,7 @@ const shortPrice = g => { const m = (g.price_day || '').match(/(\d{1,3}(?:,\d{3}
 function renderRegionList(key) {
   if (key === 'meet') return renderMeetList();
   if (key === 'near') return renderNearList();
+  if (key === 'mine') return renderMineList();
   const r = REGIONS.find(x => x.key === key); if (!r || !r.f) return;
   const list = GYMS.map((g, i) => ({ g, i })).filter(({ g }) => r.f(g) && passes(g));
   document.getElementById('rTitle').textContent = r.label;
@@ -1038,11 +1068,11 @@ function renderRegionList(key) {
   document.getElementById('rBody').innerHTML = sortBar() + (html || '<p class="empty">이 조건에 맞는 암장이 없어요. 위쪽 필터를 바꿔 보세요.</p>');
 }
 function openRegionList(key) {
-  curList = key; renderRegionList(key);
+  curList = key; renderRegionList(key); document.body.classList.toggle('mine-open', key === 'mine');
   rlist.classList.add('open'); rlist.setAttribute('aria-hidden', 'false'); document.body.classList.add('rlist-open');
   document.getElementById('rBody').scrollTop = 0; updateViewOffset();
 }
-function closeRegionList() { curList = null; rlist.classList.remove('open'); rlist.setAttribute('aria-hidden', 'true'); document.body.classList.remove('rlist-open'); updateViewOffset(); }
+function closeRegionList() { document.body.classList.remove('mine-open'); curList = null; rlist.classList.remove('open'); rlist.setAttribute('aria-hidden', 'true'); document.body.classList.remove('rlist-open'); updateViewOffset(); }
 function markListSel() { rlist.querySelectorAll('.ritem').forEach(b => { const on = sel && GYMS[+b.dataset.i] === sel.g; b.setAttribute('aria-current', on); if (on) b.scrollIntoView({ block: 'nearest' }); }); }
 document.getElementById('closeRlist').onclick = closeRegionList;
 document.getElementById('rBody').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b) select(+b.dataset.i); });
@@ -1301,7 +1331,7 @@ function renderMeetList() {
     const sub = [m.day.events ? `☀️ ${m.day.events}건·${sj(m.day)}명` : '', m.eve.events ? `🌙 ${m.eve.events}건·${sj(m.eve)}명` : ''].filter(Boolean).join('  ');
     return `<li><button class="ritem" data-i="${i}" style="--c:${g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}</span><span class="mj">${m.total.joined}명</span><span class="sub">${esc(sub)} · ${esc(g.station || g.sigungu)}</span></button></li>`;
   }).join('') + '</ul>';
-  html += `<p class="meetnote">지도의 기둥: 노랑 = 낮클, 보라 = 퇴근클 참석 인원. 하루 두 번(10시·18시 직전) 자동 수집돼요. <a href="${REPORT_URL}" target="_blank" rel="noopener">정모 리포트 보기 ↗</a></p>`;
+  html += `<p class="meetnote">지붕 위 기둥은 암장 색이고, 높이 = 정모 참석 인원이에요. 아래 연한 칸 = 낮클, 위 진한 칸 = 퇴근클. 하루 두 번(10시·18시 직전) 자동 수집돼요. <a href="${REPORT_URL}" target="_blank" rel="noopener">정모 리포트 보기 ↗</a></p>`;
   document.getElementById('rBody').innerHTML = list.length ? html : '<p class="empty">수집된 정모가 없어요.</p>';
 }
 // 3D: 옥상 위 정모 기둥 (낮클 노랑 아래 · 퇴근클 보라 위, 높이 = 참석 인원)
@@ -1314,12 +1344,22 @@ function buildPillars() {
   for (const o of gymObjs) {
     const m = meetOf(o.g); if (!m) continue;
     const grpP = new THREE.Group(); grpP.position.set(0, H + .14, 0); let y = 0;
-    for (const [s, mat] of [[m.day, pillarDay], [m.eve, pillarEve]]) {
+    const [matDay, matEve] = pillarMats(o.g._col);
+    for (const [s, mat] of [[m.day, matDay], [m.eve, matEve]]) {
       const h = pillarH(s); if (!h) continue;
       const p = new THREE.Mesh(pillarGeo, mat); p.scale.y = h; p.position.y = y; p.castShadow = true; grpP.add(p); y += h + .06;
     }
     grpP.visible = false; o.grp.add(grpP); pillars.push(grpP);
   }
+}
+/* P2 패치: 기둥 색 = 암장 색. 낮클은 같은 색을 흰색에 섞은 연한 칸, 퇴근클은 원래 색 */
+const _pillarMatCache = new Map();
+function pillarMats(col) {
+  if (_pillarMatCache.has(col)) return _pillarMatCache.get(col);
+  const base = new THREE.Color(col);
+  const light = base.clone().lerp(new THREE.Color(0xffffff), .5);
+  const mk = c => new THREE.MeshStandardMaterial({ color: c, emissive: c.clone().multiplyScalar(.35), emissiveIntensity: 1, roughness: .5 });
+  const r = [mk(light), mk(base)]; _pillarMatCache.set(col, r); return r;
 }
 function setPillars(on) { pillars.forEach(p => p.visible = on); }
 function toggleMeet(on) {
@@ -1410,6 +1450,8 @@ function actsHTML(g) {
 function toggleMark(kind, id) {
   const set = kind === 'fav' ? FAV : DONE; set.has(id) ? set.delete(id) : set.add(id);
   LS.set(kind === 'fav' ? 'cm_fav' : 'cm_done', [...set]);
+  if (kind === 'done') { if (DONE.has(id)) DONE_AT[id] = kstToday(); else delete DONE_AT[id]; try { localStorage.setItem('cm_done_at', JSON.stringify(DONE_AT)); } catch (e) {} }
+  updateMineBtn();
   if (kind === 'fav' && !FAV.size) state.f.fav = false;
   showToast(kind === 'fav' ? (FAV.has(id) ? '즐겨찾기!' : '즐겨찾기 해제') : (DONE.has(id) ? `다녀온 곳 ${DONE.size}곳` : '기록 해제'));
   renderChips(); applyFilter(); if (sel) openPanel(sel.g);
@@ -1488,6 +1530,51 @@ document.getElementById('rMeta').addEventListener('click', async e => {
   const list = GYMS.filter(g => MEET.has(g.id)); if (list.length) { const [c, p] = viewBox(list, 1); flyTo(c, p); }
   if (sel) openPanel(sel.g);
 });
+
+/* ---------- P2: 내 기록 (다녀온 곳 · 즐겨찾기) ---------- */
+let mineTab = 'done';
+const mineBtn = document.getElementById('mineBtn');
+const mineBase = () => GYMS.filter(g => !isUnv(g));
+function updateMineBtn() {
+  const d = [...DONE].filter(id => GYMS.some(g => g.id === id)).length, f = FAV.size;
+  mineBtn.innerHTML = d || f ? `<span class="d">✓ <b>${d}</b>곳 다녀옴</span><span class="f">★ <b>${f}</b></span>` : '<span>✓ 내 기록</span>';
+  mineBtn.setAttribute('aria-label', `내 기록: 다녀온 곳 ${d}곳, 즐겨찾기 ${f}곳`);
+  mineBtn.setAttribute('aria-pressed', curList === 'mine');
+}
+mineBtn.onclick = () => { if (curList === 'mine') { closeRegionList(); updateMineBtn(); return; } closePanel(); openRegionList('mine'); updateMineBtn(); };
+const fmtVisit = d => { if (!d) return ''; const [, m, dd] = d.split('-').map(Number); return `${m}/${dd}`; };
+function renderMineList() {
+  const all = mineBase();
+  const done = GYMS.map((g, i) => ({ g, i })).filter(x => DONE.has(x.g.id));
+  const fav = GYMS.map((g, i) => ({ g, i })).filter(x => FAV.has(x.g.id));
+  const nDone = done.filter(x => !isUnv(x.g)).length, pct = all.length ? nDone / all.length * 100 : 0;
+  document.getElementById('rTitle').textContent = '내 클라이밍 기록';
+  document.getElementById('rMeta').innerHTML = `다녀온 곳 <b>${done.length}</b>곳 · 즐겨찾기 <b>${fav.length}</b>곳<br>이 브라우저에만 저장돼요`;
+  let html = `<div class="mine"><div class="tabs"><button data-mtab="done" aria-pressed="${mineTab === 'done'}">✓ 다녀온 곳 ${done.length}</button><button data-mtab="fav" aria-pressed="${mineTab === 'fav'}">★ 즐겨찾기 ${fav.length}</button></div>`;
+  if (mineTab === 'done') {
+    const regs = REGIONS.filter(r => r.f && r.key !== 'all').map(r => { const t = all.filter(r.f).length, n = done.filter(x => !isUnv(x.g) && r.f(x.g)).length; return { l: r.label, n, t }; }).filter(r => r.t);
+    html += `<div class="prog"><div class="big"><b>${nDone}</b>/ ${all.length}곳 · 운영중 암장의 ${pct < 1 && nDone ? pct.toFixed(1) : Math.round(pct)}%</div><div class="bar"><span style="width:${Math.min(100, pct).toFixed(1)}%"></span></div>
+      <div class="regs">${regs.map(r => `<span class="${r.n && r.n === r.t ? 'full' : ''}">${esc(r.l)} <b>${r.n}/${r.t}</b></span>`).join('')}</div></div>`;
+    const list = done.sort((a, b) => (DONE_AT[b.g.id] || '').localeCompare(DONE_AT[a.g.id] || '') || a.g.name.localeCompare(b.g.name, 'ko'));
+    html += list.length ? `<h3>최근 다녀온 순<span>${list.length}</span></h3><ul>` + list.map(({ g, i }) => `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${FAV.has(g.id) ? '<span class="mk">★</span>' : ''}</span><span class="dt">${esc(fmtVisit(DONE_AT[g.id]))}</span><span class="sub">${osHTML(g)}${esc(g.station || g.sigungu)}</span></button></li>`).join('') + '</ul>'
+      : '<p class="tip">아직 기록이 없어요.<br>암장을 눌러 정보 패널의 <b>다녀왔어요</b>를 누르면 여기에 쌓이고, 지역별로 몇 곳을 깼는지 보여드려요.</p>';
+  } else {
+    const list = fav.sort((a, b) => a.g.name.localeCompare(b.g.name, 'ko'));
+    html += list.length ? `<h3>즐겨찾기<span>${list.length}</span></h3><ul>` + list.map(({ g, i }) => `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${marks(g).replace('<span class="mk">★</span>', '')}</span><span class="pr">${state.me ? fmtKm(distKm(state.me, g)) : esc(prLabel(g))}</span><span class="sub">${osHTML(g)}${esc(g.station || g.sigungu)}</span></button></li>`).join('') + '</ul>'
+      + '<p class="fine">지도에서 즐겨찾기만 보려면 위쪽 ‘★ 즐겨찾기’ 칩을 누르세요.</p>'
+      : '<p class="tip">아직 즐겨찾기가 없어요.<br>암장 정보 패널의 <b>☆ 즐겨찾기</b>를 누르면 여기서 바로 찾아갈 수 있어요.</p>';
+  }
+  document.getElementById('rBody').innerHTML = html + '</div>';
+}
+document.getElementById('rBody').addEventListener('click', e => {
+  const t = e.target.closest('[data-mtab]'); if (!t) return; e.stopPropagation();
+  mineTab = t.dataset.mtab; renderMineList();
+  if (mineTab === 'fav') { const l = GYMS.filter(g => FAV.has(g.id)); if (l.length) { const [c, p] = viewBox(l, 1); flyTo(c, p); } }
+  else { const l = GYMS.filter(g => DONE.has(g.id)); if (l.length) { const [c, p] = viewBox(l, 1); flyTo(c, p); } }
+});
+updateMineBtn();
+// 다른 서랍이 열리고 닫힐 때 버튼 눌림 상태 맞추기
+new MutationObserver(updateMineBtn).observe(rlist, { attributes: true, attributeFilter: ['class'] });
 
 /* ---------- P0: 영업 상태 표시 ---------- */
 function ostatTag(g) { const st = openStatus(g); return st ? `<span class="ostat ${st.s === 'on' ? '' : st.s}" id="pOpen">${esc(st.label)}</span>` : (isUnv(g) ? '' : '<span class="tag" id="pOpen">운영시간 미확인</span>'); }
