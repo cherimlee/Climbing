@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>서울·경기 암장 지도</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,6 +160,33 @@ body.rlist-open .hint{display:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .fallback{position:fixed;inset:0;display:grid;place-items:center;z-index:2;font-size:14px;color:var(--ink-soft)}
 
+/* 정모 레이어 */
+.brandcard .meetline{margin-top:2px}
+.brandcard .meetline a{color:var(--ink-soft)}
+.glabel .mb{font:600 10.5px var(--f-mono);background:var(--hold-yellow);color:var(--ink);border-radius:6px;padding:1px 5px;margin-left:5px;white-space:nowrap}
+.glabel.big .mb{font-size:12px}
+.meet{background:#f1eeff;border-radius:12px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:10px}
+.meet h3{font:700 12px var(--f-body);letter-spacing:.06em;margin:0;color:#4b3fb0;display:flex;justify-content:space-between;gap:8px}
+.meet h3 small{font:500 11px var(--f-body);letter-spacing:0;color:var(--ink-soft)}
+.meet .slots{display:flex;gap:8px}
+.meet .slot{flex:1;background:#fff;border-radius:10px;padding:8px 10px;font-size:12px;color:var(--ink-soft)}
+.meet .slot b{display:block;font:600 17px var(--f-mono);color:var(--ink)}
+.meet ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.meet li{display:grid;grid-template-columns:3.4em 1fr auto;gap:2px 8px;align-items:center;background:#fff;border-radius:9px;padding:7px 9px;font-size:12.5px}
+.meet li .t{font:500 12px var(--f-mono);grid-row:span 2}
+.meet li .ti{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meet li .cr{grid-column:2;font-size:11.5px;color:var(--ink-soft);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meet li .cr a{color:inherit}
+.meet li .j{font:500 12px var(--f-mono);grid-row:span 2;text-align:right}
+.meet .fine{font-size:11px;color:var(--ink-soft);margin:0;line-height:1.5}
+.ritem .mj{font:600 11px var(--f-mono);color:var(--ink);grid-row:span 2;text-align:right;white-space:nowrap}
+.rlist .meetsum{display:flex;gap:6px;margin:8px 6px 4px}
+.rlist .meetsum span{flex:1;background:var(--chalk);border-radius:9px;padding:6px 8px;font-size:11px;color:var(--ink-soft)}
+.rlist .meetsum b{display:block;font:600 15px var(--f-mono);color:var(--ink)}
+.rlist .meetnote{font-size:11px;color:var(--ink-soft);margin:10px 6px 0;line-height:1.5}
+.rlist .meetnote a{color:var(--hold-blue)}
+body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
+
 @media (max-width:720px){
   .brandcard{padding:9px 12px}
   .brandcard h1{font-size:18px}
@@ -164,6 +196,7 @@ body.rlist-open .hint{display:none}
   .chips{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
   .chip{flex:none}
   .hint{display:none}
+  .brandcard .meetline{display:none}
   body.panel-open .tools,body.panel-open .listbtn{display:none}
   .panel{top:auto;left:8px;right:8px;width:auto;bottom:calc(8px + env(safe-area-inset-bottom,0px));height:54%;transform:translateY(calc(100% + 24px))}
   .listbtn{bottom:calc(74px + env(safe-area-inset-bottom,0px))}
@@ -177,6 +210,8 @@ body.rlist-open .hint{display:none}
 @media (prefers-reduced-motion:reduce){ .panel,.toast,.glabel{transition:none} }
 </style>
 
+</head>
+<body>
 <canvas id="scene" tabindex="0" aria-label="서울·경기 클라이밍 암장 3D 지도"></canvas>
 <div id="labels" aria-hidden="true"></div>
 <div class="fallback" id="loading">지도를 쌓는 중…</div>
@@ -191,6 +226,7 @@ body.rlist-open .hint{display:none}
   <div>
     <h1>서울·경기 암장 지도</h1>
     <p>운영중 <b id="cOpen">0</b>곳 · 확인필요 <b id="cUnv">0</b>곳 · 2026.10.1 조사</p>
+    <p class="meetline" id="meetLine" hidden></p>
   </div>
 </div>
 
@@ -696,9 +732,12 @@ const REGIONS = [
 ];
 
 /* ---------- 필터 ---------- */
-const state = { showUnv: false, type: null, q: '' };
+const state = { showUnv: false, type: null, q: '', meet: false };
+/* 소모임 정모 데이터 (data/latest.json) — gym_id로 암장과 연결 */
+const MEET = new Map(); let MEET_META = null; let MEET_EVENTS = new Map();
+const meetOf = g => MEET.get(g.id);
 const TYPE_CHIPS = [['일반 암장','일반','#ff5a5f'],['키즈 전용','키즈','#ffc933'],['공공·야외','공공','#22c39a']];
-const passes = g => (state.showUnv || !isUnv(g)) && (!state.type || g.category === state.type);
+const passes = g => (state.showUnv || !isUnv(g)) && (!state.type || g.category === state.type) && (!state.meet || MEET.has(g.id));
 const visibleGyms = () => GYMS.filter(passes);
 function applyFilter() {
   gymObjs.forEach(o => { o.grp.visible = passes(o.g) || o === sel; });
@@ -714,6 +753,11 @@ function applyFilter() {
 }
 function renderChips() {
   const el = document.getElementById('chips'); el.innerHTML = '';
+  if (MEET.size) {
+    const m = document.createElement('button'); m.className = 'chip'; m.style.setProperty('--c', '#7b61ff');
+    m.innerHTML = `<span class="dot"></span>${esc(meetDayWord())} 정모 ${MEET.size}곳`; m.setAttribute('aria-pressed', state.meet);
+    m.onclick = () => toggleMeet(!state.meet); el.append(m);
+  }
   TYPE_CHIPS.forEach(([lab, t, c]) => {
     const b = document.createElement('button'); b.className = 'chip'; b.style.setProperty('--c', c);
     b.innerHTML = `<span class="dot"></span>${lab}`; b.setAttribute('aria-pressed', state.type === t);
@@ -749,6 +793,7 @@ let curList = null;
 const groupOf = g => g.sido === '서울' ? g.sigungu : city(g);
 const shortPrice = g => { const m = (g.price_day || '').match(/(\d{1,3}(?:,\d{3})+|\d{4,})\s*원/); return m ? m[1].replace(/,000$/, '천').replace(/,(\d)00$/, '.$1천') : ''; };
 function renderRegionList(key) {
+  if (key === 'meet') return renderMeetList();
   const r = REGIONS.find(x => x.key === key); if (!r || !r.f) return;
   const list = GYMS.map((g, i) => ({ g, i })).filter(({ g }) => r.f(g) && passes(g));
   document.getElementById('rTitle').textContent = r.label;
@@ -766,7 +811,8 @@ function renderRegionList(key) {
       const sub = [g.station, g.sido === '경기' || key === 'all' ? g.sigungu : null].filter(Boolean)[0] || g.sigungu;
       const badge = g.status === '폐업예정' ? '<span class="badge soon">폐업예정</span>' : isUnv(g) ? '<span class="badge">확인필요</span>' : '';
       const kind = g.category === '키즈' ? ' · 키즈' : g.category === '공공' ? (g.venue === '실외' ? ' · 공공 야외' : ' · 공공') : '';
-      return `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${badge}</span><span class="pr">${esc(shortPrice(g))}</span><span class="sub">${esc(sub)}${kind}</span></button></li>`;
+      const mt = state.meet && meetOf(g);
+      return `<li><button class="ritem" data-i="${i}" style="--c:${isUnv(g) ? '#b8bcd3' : g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}${badge}</span>${mt ? `<span class="mj">${mt.total.joined}명</span>` : `<span class="pr">${esc(shortPrice(g))}</span>`}<span class="sub">${esc(sub)}${kind}</span></button></li>`;
     }).join('') + '</ul>';
   }
   document.getElementById('rBody').innerHTML = html || '<p class="empty">이 조건에 맞는 암장이 없어요. 위쪽 필터를 바꿔 보세요.</p>';
@@ -780,7 +826,7 @@ function closeRegionList() { curList = null; rlist.classList.remove('open'); rli
 function markListSel() { rlist.querySelectorAll('.ritem').forEach(b => { const on = sel && GYMS[+b.dataset.i] === sel.g; b.setAttribute('aria-current', on); if (on) b.scrollIntoView({ block: 'nearest' }); }); }
 document.getElementById('closeRlist').onclick = closeRegionList;
 document.getElementById('rBody').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b) select(+b.dataset.i); });
-document.getElementById('backList').onclick = () => { if (!curList) openRegionList(curRegion === 'kr' ? 'all' : curRegion); closePanel(); };
+document.getElementById('backList').onclick = () => { if (!curList) openRegionList(state.meet ? 'meet' : curRegion === 'kr' ? 'all' : curRegion); closePanel(); };
 
 /* ---------- 라벨 ---------- */
 const labelsEl = document.getElementById('labels');
@@ -789,13 +835,18 @@ function getLabel(o) {
   let el = labelPool.get(o);
   if (!el) {
     el = document.createElement('div'); el.className = 'glabel' + (o.unv ? ' unv' : ''); el.style.setProperty('--c', o.g._col);
-    el.innerHTML = `<i></i><span>${esc(o.g.name)}</span>`;
+    el.innerHTML = labelHTML(o, false);
     el.addEventListener('click', e => { e.stopPropagation(); select(gymObjs.indexOf(o)); });
     el.addEventListener('pointerenter', () => setHover(gymObjs.indexOf(o)));
     el.addEventListener('pointerleave', () => setHover(-1));
     labelsEl.append(el); labelPool.set(o, el);
   }
   return el;
+}
+function labelHTML(o, big) {
+  const m = state.meet && meetOf(o.g);
+  const mb = m ? `<em class="mb">${m.day.events ? '☀' + sj(m.day) : ''}${m.day.events && m.eve.events ? ' ' : ''}${m.eve.events ? '☾' + sj(m.eve) : ''}</em>` : '';
+  return big ? `<i></i><span>${esc(o.g.name)}${mb}<small>${esc(o.g.station || o.g.sigungu)}</small></span>` : `<i></i><span>${esc(o.g.name)}${mb}</span>`;
 }
 const ctag = document.createElement('div'); ctag.className = 'ctag'; ctag.hidden = true; labelsEl.append(ctag);
 const provLabels = Object.entries(provCenters).map(([id, c]) => {
@@ -816,14 +867,15 @@ function updateLabels() {
     const on = pv.z < 1 && Math.abs(pv.x) < 1.1 && Math.abs(pv.y) < 1.1;
     cand.push({ o, dist, sx: (pv.x * .5 + .5) * w, sy: (-pv.y * .5 + .5) * h, on });
   }
-  const maxDist = Math.min(260, camD * 1.9);
+  const maxDist = state.meet ? Infinity : Math.min(260, camD * 1.9);
   const shown = new Set(cand.filter(c => c.on && (c.dist < maxDist || c.o === sel || c.o === hov)).sort((a, b) => a.dist - b.dist).slice(0, camD < 120 ? 45 : 28).map(c => c.o));
   if (sel) shown.add(sel); if (hov) shown.add(hov);
   // 라벨끼리 겹치면 가까운 쪽만 남기기
   const rects = [];
-  const order = cand.filter(c => shown.has(c.o) && c.on).sort((a, b) => (b.o === sel) - (a.o === sel) || (b.o === hov) - (a.o === hov) || a.dist - b.dist);
+  const mj = o => state.meet ? (meetOf(o.g)?.total.joined ?? -1) : 0;
+  const order = cand.filter(c => shown.has(c.o) && c.on).sort((a, b) => (b.o === sel) - (a.o === sel) || (b.o === hov) - (a.o === hov) || mj(b.o) - mj(a.o) || a.dist - b.dist);
   for (const c of order) {
-    const wpx = (c.o === sel ? 15 : 12) * (c.o.g.name.length * .95 + 2.2), hpx = c.o === sel ? 46 : 26;
+    const wpx = (c.o === sel ? 15 : 12) * (c.o.g.name.length * .95 + 2.2 + (state.meet && meetOf(c.o.g) ? 5 : 0)), hpx = c.o === sel ? 46 : 26;
     const r = [c.sx - wpx / 2, c.sy - hpx - 6, c.sx + wpx / 2, c.sy - 4];
     if (c.o !== sel && c.o !== hov && rects.some(q => r[0] < q[2] && r[2] > q[0] && r[1] < q[3] && r[3] > q[1])) { shown.delete(c.o); continue; }
     rects.push(r);
@@ -834,9 +886,9 @@ function updateLabels() {
     if (!vis) { if (el) el.style.display = 'none'; continue; }
     el = getLabel(c.o); el.style.display = '';
     const big = c.o === sel;
-    if (big !== el.classList.contains('big')) {
-      el.classList.toggle('big', big);
-      el.innerHTML = big ? `<i></i><span>${esc(c.o.g.name)}<small>${esc(c.o.g.station || c.o.g.sigungu)}</small></span>` : `<i></i><span>${esc(c.o.g.name)}</span>`;
+    if (big !== el.classList.contains('big') || el.dataset.meet !== String(state.meet)) {
+      el.classList.toggle('big', big); el.dataset.meet = String(state.meet);
+      el.innerHTML = labelHTML(c.o, big);
     }
     el.style.transform = `translate(${c.sx}px,${c.sy}px) translate(-50%,-100%)`;
     el.style.zIndex = String(10000 - Math.round(c.dist));
@@ -891,7 +943,7 @@ function gymView(o) {
 }
 function select(i) {
   const o = gymObjs[i]; if (!o) return;
-  if (!passes(o.g)) { if (isUnv(o.g)) state.showUnv = true; state.type = null; renderChips(); applyFilter(); }
+  if (!passes(o.g)) { if (isUnv(o.g)) state.showUnv = true; state.type = null; if (state.meet && !MEET.has(o.g.id)) { state.meet = false; setPillars(false); if (curList === 'meet') closeRegionList(); } renderChips(); applyFilter(); }
   if (sel && sel !== o && !sel.unv) sel.roof.material.emissive.setHex(0);
   const from = (climber.visible && homeObj && homeObj !== o) ? homeObj : null;
   if (sel === o && (climb || travel)) { openPanel(o.g); return; }
@@ -935,6 +987,7 @@ function openPanel(g) {
   const src = (g.sources || []).filter(safeUrl);
   document.getElementById('pBody').innerHTML = `
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
+    ${meetSection(g)}
     ${g.notes ? `<p class="note">${esc(g.notes)}</p>` : ''}
     ${rows.length ? `<dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : '<p class="note">아직 수집된 상세 정보가 없어요.</p>'}
     <div class="links">${links.join('')}</div>
@@ -990,6 +1043,90 @@ document.getElementById('listBtn').onclick = openList;
 document.getElementById('closeList').onclick = closeList;
 listview.addEventListener('click', e => { if (e.target === listview) closeList(); const b = e.target.closest('button[data-i]'); if (b) { closeList(); select(+b.dataset.i); } });
 
+/* ---------- 정모 레이어 ---------- */
+const MEET_URLS = ['data/latest.json', 'https://cherimlee.github.io/Climbing/data/latest.json'];
+const REPORT_URL = 'https://cherimlee.github.io/Climbing/';
+const kstToday = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+const WK = ['일','월','화','수','목','금','토'];
+const mdLabel = d => { const [y, m, dd] = d.split('-').map(Number); return `${m}/${dd}(${WK[new Date(Date.UTC(y, m - 1, dd)).getUTCDay()]})`; };
+const meetDayWord = () => !MEET_META ? '오늘' : MEET_META.date === kstToday() ? '오늘' : mdLabel(MEET_META.date);
+const collectedHM = () => (MEET_META?.collected_at || '').slice(11, 16);
+const jn = v => v == null ? '?' : v;
+const sj = s => s.joined_unknown && !s.joined ? '?' : s.joined;
+function meetSection(g) {
+  const m = meetOf(g); if (!m) return '';
+  const evs = MEET_EVENTS.get(g.id) || [];
+  const slot = (ic, lab, s) => `<div class="slot">${ic} ${lab}<b>${s.events}건 · ${sj(s)}명</b>${s.joined_unknown ? `<span>인원 미확인 ${s.joined_unknown}건</span>` : ''}</div>`;
+  return `<div class="meet sec">
+    <h3>${esc(meetDayWord())} 소모임 정모 <small>${esc(collectedHM())} 수집</small></h3>
+    <div class="slots">${slot('☀️', '낮클', m.day)}${slot('🌙', '퇴근클', m.eve)}</div>
+    ${evs.length ? `<ol>${evs.map(e => `<li><span class="t">${esc(e.time)}</span><span class="ti" title="${esc(e.title)}">${esc(e.title)}</span><span class="j">${jn(e.joined)}${e.capacity ? '/' + e.capacity : ''}명</span><span class="cr">${safeUrl(e.crew_url) ? `<a href="${esc(e.crew_url)}" target="_blank" rel="noopener">${esc(e.crew)}</a>` : esc(e.crew)}</span></li>`).join('')}</ol>` : ''}
+    <p class="fine">소모임 크루(멤버 30명 이상)의 정모 카드에 적힌 참석 인원 집계예요. 이미 시작한 정모는 인원이 ‘?’로 남을 수 있어요. 낮클 ~16:59 · 퇴근클 17:00~</p>
+  </div>`;
+}
+function renderMeetList() {
+  const s = MEET_META?.summary || {};
+  document.getElementById('rTitle').textContent = `${meetDayWord()} 정모`;
+  document.getElementById('rMeta').innerHTML = `${esc(MEET_META ? mdLabel(MEET_META.date) : '')} <b>${esc(collectedHM())}</b> 수집 · 크루 <b>${MEET_META?.crews ?? '-'}</b>곳 기준`;
+  const list = GYMS.map((g, i) => ({ g, i, m: meetOf(g) })).filter(x => x.m).sort((a, b) => b.m.total.joined - a.m.total.joined || b.m.total.events - a.m.total.events || a.g.name.localeCompare(b.g.name, 'ko'));
+  const day = list.reduce((t, x) => t + x.m.day.joined, 0), eve = list.reduce((t, x) => t + x.m.eve.joined, 0);
+  let html = `<div class="meetsum"><span>정모<b>${s.events_total ?? '-'}건</b></span><span>암장<b>${list.length}곳</b></span><span>참석<b>${s.joined_total ?? day + eve}명</b></span></div>`;
+  html += `<div class="meetsum"><span>☀️ 낮클<b>${list.reduce((t, x) => t + x.m.day.events, 0)}건 · ${sj({ joined: day, joined_unknown: list.reduce((t, x) => t + x.m.day.joined_unknown, 0) })}명</b></span><span>🌙 퇴근클<b>${list.reduce((t, x) => t + x.m.eve.events, 0)}건 · ${eve}명</b></span></div>`;
+  html += `<h3>참석 인원 많은 순<span>${list.length}</span></h3><ul>` + list.map(({ g, i, m }) => {
+    const sub = [m.day.events ? `☀️ ${m.day.events}건·${sj(m.day)}명` : '', m.eve.events ? `🌙 ${m.eve.events}건·${sj(m.eve)}명` : ''].filter(Boolean).join('  ');
+    return `<li><button class="ritem" data-i="${i}" style="--c:${g._col}" aria-current="${sel && sel.g === g}"><i></i><span class="nm">${esc(g.name)}</span><span class="mj">${m.total.joined}명</span><span class="sub">${esc(sub)} · ${esc(g.station || g.sigungu)}</span></button></li>`;
+  }).join('') + '</ul>';
+  html += `<p class="meetnote">지도의 기둥: 노랑 = 낮클, 보라 = 퇴근클 참석 인원. 하루 두 번(10시·18시 직전) 자동 수집돼요. <a href="${REPORT_URL}" target="_blank" rel="noopener">정모 리포트 보기 ↗</a></p>`;
+  document.getElementById('rBody').innerHTML = list.length ? html : '<p class="empty">수집된 정모가 없어요.</p>';
+}
+// 3D: 옥상 위 정모 기둥 (낮클 노랑 아래 · 퇴근클 보라 위, 높이 = 참석 인원)
+const pillarGeo = new THREE.CylinderGeometry(.26, .26, 1, 10); pillarGeo.translate(0, .5, 0);
+const pillarDay = new THREE.MeshStandardMaterial({ color: 0xffc933, emissive: 0x7a5a00, emissiveIntensity: .35, roughness: .5 });
+const pillarEve = new THREE.MeshStandardMaterial({ color: 0x7b61ff, emissive: 0x2a1a8a, emissiveIntensity: .35, roughness: .5 });
+const pillars = [];
+const pillarH = s => s.events ? .5 + s.joined * .35 : 0;
+function buildPillars() {
+  for (const o of gymObjs) {
+    const m = meetOf(o.g); if (!m) continue;
+    const grpP = new THREE.Group(); grpP.position.set(0, H + .14, 0); let y = 0;
+    for (const [s, mat] of [[m.day, pillarDay], [m.eve, pillarEve]]) {
+      const h = pillarH(s); if (!h) continue;
+      const p = new THREE.Mesh(pillarGeo, mat); p.scale.y = h; p.position.y = y; p.castShadow = true; grpP.add(p); y += h + .06;
+    }
+    grpP.visible = false; o.grp.add(grpP); pillars.push(grpP);
+  }
+}
+function setPillars(on) { pillars.forEach(p => p.visible = on); }
+function toggleMeet(on) {
+  state.meet = on; setPillars(on); renderChips(); applyFilter();
+  if (on) {
+    closePanel(); openRegionList('meet');
+    const list = GYMS.filter(g => MEET.has(g.id)); if (list.length) { const [c, p] = viewBox(list, 1); flyTo(c, p); }
+  } else if (curList === 'meet') closeRegionList();
+  if (sel) openPanel(sel.g);
+}
+async function loadMeet() {
+  let doc = null;
+  for (const u of MEET_URLS) {
+    try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) { doc = await r.json(); break; } } catch (e) {}
+  }
+  if (!doc || !Array.isArray(doc.gyms)) return;
+  const ids = new Set(GYMS.map(g => g.id));
+  MEET_META = doc.meta || {};
+  for (const m of doc.gyms) if (ids.has(m.gym_id) && m.total?.events) MEET.set(m.gym_id, m);
+  MEET_EVENTS = new Map();
+  for (const e of doc.events || []) { if (!e.gym_id || !MEET.has(e.gym_id)) continue; if (!MEET_EVENTS.has(e.gym_id)) MEET_EVENTS.set(e.gym_id, []); MEET_EVENTS.get(e.gym_id).push(e); }
+  for (const l of MEET_EVENTS.values()) l.sort((a, b) => a.time.localeCompare(b.time));
+  if (!MEET.size) return;
+  buildPillars();
+  const ml = document.getElementById('meetLine');
+  ml.innerHTML = `정모 <b>${MEET_META.summary?.events_total ?? '-'}</b>건 · 참석 <b>${MEET_META.summary?.joined_total ?? '-'}</b>명 · ${esc(mdLabel(MEET_META.date))} ${esc(collectedHM())} 수집 · <a href="${REPORT_URL}" target="_blank" rel="noopener">리포트</a>`;
+  ml.hidden = false; document.body.classList.add('has-meet');
+  renderChips();
+  if (sel) openPanel(sel.g);
+  if (new URLSearchParams(location.search).has('meet') || location.hash === '#meet') setTimeout(() => toggleMeet(true), 450);
+}
+
 /* ---------- 시작 ---------- */
 document.getElementById('cOpen').textContent = GYMS.filter(g => !isUnv(g)).length;
 document.getElementById('cUnv').textContent = GYMS.filter(isUnv).length;
@@ -1001,6 +1138,7 @@ renderChips(); applyFilter();
   setTimeout(() => flyTo(c, p, 2.6), 350);
 }
 document.getElementById('loading').remove();
+loadMeet();
 
 function updateViewOffset() {
   const w = innerWidth, h = innerHeight;
@@ -1033,3 +1171,5 @@ renderer.setAnimationLoop(() => {
 });
 
 </script>
+</body>
+</html>
