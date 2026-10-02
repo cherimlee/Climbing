@@ -247,6 +247,10 @@ body.has-meet .rlist{top:calc(116px + env(safe-area-inset-top,0px))}
 .ritem .os.on{color:#14a37f}.ritem .os.soon{color:#c06f00}.ritem .os.off{color:#8a8fb0}.ritem .os.maybe{color:#b07a00}
 .links a.share{background:var(--ink);color:#fff;box-shadow:none;cursor:pointer}
 .links a.share:hover{background:#2c3466}
+.links a.route{background:var(--hold-yellow);box-shadow:none}
+.links a.route:hover{background:#ffd75c}
+.links a.call{background:var(--ok);color:#fff;box-shadow:none}
+dl.info a.tel{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .mepin{position:absolute;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#3d7bff;border:3px solid #fff;box-sizing:border-box;box-shadow:0 0 0 0 rgba(61,123,255,.55),0 3px 10px rgba(0,0,0,.35);z-index:10002;pointer-events:none;animation:mepulse 1.8s infinite}
 .mepin span{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:#3d7bff;color:#fff;font:700 11px var(--f-body);border-radius:999px;padding:3px 8px;white-space:nowrap}
 @keyframes mepulse{0%{box-shadow:0 0 0 0 rgba(61,123,255,.55),0 3px 10px rgba(0,0,0,.35)}70%{box-shadow:0 0 0 16px rgba(61,123,255,0),0 3px 10px rgba(0,0,0,.35)}100%{box-shadow:0 0 0 0 rgba(61,123,255,0),0 3px 10px rgba(0,0,0,.35)}}
@@ -1576,10 +1580,13 @@ function openPanel(g) {
   const unv = isUnv(g);
   const kindTag = g.audience ? '키즈·여성 전용' : g.category === '키즈' ? '키즈 전용' : g.category === '공공' ? (g.venue === '실외' ? '공공 · 야외' : '공공 · 실내') : null;
   document.getElementById('pTags').innerHTML = `<span class="status${unv ? ' unv' : g.status === '폐업예정' ? ' soon' : ''}">${esc(g.status)}</span>` + (kindTag ? `<span class="tag">${kindTag}</span>` : '') + (g.type || []).slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join('') + (g.opened ? `<span class="tag">${esc(g.opened)} 개장</span>` : '') + ostatTag(g) + setTag(g);
-  const rows = [...(state.me ? [['내 위치에서', `직선 ${fmtKm(distKm(state.me, g))}`]] : []), ['이용 대상', g.audience], ['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day ? g.price_day + (priceIsLesson(g) ? ' · 자유이용권이 아닌 체험·강습 가격' : '') : null], ['회원권·강습', g.price_other ? (priceTableHTML(g.price_other) ? { html: priceTableHTML(g.price_other) } : g.price_other) : null], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', settingRow(g)], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
+  const rows = [...(state.me ? [['내 위치에서', `직선 ${fmtKm(distKm(state.me, g))}`]] : []), ['이용 대상', g.audience], ['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day ? g.price_day + (priceIsLesson(g) ? ' · 자유이용권이 아닌 체험·강습 가격' : '') : null], ['회원권·강습', g.price_other ? (priceTableHTML(g.price_other) ? { html: priceTableHTML(g.price_other) } : g.price_other) : null], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', settingRow(g)], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone ? { html: `<a class="tel" href="tel:${esc(String(g.phone).replace(/[^0-9+]/g, ''))}">${esc(g.phone)}</a>` } : null], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
   const gi = GYMS.indexOf(g);
   const near = GYMS.map((h, i) => ({ h, i, d: Math.hypot((h.lat - g.lat) * 111, (h.lng - g.lng) * 111 * COS) })).filter(x => x.i !== gi && passes(x.h)).sort((a, b) => a.d - b.d).slice(0, 4);
   const links = [];
+  // 길찾기(카카오맵 도착지 링크)와 전화 걸기는 맨 앞에 — 전화 버튼은 폰에서만
+  if (g.lat && g.lng) links.push(`<a class="route" href="https://map.kakao.com/link/to/${encodeURIComponent(g.name.replace(/,/g, ' '))},${g.lat},${g.lng}" target="_blank" rel="noopener">길찾기</a>`);
+  if (g.phone && matchMedia('(pointer:coarse)').matches) links.push(`<a class="call" href="tel:${esc(String(g.phone).replace(/[^0-9+]/g, ''))}">전화 걸기</a>`);
   if (g.instagram && igUrl(g.instagram)) links.push(`<a class="ig" href="${igUrl(g.instagram)}" target="_blank" rel="noopener">인스타 ${esc(g.instagram.startsWith('@') ? g.instagram : '@' + g.instagram)}</a>`);
   if (safeUrl(g.website)) links.push(`<a href="${esc(g.website)}" target="_blank" rel="noopener">웹사이트</a>`);
   if (safeUrl(g.naver_map)) links.push(`<a href="${esc(g.naver_map)}" target="_blank" rel="noopener">네이버지도</a>`);
