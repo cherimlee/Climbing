@@ -1,0 +1,52 @@
+name: check-gyms
+
+# 암장 정보 정기 점검 → 후보를 climbing-report/checks/ 에 보고서로 저장 + GitHub 이슈로 알림
+# (DB는 고치지 않음. 확인 후 반영)
+on:
+  schedule:
+    # GitHub cron은 UTC 기준(KST = UTC+9). 예약은 몇십 분 늦게 시작할 수 있음.
+    - cron: "17 5 25 * *"    # 매월 25일 14:17 KST — 월간 점검
+    - cron: "17 5 15 12 *"   # 12월 15일 14:17 KST — 연말연시 점검
+    - cron: "17 5 * * 1"     # 매주 월요일 14:17 KST — 설·추석 연휴 8~14일 전이면 명절 점검(아니면 바로 종료)
+  workflow_dispatch:         # Actions 탭에서 수동 실행
+    inputs:
+      mode:
+        description: "점검 종류"
+        type: choice
+        default: monthly
+        options: [monthly, holiday, yearend]
+
+permissions:
+  contents: write            # 보고서 커밋
+  issues: write              # 알림 이슈 만들기
+
+concurrency:
+  group: check-gyms
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: climbing-report
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python check_gyms.py
+        env:
+          MODE: ${{ github.event.inputs.mode || 'auto' }}
+          SCHEDULE: ${{ github.event.schedule }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash || true
+          git add checks || true
+          git diff --cached --quiet || git commit -m "check: $(TZ=Asia/Seoul date +'%Y-%m-%d') 암장 정보 점검"
+          git push
