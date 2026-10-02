@@ -107,6 +107,19 @@ button{font-family:inherit;color:inherit}
 dl.info{margin:0;display:grid;grid-template-columns:5.2em 1fr;gap:9px 12px;font-size:13.5px;line-height:1.5}
 dl.info dt{color:var(--ink-soft);font-weight:600}
 dl.info dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.kprice{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:6px;margin:0 0 14px}
+.kprice div{background:var(--chalk);border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.kprice span{font-size:11.5px;color:var(--ink-soft);font-weight:600}
+.kprice b{font:600 15px var(--f-mono);letter-spacing:-.02em}
+.kprice small{font-size:11px;color:var(--ink-soft)}
+table.ptab{border-collapse:collapse;width:100%;font-size:13px}
+table.ptab tr+tr{border-top:1px solid var(--line)}
+table.ptab th{text-align:left;font-weight:500;padding:4px 8px 4px 0;vertical-align:top}
+table.ptab td{text-align:right;padding:4px 0;white-space:nowrap;vertical-align:top}
+table.ptab td b{font:600 13px var(--f-mono)}
+table.ptab td small{display:block;font-size:11px;color:var(--ink-soft);white-space:normal}
+table.ptab td.pn{text-align:left;white-space:normal;color:var(--ink-soft)}
+p.pfoot{margin:4px 0 0;font-size:11px;color:var(--ink-soft)}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .links a{display:flex;align-items:center;gap:8px;justify-content:center;text-decoration:none;color:var(--ink);font:600 13px var(--f-body);border-radius:10px;padding:10px;background:var(--chalk);box-shadow:inset 0 0 0 1px var(--line)}
 .links a:hover{background:#e6eaff}
@@ -1099,6 +1112,73 @@ function priceWon(g) {
 }
 const priceIsLesson = g => /체험|강습/.test(g.price_day || '') && !/이용권|자유이용|1일 이용|일일 이용|일일이용|1일권|일일권|1일 자유|하루이용|1일 사용/.test(g.price_day || '');
 const wonShort = w => w == null ? '' : w === 0 ? '무료' : w >= 10000 ? (w / 10000).toFixed(w % 1000 ? 2 : 1).replace(/\.?0+$/, '') + '만' : (w / 1000).toFixed(1).replace(/\.0$/, '') + '천';
+/* ---------- 회원권·강습 가격: 긴 글을 항목별 표로 ---------- */
+// 괄호 안은 건드리지 않고 구분자로 나누기
+function splitTop(s, re) {
+  const out = []; let depth = 0, cur = '';
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    if (ch === '(') depth++; else if (ch === ')') depth = Math.max(0, depth - 1);
+    const m = depth === 0 && s.slice(i).match(re);
+    if (m && m.index === 0) { out.push(cur); cur = ''; i += m[0].length - 1; continue; }
+    cur += ch;
+  }
+  out.push(cur); return out.map(x => x.trim()).filter(Boolean);
+}
+// 130,000원 · 130,000 · 16만원 · 27,000~56,000
+const PRICE_RE = /(\d{1,3}(?:,\d{3})+(?:\s*~\s*\d{1,3}(?:,\d{3})+)?)\s*원?|(\d{4,})\s*원|(\d+(?:\.\d+)?만)\s*원/;
+const priceOf = m => (m[1] || m[2] || m[3]).replace(/\s+/g, '') + '원';
+const priceCount = s => (String(s).replace(/\([^)]*\)/g, '').match(new RegExp(PRICE_RE.source, 'g')) || []).length;
+function parsePrices(text) {
+  let s = String(text || '').trim(), foot = [];
+  // 끝에 붙은 출처·날짜 "(2026-08)", "— 전 지점 공용 (2026)" 은 표 아래 작은 글씨로
+  for (let k = 0; k < 3; k++) {
+    let m = s.match(/\s*\(([^()]*\d{4}[^()]*)\)\s*$/);
+    if (m && !PRICE_RE.test(m[1])) { foot.unshift(m[1]); s = s.slice(0, m.index).trim(); continue; }
+    m = s.match(/\s+—\s+([^—]+)$/);
+    if (m && !PRICE_RE.test(m[1])) { foot.unshift(m[1].trim()); s = s.slice(0, m.index).trim(); continue; }
+    break;
+  }
+  const rows = [];
+  for (const item of splitTop(s, /^\s*[\/;]\s+|^;/)) {
+    let first = null;
+    // 한 항목에 가격이 여럿이면 "·", ", " 로 더 나누기
+    for (const seg of priceCount(item) > 1 ? splitTop(item, /^·|^,\s/) : [item]) {
+      const m = seg.match(PRICE_RE);
+      if (!m) { rows.push({ label: seg, price: '', note: '' }); continue; }
+      let label = seg.slice(0, m.index).replace(/[\s:·,]+$/, '').trim();
+      // "키즈반 주1회 9만·주2회 14만" → 두 번째도 "키즈반 주2회"
+      if (first && /\s/.test(first) && label && !/\s/.test(label)) label = first.replace(/\s+\S+$/, '') + ' ' + label;
+      if (!first) first = label;
+      rows.push({ label, price: priceOf(m), note: seg.slice(m.index + m[0].length).trim().replace(/^\((.*)\)$/, '$1') });
+    }
+  }
+  return { rows, foot: foot.join(' · ') };
+}
+// 비교용 핵심 가격: 1일 · 10회권(회당) · 1개월
+function keyPrices(g) {
+  const won = t => +String(t).replace(/,/g, '');
+  const all = `${g.price_other || ''}`;
+  const out = [];
+  const d = priceWon(g); if (d != null && !priceIsLesson(g)) out.push(['1일', d === 0 ? '무료' : d.toLocaleString() + '원']);
+  // 항목 맨 앞에 오는 것만 (강습반 '1개월'·크루 '10회' 같은 건 빼요)
+  let m = all.match(/(?:^|[\/;]\s*|·)(?:성인\s*)?10회(?:권|\s*이용권)?(?:\([^)]*\))?\s*(?:성인\s*)?(\d{1,3}(?:,\d{3})+)\s*원?/);
+  if (m) out.push(['10회권', won(m[1]).toLocaleString() + '원', `회당 ${Math.round(won(m[1]) / 10).toLocaleString()}원`]);
+  m = all.match(/(?:^|[\/;]\s*)(?:회원권\s*|자유이용\s*|정기권\s*|성인\s*)?(?:1개월|30일)(?:권|\s*이용권|\s*자유이용권|\s*정기권)?\s*(?:성인\s*)?(\d{1,3}(?:,\d{3})+)\s*원?/);
+  if (m) out.push(['1개월', won(m[1]).toLocaleString() + '원']);
+  return out;
+}
+function keyPricesHTML(g) {
+  const k = keyPrices(g); if (k.length < 2) return '';
+  return `<div class="kprice" aria-label="핵심 가격">${k.map(([l, v, sub]) => `<div><span>${l}</span><b>${esc(v)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div>`).join('')}</div>`;
+}
+function priceTableHTML(text) {
+  const { rows, foot } = parsePrices(text);
+  if (rows.length < 2) return null;
+  return `<table class="ptab">${rows.map(r => r.price
+    ? `<tr><th>${esc(r.label || '이용')}</th><td><b>${esc(r.price)}</b>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td></tr>`
+    : `<tr><td colspan="2" class="pn">${esc(r.label)}</td></tr>`).join('')}</table>${foot ? `<p class="pfoot">${esc(foot)}</p>` : ''}`;
+}
 function hasAny(g, re, fac) { return (g.type || []).some(t => re.test(t)) || (!!fac && (g.facilities || []).some(t => re.test(t))); }
 function sportDefs() { return [
   ['볼더링', g => hasAny(g, /볼더링/)],
@@ -1496,7 +1576,7 @@ function openPanel(g) {
   const unv = isUnv(g);
   const kindTag = g.audience ? '키즈·여성 전용' : g.category === '키즈' ? '키즈 전용' : g.category === '공공' ? (g.venue === '실외' ? '공공 · 야외' : '공공 · 실내') : null;
   document.getElementById('pTags').innerHTML = `<span class="status${unv ? ' unv' : g.status === '폐업예정' ? ' soon' : ''}">${esc(g.status)}</span>` + (kindTag ? `<span class="tag">${kindTag}</span>` : '') + (g.type || []).slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join('') + (g.opened ? `<span class="tag">${esc(g.opened)} 개장</span>` : '') + ostatTag(g) + setTag(g);
-  const rows = [...(state.me ? [['내 위치에서', `직선 ${fmtKm(distKm(state.me, g))}`]] : []), ['이용 대상', g.audience], ['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day ? g.price_day + (priceIsLesson(g) ? ' · 자유이용권이 아닌 체험·강습 가격' : '') : null], ['회원권·강습', g.price_other], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', settingRow(g)], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
+  const rows = [...(state.me ? [['내 위치에서', `직선 ${fmtKm(distKm(state.me, g))}`]] : []), ['이용 대상', g.audience], ['주소', g.address], ['교통', g.station], ['운영시간', g.hours], ['휴무', g.closed], ['1일 이용', g.price_day ? g.price_day + (priceIsLesson(g) ? ' · 자유이용권이 아닌 체험·강습 가격' : '') : null], ['회원권·강습', g.price_other ? (priceTableHTML(g.price_other) ? { html: priceTableHTML(g.price_other) } : g.price_other) : null], ['대여', g.rental], ['시설', (g.facilities || []).join(', ')], ['주차', g.parking], ['세팅', settingRow(g)], ['난이도', g.grade_system], ['규모', g.size], ['전화', g.phone], ['예약', g.booking], ['운영 확인', [g.status_note, g.last_activity ? `마지막 활동 ${g.last_activity}` : null].filter(Boolean).join(' · ')]].filter(r => r[1]);
   const gi = GYMS.indexOf(g);
   const near = GYMS.map((h, i) => ({ h, i, d: Math.hypot((h.lat - g.lat) * 111, (h.lng - g.lng) * 111 * COS) })).filter(x => x.i !== gi && passes(x.h)).sort((a, b) => a.d - b.d).slice(0, 4);
   const links = [];
@@ -1510,7 +1590,8 @@ function openPanel(g) {
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
     ${actsHTML(g)}
     ${g.notes ? `<p class="note">${esc(g.notes)}</p>` : ''}
-    ${rows.length ? `<dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : '<p class="note">아직 수집된 상세 정보가 없어요.</p>'}
+    ${keyPricesHTML(g)}
+    ${rows.length ? `<dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v?.html ?? esc(v)}</dd>`).join('')}</dl>` : '<p class="note">아직 수집된 상세 정보가 없어요.</p>'}
     <div class="links">${links.join('')}</div>
     ${meetSection(g)}
     <div id="pHist">${histSection(g)}</div>
