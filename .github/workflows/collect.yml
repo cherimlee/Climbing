@@ -1,6 +1,8 @@
 name: collect-somoim
 
 on:
+  # 정시 실행은 Cloudflare 워커 크론(worker.js)이 workflow_dispatch로 깨움.
+  # 아래 GitHub 예약은 예비용: GitHub 예약은 몇 시간씩 늦거나 건너뛸 수 있음.
   schedule:
     - cron: "30 0 * * *"   # 09:30 KST 기상 → 09:56 수집
     - cron: "50 0 * * *"   # 09:50 KST 예비
@@ -46,10 +48,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash || true
           git add docs
-          git diff --cached --quiet || git commit -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          # 수집 중에 다른 커밋(파일 업로드 등)이 올라와도 push가 실패하지 않도록 재시도
+          for i in 1 2 3 4 5; do
+            git pull --rebase && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
