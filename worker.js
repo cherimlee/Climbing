@@ -1,4 +1,4 @@
-// climbing-island 워커
+// climbing 워커
 // - 평소 요청: climbing-report/docs 정적 파일을 그대로 돌려줌
 // - 예약 실행(Cron Triggers): GitHub Actions의 collect-somoim 워크플로를 깨움
 //   GitHub 자체 예약(schedule)은 몇 시간씩 늦거나 건너뛰는 일이 잦아서, 정시에 도는 Cloudflare 크론으로 대신 호출함
@@ -24,7 +24,7 @@ async function dispatch(env) {
       Authorization: `Bearer ${env.GH_TOKEN}`,
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "climbing-island-cron",
+      "User-Agent": "climbing-cron",
     },
     body: JSON.stringify({ ref: "main", inputs: { start_at: "auto" } }),
   });
