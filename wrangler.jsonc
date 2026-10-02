@@ -1,6 +1,6 @@
 {
   // Cloudflare Workers 배포 설정 — GitHub 저장소 맨 위(루트)에 업로드
-  "name": "climbing",
+  "name": "climbing-island",
   "compatibility_date": "2026-10-01",
   "main": "worker.js",
   "assets": {
