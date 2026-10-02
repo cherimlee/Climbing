@@ -1408,7 +1408,6 @@ function openPanel(g) {
   if (safeUrl(g.naver_map)) links.push(`<a href="${esc(g.naver_map)}" target="_blank" rel="noopener">네이버지도</a>`);
   if (g.kakao_map) links.push(`<a href="${esc(kakaoUrl(g.kakao_map))}" target="_blank" rel="noopener">카카오맵</a>`);
   links.push(`<a href="#${esc(g.id)}" class="share" data-share="${esc(g.id)}">링크 공유</a>`);
-  links.push(`<a href="${esc(fixUrl(g))}" class="fix" target="_blank" rel="noopener">정보 수정 제보</a>`);
   const src = (g.sources || []).filter(safeUrl);
   document.getElementById('pBody').innerHTML = `
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
@@ -1479,6 +1478,7 @@ const meetDayWord = () => !MEET_META ? '오늘' : MEET_META.date === kstToday() 
 const collectedHM = () => (MEET_META?.collected_at || '').slice(11, 16);
 const jn = v => v == null ? '?' : v;
 const sj = s => s.joined_unknown && !s.joined ? '?' : s.joined;
+/* P11: 정모별 제목·크루 목록은 표시하지 않음 (개수·인원만) */
 function meetSection(g) {
   const m = meetOf(g); if (!m) return '';
   const evs = MEET_EVENTS.get(g.id) || [];
@@ -1486,7 +1486,6 @@ function meetSection(g) {
   return `<div class="meet sec">
     <h3>${esc(meetDayWord())} 소모임 정모 <small>${esc(collectedHM())} 수집</small></h3>
     <div class="slots">${slot('☀️', '낮클', m.day)}${slot('🌙', '퇴근클', m.eve)}</div>
-    ${evs.length ? `<ol>${evs.map(e => `<li><span class="t">${esc(e.time)}</span><span class="ti" title="${esc(e.title)}">${esc(e.title)}</span><span class="j">${jn(e.joined)}${e.capacity ? '/' + e.capacity : ''}명</span><span class="cr">${safeUrl(e.crew_url) ? `<a href="${esc(e.crew_url)}" target="_blank" rel="noopener">${esc(e.crew)}</a>` : esc(e.crew)}</span></li>`).join('')}</ol>` : ''}
     <p class="fine">소모임 크루(멤버 30명 이상)의 정모 카드에 적힌 참석 인원 집계예요. 이미 시작한 정모는 인원이 ‘?’로 남을 수 있어요. 낮클 ~16:59 · 퇴근클 17:00~</p>
   </div>`;
 }
@@ -2068,15 +2067,16 @@ async function drawPassport() {
 const todayBtn = document.getElementById('todayBtn');
 todayBtn.onclick = () => { if (curList === 'today') { closeRegionList(); return; } closePanel(); openRegionList('today'); };
 new MutationObserver(() => todayBtn.setAttribute('aria-pressed', curList === 'today')).observe(rlist, { attributes: true, attributeFilter: ['class'] });
-const RO = { open: true, fresh: true, near: false, filt: false }; let roPick = null, roSpinning = false;
+const RO = { open: true, fresh: true, near: false, set7: false, filt: false }; /* P12: 7일 이내 뉴셋 */
+const newSet7 = g => { const a = settingAge(g); return !!a && !a.bi && a.ago <= 6; }; let roPick = null, roSpinning = false;
 function roCands() {
-  return GYMS.map((g, i) => ({ g, i })).filter(({ g }) => !isUnv(g) && g.category !== '키즈' && g.status !== '폐업예정' && (!RO.open || isOpenNow(g)) && (!RO.fresh || !VISITS[g.id]) && (!RO.near || (state.me && distKm(state.me, g) <= 10)) && (!RO.filt || passes(g)));
+  return GYMS.map((g, i) => ({ g, i })).filter(({ g }) => !isUnv(g) && g.category !== '키즈' && g.status !== '폐업예정' && (!RO.open || isOpenNow(g)) && (!RO.fresh || !VISITS[g.id]) && (!RO.near || (state.me && distKm(state.me, g) <= 10)) && (!RO.set7 || newSet7(g)) && (!RO.filt || passes(g)));
 }
 function roWhy(g) {
   const w = []; const st = openStatus(g); if (st) w.push(st.label);
   if (state.me) w.push(fmtKm(distKm(state.me, g)));
   w.push(VISITS[g.id] ? `${visitN(g.id)}회 가 봄` : '안 가본 곳');
-  if (isFresh(g)) w.push(settingAge(g).ago === 0 ? '오늘 세팅' : '새 세팅');
+  if (newSet7(g)) { const a = settingAge(g).ago; w.push(a === 0 ? '오늘 세팅' : `${a}일 전 세팅`); }
   const p = prLabel(g); if (p) w.push(p);
   const m = meetOf(g); if (m && MEET_META?.date === kstToday()) w.push(`오늘 정모 ${m.total.events}건`);
   return w;
@@ -2086,7 +2086,7 @@ function renderTodayList() {
   document.getElementById('rTitle').textContent = '오늘의 클라이밍';
   document.getElementById('rMeta').innerHTML = `${esc(mdLabel(kstToday()))} · 지금 영업중 <b>${GYMS.filter(g => !isUnv(g) && isOpenNow(g)).length}</b>곳`;
   const pk = roPick != null ? GYMS[roPick] : null;
-  let html = `<div class="today"><div class="ro"><h4>🎲 오늘 어디 가지?</h4><div class="opts">${opt('open', '영업중만')}${opt('fresh', '안 가본 곳')}${opt('near', state.me ? '10km 이내' : '10km 이내 (위치 켜기)')}${opt('filt', '지금 필터 적용')}</div>
+  let html = `<div class="today"><div class="ro"><h4>🎲 오늘 어디 가지?</h4><div class="opts">${opt('open', '영업중만')}${opt('fresh', '안 가본 곳')}${opt('near', state.me ? '10km 이내' : '10km 이내 (위치 켜기)')}${opt('set7', '7일 이내 뉴셋')}${opt('filt', '지금 필터 적용')}</div>
     <div class="roslot" id="roSlot">${pk ? `<div class="nm"><i style="--c:${pk._col}"></i>${esc(pk.name)}</div><div class="why">${roWhy(pk).map(w => `<span>${esc(w)}</span>`).join('')}</div>` : `<div class="sub">후보 <b>${c.length}</b>곳 중에서 골라 드려요</div>`}</div>
     <div class="rob"><button data-ro="spin" ${c.length && !roSpinning ? '' : 'disabled'}>${pk ? '다시 돌리기' : '돌리기'}</button>${pk ? '<button class="go" data-ro="go">여기 가 볼래요</button>' : ''}</div></div>`;
   const op = GYMS.map((g, i) => ({ g, i })).filter(x => !isUnv(x.g));
