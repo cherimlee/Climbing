@@ -46,7 +46,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --autostash || true
-          git add checks || true
-          git diff --cached --quiet || git commit -m "check: $(TZ=Asia/Seoul date +'%Y-%m-%d') 암장 정보 점검"
-          git push
+          git add checks 2>/dev/null || exit 0      # 명절 점검 시기가 아니면 보고서 없음
+          git diff --cached --quiet && exit 0
+          git commit -m "check: $(TZ=Asia/Seoul date +'%Y-%m-%d') 암장 정보 점검"
+          # 같은 때 sync-map-data·collect가 커밋해도 밀리지 않게 재시도
+          for i in 1 2 3 4 5; do
+            git pull --rebase && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
