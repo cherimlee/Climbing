@@ -2,9 +2,11 @@ name: check-gyms
 
 # 암장 정보 정기 점검 → 후보를 climbing-report/checks/ 에 보고서로 저장 + GitHub 이슈로 알림
 # (DB는 고치지 않음. 확인 후 반영)
+# 정시 실행은 Cloudflare 워커 크론(worker.js, 09:30 KST)이 workflow_dispatch로 깨움.
+# 아래 GitHub 예약은 예비용: GitHub 예약은 몇 시간씩 늦거나 건너뛸 수 있음. 이미 점검했으면 바로 종료.
 on:
   schedule:
-    # GitHub cron은 UTC 기준(KST = UTC+9). 예약은 몇십 분 늦게 시작할 수 있음.
+    # GitHub cron은 UTC 기준(KST = UTC+9).
     - cron: "17 5 25 * *"    # 매월 25일 14:17 KST — 월간 점검
     - cron: "17 5 15 12 *"   # 12월 15일 14:17 KST — 연말연시 점검
     - cron: "17 5 * * 1"     # 매주 월요일 14:17 KST — 설·추석 연휴 8~14일 전이면 명절 점검(아니면 바로 종료)
@@ -14,7 +16,10 @@ on:
         description: "점검 종류"
         type: choice
         default: monthly
-        options: [monthly, holiday, yearend]
+        options: [monthly, holiday, yearend, auto]
+      schedule:
+        description: "auto일 때 어느 예약인지 (워커가 채움, 비워 두면 날짜로 판단)"
+        default: ""
 
 permissions:
   contents: write            # 보고서 커밋
@@ -40,7 +45,7 @@ jobs:
       - run: python check_gyms.py
         env:
           MODE: ${{ github.event.inputs.mode || 'auto' }}
-          SCHEDULE: ${{ github.event.schedule }}
+          SCHEDULE: ${{ github.event.schedule || github.event.inputs.schedule }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit report
         run: |
