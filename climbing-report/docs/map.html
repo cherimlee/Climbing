@@ -2369,7 +2369,7 @@ function roAction(k) {
     const o = k.slice(4);
     if (o === 'near' && !state.me && !RO.near) {
       if (!navigator.geolocation) { showToast('위치 기능이 없어요'); return; }
-      navigator.geolocation.getCurrentPosition(p => { state.me = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy }; RO.near = true; roPick = null; renderTodayList(); }, err => showToast(err.code === 1 ? '위치 권한을 허용해 주세요' : '위치를 찾지 못했어요'), { timeout: 12000, maximumAge: 120000 });
+      navigator.geolocation.getCurrentPosition(p => { rememberLoc(true); state.me = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy }; RO.near = true; roPick = null; renderTodayList(); }, err => showToast(err.code === 1 ? '위치 권한을 허용해 주세요' : '위치를 찾지 못했어요'), { timeout: 12000, maximumAge: 120000 });
       return;
     }
     RO[o] = !RO[o]; roPick = null; renderTodayList(); return;
@@ -2490,7 +2490,7 @@ function locateMe() {
   if (locating) return;
   locating = true; renderChips();
   navigator.geolocation.getCurrentPosition(p => {
-    locating = false;
+    locating = false; rememberLoc(true);
     state.me = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy };
     closePanel(); openRegionList('near'); renderChips();
     const near = GYMS.filter(passes).sort((a, b) => distKm(state.me, a) - distKm(state.me, b)).slice(0, 5);
@@ -2498,8 +2498,37 @@ function locateMe() {
     const [c, pos] = viewBox(pts, 1); flyTo(c, pos);
   }, err => {
     locating = false; renderChips();
+    if (err.code === 1) rememberLoc(false);
     showToast(err.code === 1 ? '위치 권한을 허용해 주세요' : '위치를 찾지 못했어요');
   }, { enableHighAccuracy: false, timeout: 12000, maximumAge: 120000 });
+}
+/* 위치 권한을 한 번 허용했다면, 다음부터는 들어올 때 내 위치를 중심으로 지도를 펼쳐요 (네이버지도처럼).
+   허용한 적이 없으면 들어올 때 권한을 묻지 않고, 원래처럼 수도권 전체 화면으로 시작해요. */
+function rememberLoc(ok) { try { if (ok) localStorage.setItem('cm_loc_ok', '1'); else localStorage.removeItem('cm_loc_ok'); } catch (e) {} }
+async function autoLocate() {
+  if (!navigator.geolocation) return;
+  let ok = false; try { ok = localStorage.getItem('cm_loc_ok') === '1'; } catch (e) {}
+  let perm = '';
+  try { if (navigator.permissions?.query) perm = (await navigator.permissions.query({ name: 'geolocation' })).state; } catch (e) {}
+  if (perm === 'denied') { rememberLoc(false); return; }
+  if (perm !== 'granted' && !ok) return;
+  const t0 = performance.now(); let moved = false; const stop = () => { moved = true; };
+  controls.addEventListener('start', stop);
+  navigator.geolocation.getCurrentPosition(p => {
+    controls.removeEventListener('start', stop); rememberLoc(true);
+    if (state.me) return; // 그사이 위치 버튼으로 이미 찾았으면 그대로 둬요
+    state.me = { lat: p.coords.latitude, lng: p.coords.longitude, acc: p.coords.accuracy }; renderChips();
+    // 그사이 직접 지도를 움직였거나 암장·목록을 열었으면 화면은 건드리지 않아요
+    if (moved || sel || curList || travel) return;
+    const near = GYMS.filter(g => !isUnv(g)).map(g => [g, distKm(state.me, g)]).sort((a, b) => a[1] - b[1]);
+    if (!near.length || near[0][1] > 30) return; // 수도권에서 멀리 있으면 원래 화면 유지
+    const pts = [{ _x: toX(state.me.lng), _z: toZ(state.me.lat) }, ...near.slice(0, 5).filter(x => x[1] < 5).map(x => x[0])];
+    const [c, pos] = viewBox(pts, 1);
+    setTimeout(() => { if (!moved && !sel && !curList && !travel) flyTo(c, pos, 2.2); }, Math.max(0, t0 + 500 - performance.now())); // 인트로 출발 뒤에 이어서
+  }, err => {
+    controls.removeEventListener('start', stop);
+    if (err.code === 1) rememberLoc(false);
+  }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
 }
 function renderNearList() {
   const me = state.me; if (!me) return;
@@ -2542,6 +2571,7 @@ window.__mapReady = true; document.getElementById('loading').remove(); { const f
 loadMeet();
 { const i = gymIndexFromHash(); if (i >= 0) setTimeout(() => select(i), 1200); }
 if (location.hash.startsWith('#me=')) { const f = parseMe(location.hash); if (f) setTimeout(() => enterFriend(f), 1500); }
+if (gymIndexFromHash() < 0 && !location.hash.startsWith('#me=') && location.hash !== '#meet' && !new URLSearchParams(location.search).has('meet')) autoLocate();
 
 function updateViewOffset() {
   const w = innerWidth, h = innerHeight;
