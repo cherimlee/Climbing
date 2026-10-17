@@ -70,6 +70,12 @@ def pick_mode():
             print("명절 점검 시기가 아님 → 종료")
             sys.exit(0)
         return m, h
+    # 워커 알람과 GitHub 예비 예약이 둘 다 돌 때: 최근 3일 안에 같은 점검 보고서가 있으면 건너뜀
+    # (두 번째 실행은 기준값이 이미 바뀌어 '변경 0곳'으로 보고서를 덮어쓰게 됨)
+    for d in range(3):
+        if (OUT / f"점검_{TODAY - dt.timedelta(days=d):%Y%m%d}_{m}.md").exists():
+            print("이미 점검함 → 종료")
+            sys.exit(0)
     return m, holiday_soon(0, 45)
 
 
