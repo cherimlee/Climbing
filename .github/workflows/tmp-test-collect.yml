@@ -1,0 +1,26 @@
+name: tmp-test-collect
+on:
+  push:
+    branches: [claude/somoim-multiday]
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: climbing-report
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python collect.py
+        env:
+          START_AT: now
+      - run: |
+          python - <<'PY'
+          import json,glob
+          for f in sorted(glob.glob('docs/data/Somoim_10*.json'))[-8:]:
+              j=json.load(open(f)); ev=j['events']
+              print(f, j['meta']['collected_at'], j['meta']['summary'], 'joined_null', sum(e['joined'] is None for e in ev), 'no_gym', sum(not e['gym_id'] for e in ev))
+          PY
