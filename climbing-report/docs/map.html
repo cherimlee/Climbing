@@ -722,6 +722,8 @@ const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.dampingFactor = 0.08;
 controls.maxPolarAngle = 1.25; controls.minDistance = 4; controls.maxDistance = 2600;
 controls.screenSpacePanning = false; controls.zoomSpeed = 1.2;
+/* 휴대폰: 보통 지도 앱처럼 한 손가락은 이동, 두 손가락은 확대·축소와 회전 */
+controls.touches = { ONE: THREE.TOUCH.PAN, TWO: THREE.TOUCH.DOLLY_ROTATE };
 controls.addEventListener('start', () => { fly = null; if (travel) travel.follow = false; });
 
 scene.add(new THREE.HemisphereLight(0xeaf6ff, 0x9fb38a, 1.35));
@@ -2406,8 +2408,8 @@ function showGuide() {
     <p class="lead">서울·경기·인천 클라이밍 암장 ${GYMS.filter(x => !isUnv(x)).length}곳을 3D 지도로 모았어요. 영업시간·가격·세팅일·소모임 정모까지 한눈에 보세요.</p>
     <h3>지도 조작</h3>
     <ul>
-      ${li('✌️', '두 손가락으로 이동·확대', '두 손가락으로 끌면 지도가 이동하고, 벌리거나 오므리면 확대·축소돼요.')}
-      ${li('☝️', '한 손가락으로 회전', '한 손가락으로 끌면 지도를 돌려 볼 수 있어요.')}
+      ${li('☝️', '한 손가락으로 이동', '한 손가락으로 끌면 지도가 움직여요.')}
+      ${li('✌️', '두 손가락으로 확대·회전', '두 손가락을 벌리거나 오므리면 확대·축소되고, 함께 끌면 지도를 돌려 볼 수 있어요.')}
       ${li('👆', '암장 누르기', '건물이나 이름표를 누르면 아래에 정보 패널이 열리고, 클라이머가 벽을 올라요.')}
     </ul>
     <h3>주요 기능</h3>
