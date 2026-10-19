@@ -1,7 +1,8 @@
 name: check-gyms
 
 # 암장 정보 정기 점검 → 후보를 climbing-report/checks/ 에 보고서로 저장 + GitHub 이슈로 알림
-# (DB는 고치지 않음. 확인 후 반영)
+# 비밀값 ANTHROPIC_API_KEY가 있으면 바뀐 사이트를 Claude API로 읽어 DB 고친 내용을 PR로 올림
+# (main에 바로 넣지 않음. 머지하면 sync-map-data가 지도에 반영)
 # 정시 실행은 Cloudflare 워커 크론(worker.js, 09:30 KST)이 workflow_dispatch로 깨움.
 # 아래 GitHub 예약은 예비용: GitHub 예약은 몇 시간씩 늦거나 건너뛸 수 있음. 이미 점검했으면 바로 종료.
 on:
@@ -24,6 +25,7 @@ on:
 permissions:
   contents: write            # 보고서 커밋
   issues: write              # 알림 이슈 만들기
+  pull-requests: write       # 암장 정보 업데이트 PR 만들기
 
 concurrency:
   group: check-gyms
@@ -41,12 +43,37 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests
-      - run: python check_gyms.py
+      - run: pip install requests anthropic
+      - id: check
+        run: python check_gyms.py
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UPDATE_BODY: ${{ runner.temp }}/update_body.md
           MODE: ${{ github.event.inputs.mode || 'auto' }}
           SCHEDULE: ${{ github.event.schedule || github.event.inputs.schedule }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open data update PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ steps.check.outputs.issue }}
+        run: |
+          git diff --quiet docs/data/climbing_gyms.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          B="gym-update/$(TZ=Asia/Seoul date +'%Y%m%d')-${{ github.run_id }}"
+          T="data: $(TZ=Asia/Seoul date +'%Y-%m-%d') 암장 정보 자동 업데이트"
+          git checkout -b "$B"
+          git add docs/data/climbing_gyms.json
+          git commit -m "$T"
+          git push origin "$B"
+          git checkout -
+          if URL=$(gh pr create --base main --head "$B" --title "$T" --body-file "${{ runner.temp }}/update_body.md"); then
+            MSG="Claude가 고친 내용을 PR로 올렸어요: $URL"
+          else
+            # 저장소 설정에서 'Allow GitHub Actions to create and approve pull requests'가 꺼져 있으면 PR을 못 만듦
+            MSG="고친 내용을 $B 가지에 올렸지만 PR을 만들지 못했어요. 여기서 PR을 만들어 주세요: https://github.com/${{ github.repository }}/compare/main...$B"
+          fi
+          [ -n "$ISSUE" ] && gh issue comment "$ISSUE" --body "$MSG" || echo "$MSG"
       - name: Commit report
         run: |
           git config user.name "github-actions[bot]"
