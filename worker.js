@@ -13,6 +13,9 @@ export default {
     if (url.pathname === "/" || url.pathname === "/index.html") {
       return Response.redirect(new URL("/map" + url.search, url), 302);
     }
+    if (url.pathname === "/token-check") {
+      return Response.json(await checkToken(env));
+    }
     return env.ASSETS.fetch(request);
   },
 
@@ -25,7 +28,7 @@ async function dispatch(env) {
   const res = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.GH_TOKEN}`,
+      Authorization: `Bearer ${(env.GH_TOKEN || "").trim()}`,
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
       "User-Agent": "climbing-cron",
@@ -35,4 +38,25 @@ async function dispatch(env) {
   if (res.status !== 204) {
     throw new Error(`workflow dispatch failed: ${res.status} ${await res.text()}`);
   }
+}
+
+// 토큰 값은 보여주지 않고, 제대로 들어갔는지만 확인 (GitHub에 저장소 읽기만 해봄)
+async function checkToken(env) {
+  const raw = env.GH_TOKEN || "";
+  const token = raw.trim();
+  const res = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "climbing-cron",
+    },
+  });
+  return {
+    has_token: raw.length > 0,
+    length: token.length,
+    starts_with_github_pat: token.startsWith("github_pat_"),
+    had_extra_spaces: raw !== token,
+    github_status: res.status,
+    ok: res.status === 200,
+  };
 }
