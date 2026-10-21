@@ -9,10 +9,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: pip install requests
       - run: |
-          python climbing-report/probe_somoim.py \
-            "https://www.somoim.co.kr/" \
-            "https://www.somoim.co.kr/9fb6ab5c-0496-11ec-8d33-0a26f71b196f1" \
-            "https://www.somoim.co.kr/search?keyword=%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D" \
-            "https://www.somoim.co.kr/search?q=%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%B0%8D" \
-            "https://www.somoim.co.kr/robots.txt" \
-            "https://www.somoim.co.kr/sitemap.xml"
+          python climbing-report/probe2.py
