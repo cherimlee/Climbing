@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-10-26",
-  "collected_at": "2026-10-21T14:11+09:00",
+  "collected_at": "2026-10-21T14:23+09:00",
   "crews": 85,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -57,7 +57,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "14:11:29"
+   "seen_at": "14:23:37"
   }
  ]
 }

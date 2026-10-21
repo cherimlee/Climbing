@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-10-27",
-  "collected_at": "2026-10-21T14:11+09:00",
+  "collected_at": "2026-10-21T14:23+09:00",
   "crews": 85,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -83,7 +83,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "14:11:25"
+   "seen_at": "14:23:33"
   },
   {
    "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
@@ -100,7 +100,7 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "14:11:37"
+   "seen_at": "14:23:45"
   }
  ]
 }
