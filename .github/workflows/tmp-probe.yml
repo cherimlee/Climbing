@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: pip install requests
       - run: |
-          python climbing-report/probe2.py
+          python climbing-report/probe3.py
