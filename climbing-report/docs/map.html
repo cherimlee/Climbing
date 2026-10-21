@@ -231,7 +231,8 @@ body.rlist-open .hint{display:none}
 .glabel.big .mb{font-size:12px}
 .meet{background:#f1eeff;border-radius:12px;padding:12px 12px 10px;display:flex;flex-direction:column;gap:10px}
 .meet h3{font:700 12px var(--f-body);letter-spacing:.06em;margin:0;color:#4b3fb0;display:flex;justify-content:space-between;gap:8px}
-.meet h3 small{font:500 11px var(--f-body);letter-spacing:0;color:var(--ink-soft)}
+.meet h3 small{font:500 11px var(--f-body);letter-spacing:0;color:var(--ink-soft);white-space:nowrap}
+.meet h3 em{font:500 10px var(--f-body);letter-spacing:0;color:var(--ink-soft);white-space:nowrap}
 .meet .slots{display:flex;gap:8px}
 .meet .slot{flex:1;background:#fff;border-radius:10px;padding:8px 10px;font-size:12px;color:var(--ink-soft)}
 .meet .slot b{display:block;font:600 17px var(--f-mono);color:var(--ink)}
@@ -1076,7 +1077,6 @@ function updateTravel(dt) {
     travel = null;
     const [target, pos] = gymView(tr.o); flyTo(target, pos, .9);
     startClimb(tr.o); setClimbMsg('클라이머 등반 중');
-    showToast(tr.o.g.name + ' 도착');
   }
 }
 function setClimbMsg(t) { const m = document.querySelector('.climbmsg span'); if (m) m.textContent = t; }
@@ -1653,7 +1653,6 @@ function openPanel(g) {
   if (safeUrl(g.naver_map)) links.push(`<a href="${esc(g.naver_map)}" target="_blank" rel="noopener">네이버지도</a>`);
   if (g.kakao_map) links.push(`<a href="${esc(kakaoUrl(g.kakao_map))}" target="_blank" rel="noopener">카카오맵</a>`);
   links.push(`<a href="#${esc(g.id)}" class="share" data-share="${esc(g.id)}">링크 공유</a>`);
-  const src = (g.sources || []).filter(safeUrl);
   document.getElementById('pBody').innerHTML = `
     <div class="climbmsg" aria-hidden="true"><span>클라이머 등반 중</span><div class="bar"><span id="pBar"></span></div><b id="pPct">0%</b></div>
     ${actsHTML(g)}
@@ -1663,8 +1662,7 @@ function openPanel(g) {
     ${rows.length ? `<dl class="info">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v?.html ?? esc(v)}</dd>`).join('')}</dl>` : '<p class="note">아직 수집된 상세 정보가 없어요.</p>'}
     <div class="links">${links.join('')}</div>
     ${meetSection(g)}
-    <div id="pHist">${histSection(g)}</div>
-    ${src.length ? `<div class="sec"><h3>출처</h3><ol class="sources">${src.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(decodeURIComponentSafe(u).replace(/^https?:\/\/(www\.)?/, '').slice(0, 60))}</a></li>`).join('')}</ol></div>` : ''}`;
+    <div id="pHist">${histSection(g)}</div>`;
   panel.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); document.body.classList.add('panel-open'); updateViewOffset();
   document.getElementById('pBody').scrollTop = 0;
   if (!HIST && MEET.size) loadHistory();
@@ -1731,9 +1729,8 @@ function meetSection(g) {
   const evs = MEET_EVENTS.get(g.id) || [];
   const slot = (ic, lab, s) => `<div class="slot">${ic} ${lab}<b>${s.events}건 · ${sj(s)}명</b>${s.joined_unknown ? `<span>인원 미확인 ${s.joined_unknown}건</span>` : ''}</div>`;
   return `<div class="meet sec">
-    <h3>${esc(meetDayWord())} 소모임 정모 <small>${esc(collectedHM())} 수집</small></h3>
+    <h3><span>${esc(meetDayWord())} 소모임 정모 <em>(낮클 ~16:59 · 퇴근클 17:00~)</em></span><small>${esc(collectedHM())} 수집</small></h3>
     <div class="slots">${slot('☀️', '낮클', m.day)}${slot('🌙', '퇴근클', m.eve)}</div>
-    <p class="fine">소모임 크루(멤버 30명 이상)의 정모 카드에 적힌 참석 인원 집계예요. 이미 시작한 정모는 인원이 ‘?’로 남을 수 있어요. 낮클 ~16:59 · 퇴근클 17:00~</p>
   </div>`;
 }
 function renderMeetList() {
@@ -1945,7 +1942,7 @@ function histSection(g) {
     <table><tr><th class="r"></th>${order.map(d => `<th>${DN[d]}</th>`).join('')}</tr>
     <tr><th class="r">☀️ 낮</th>${order.map(d => cell(x.day, d)).join('')}</tr>
     <tr><th class="r">🌙 퇴근</th>${order.map(d => cell(x.eve, d)).join('')}</tr></table>
-    <p class="fine">그 요일에 수집된 날의 소모임 정모 참석 인원 평균이에요(정모 없는 날은 0). 수집일이 쌓일수록 정확해져요. ‘·’ = 아직 그 요일 데이터 없음.</p></div>`;
+    <p class="fine">소모임 정모 참석 인원 평균</p></div>`;
 }
 function dateNavHTML() {
   if (!HIST || !HIST.dates.length || !MEET_META?.date) return '';
