@@ -113,6 +113,10 @@ def main():
     crews.sort(key=lambda c: -(c.get("members") or 0))
     json.dump(crews, open(CREWS, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     open(STAMP, "w").write(today + "\n")
+    known = sum(1 for c in crews if c["crew_id"] in seen and "found" not in c)
+    print(f"existing crews also found in search: {known}/{sum('found' not in c for c in crews)}")
+    sizes = sorted((g.get("gmc") or 0) for g in seen.values() if is_climbing(g) and SIDO.get(g.get("loc1n")))
+    print("climbing group sizes (서울·경기·인천):", len(sizes), "≥30:", sum(x >= 30 for x in sizes), "≥10:", sum(x >= 10 for x in sizes), sizes[:40])
     print(f"climbing groups seen {sum(is_climbing(g) for g in seen.values())}, added {added}, total crews {len(crews)}")
 
 
