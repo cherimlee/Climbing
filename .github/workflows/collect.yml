@@ -35,6 +35,8 @@ jobs:
         working-directory: climbing-report
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # 예약 실행은 예약된 시점의 커밋을 받음. 앞 실행이 올린 결과 위에서 시작하도록 최신 main을 받음
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -42,19 +44,26 @@ jobs:
       - run: python collect.py
         env:
           START_AT: ${{ github.event.inputs.start_at || 'auto' }}
+          NEW_EVENTS_FILE: ${{ runner.temp }}/new_events.json   # 충돌 시 다시 병합할 때 씀
           WORKERS: "4"
           REQUEST_DELAY: "1.0"
       - name: Commit results
+        env:
+          NEW_EVENTS_FILE: ${{ runner.temp }}/new_events.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs
-          git diff --cached --quiet && exit 0
-          git commit -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
-          # 수집 중에 다른 커밋(파일 업로드 등)이 올라와도 push가 실패하지 않도록 재시도
+          # 수집 중에 다른 실행이 같은 날짜 파일을 올렸으면, 최신 main으로 맞춘 뒤
+          # 이번에 받은 정모(NEW_EVENTS_FILE)만 다시 병합해서 올림 (충돌 없이 둘 다 반영)
           for i in 1 2 3 4 5; do
-            git pull --rebase && git push && exit 0
+            git add docs
+            git diff --cached --quiet && exit 0
+            git commit -q -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+            git push && exit 0
             sleep $((i * 5))
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            START_AT=now python collect.py
           done
           exit 1
       - uses: actions/configure-pages@v5

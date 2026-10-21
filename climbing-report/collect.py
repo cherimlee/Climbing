@@ -19,6 +19,10 @@ OUT = os.path.join(BASE, "docs", "data")
 DELAY = float(os.environ.get("REQUEST_DELAY", "1.0"))  # 워커별 요청 간격(초) — 소모임 서버 부담 완화
 WORKERS = int(os.environ.get("WORKERS", "4"))           # 동시 요청 수. 4 × 1초 간격 ≈ 85곳 25~40초
 START_AT = os.environ.get("START_AT", "auto")           # "auto" | "HH:MM" | "now"
+# 받아온 정모를 저장/재사용할 파일. 결과를 올리다 충돌하면 워크플로가 최신 main 위에서
+# 이 파일로 병합만 다시 함 (소모임에 다시 요청하지 않음)
+NEW_EVENTS = os.environ.get("NEW_EVENTS_FILE")
+REMERGE = bool(NEW_EVENTS and os.path.exists(NEW_EVENTS))
 
 
 def wait_until_start():
@@ -39,7 +43,8 @@ def wait_until_start():
         print(f"started late ({now:%H:%M} KST) — collecting immediately", flush=True)
 
 
-wait_until_start()
+if not REMERGE:
+    wait_until_start()
 NOW = datetime.datetime.now(KST)
 TODAY = int(os.environ.get("TARGET_DATE") or NOW.strftime("%Y%m%d"))
 DAYS = int(os.environ.get("DAYS", "7"))                # 오늘 포함 며칠 치 정모를 모을지
@@ -236,7 +241,15 @@ def aggregate(events):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    new, errors, ok = collect()
+    if REMERGE:
+        saved = json.load(open(NEW_EVENTS, encoding="utf-8"))
+        new, errors, ok = saved["events"], saved["errors"], set(saved["ok"])
+        print(f"re-merging {len(new)} saved events onto latest data", flush=True)
+    else:
+        new, errors, ok = collect()
+        if NEW_EVENTS:
+            json.dump({"events": new, "errors": errors, "ok": sorted(ok)}, open(NEW_EVENTS, "w", encoding="utf-8"),
+                      ensure_ascii=False)
     for date in DATES:
         d = str(date)
         path = os.path.join(OUT, f"Somoim_{d[4:]}.json")
