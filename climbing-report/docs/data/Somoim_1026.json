@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-10-26",
-  "collected_at": "2026-10-21T14:23+09:00",
-  "crews": 85,
+  "collected_at": "2026-10-21T22:59+09:00",
+  "crews": 118,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 1,
-   "events_at_gyms": 1,
-   "gyms": 1,
-   "joined_total": 5
+   "events_total": 2,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 8
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 5,
+    "joined": 6,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,12 +36,55 @@
    ],
    "total": {
     "events": 1,
-    "joined": 5
+    "joined": 6
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-005",
+   "name": "클라이밍파크 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.495538,
+   "lng": 127.029196,
+   "day": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "RUSH CLIMB MATE⚡️"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
    },
    "mix": false
   }
  ],
  "events": [
+  {
+   "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1200|강남 클라이밍파크 낮클",
+   "date": 20261026,
+   "crew_id": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481",
+   "crew": "RUSH CLIMB MATE⚡️",
+   "crew_url": "https://www.somoim.co.kr/69a1d498-eebd-4bd0-a88a-8ea33ede5c481",
+   "time": "12:00",
+   "slot": "day",
+   "title": "강남 클라이밍파크 낮클",
+   "place_raw": "강남",
+   "joined": 2,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-005",
+   "gym_name": "클라이밍파크 강남점",
+   "seen_at": "22:59:54"
+  },
   {
    "key": "d7471312-29f1-483f-ba28-39846fb49bb41|1830|우리의 자존감을 지켜라 강더클",
    "date": 20261026,
@@ -52,12 +95,12 @@
    "slot": "eve",
    "title": "우리의 자존감을 지켜라 강더클",
    "place_raw": "더클라임 강남",
-   "joined": 5,
+   "joined": 6,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "14:23:37"
+   "seen_at": "22:59:41"
   }
  ]
 }
