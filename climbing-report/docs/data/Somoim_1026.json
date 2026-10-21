@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-10-26",
-  "collected_at": "2026-10-20T22:51+09:00",
+  "collected_at": "2026-10-21T14:11+09:00",
   "crews": 85,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 1,
    "events_at_gyms": 1,
    "gyms": 1,
-   "joined_total": 3
+   "joined_total": 5
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 3,
+    "joined": 5,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,7 +36,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 3
+    "joined": 5
    },
    "mix": false
   }
@@ -52,12 +52,12 @@
    "slot": "eve",
    "title": "우리의 자존감을 지켜라 강더클",
    "place_raw": "더클라임 강남",
-   "joined": 3,
+   "joined": 5,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "22:51:52"
+   "seen_at": "14:11:29"
   }
  ]
 }

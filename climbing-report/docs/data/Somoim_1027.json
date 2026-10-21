@@ -1,0 +1,106 @@
+{
+ "meta": {
+  "date": "2026-10-27",
+  "collected_at": "2026-10-21T14:11+09:00",
+  "crews": 85,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 2,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 10
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "GGI-106",
+   "name": "더렛지 클라이밍",
+   "sido": "경기",
+   "sigungu": "안양시 동안구",
+   "lat": 37.387452,
+   "lng": 126.945339,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 8,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🐱아냥 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 8
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-097",
+   "name": "더클라임 논현점",
+   "sido": "서울",
+   "sigungu": "서초구",
+   "lat": 37.508374,
+   "lng": 127.022219,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "꼼지락 클라이밍🤟"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491|1900|더클노년",
+   "date": 20261027,
+   "crew_id": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491",
+   "crew": "꼼지락 클라이밍🤟",
+   "crew_url": "https://www.somoim.co.kr/93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "더클노년",
+   "place_raw": "더클논현",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-097",
+   "gym_name": "더클라임 논현점",
+   "seen_at": "14:11:25"
+  },
+  {
+   "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
+   "date": 20261027,
+   "crew_id": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "crew": "🐱아냥 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "화요정모",
+   "place_raw": "범계 더렛지",
+   "joined": 8,
+   "capacity": 200,
+   "place_type": "암장",
+   "gym_id": "GGI-106",
+   "gym_name": "더렛지 클라이밍",
+   "seen_at": "14:11:37"
+  }
+ ]
+}
