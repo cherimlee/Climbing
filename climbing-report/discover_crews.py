@@ -15,7 +15,7 @@ CREWS = os.path.join(BASE, "crews.json")
 STAMP = os.path.join(BASE, "crews_discovered.txt")   # 마지막으로 찾은 날짜(KST) — 하루 한 번만 돌게
 SITE = "https://www.somoim.co.kr"
 SIDO = {"서울특별시": "서울", "경기도": "경기", "인천광역시": "인천"}
-MIN_MEMBERS = int(os.environ.get("MIN_MEMBERS", "30"))
+MIN_MEMBERS = int(os.environ.get("MIN_MEMBERS", "10"))   # 비교 리포트처럼 작은 크루도 포함 (2~9명 모임은 제외)
 DELAY = float(os.environ.get("REQUEST_DELAY", "1.0"))
 WORKERS = int(os.environ.get("WORKERS", "4"))
 GID = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\d"
@@ -115,8 +115,6 @@ def main():
     open(STAMP, "w").write(today + "\n")
     known = sum(1 for c in crews if c["crew_id"] in seen and "found" not in c)
     print(f"existing crews also found in search: {known}/{sum('found' not in c for c in crews)}")
-    sizes = sorted((g.get("gmc") or 0) for g in seen.values() if is_climbing(g) and SIDO.get(g.get("loc1n")))
-    print("climbing group sizes (서울·경기·인천):", len(sizes), "≥30:", sum(x >= 30 for x in sizes), "≥10:", sum(x >= 10 for x in sizes), sizes[:40])
     print(f"climbing groups seen {sum(is_climbing(g) for g in seen.values())}, added {added}, total crews {len(crews)}")
 
 

@@ -41,6 +41,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests
+      - name: Find new climbing crews (하루 한 번)
+        run: python discover_crews.py
+        continue-on-error: true   # 실패해도 기존 crews.json으로 수집은 계속
       - run: python collect.py
         env:
           START_AT: ${{ github.event.inputs.start_at || 'auto' }}
@@ -56,7 +59,7 @@ jobs:
           # 수집 중에 다른 실행이 같은 날짜 파일을 올렸으면, 최신 main으로 맞춘 뒤
           # 이번에 받은 정모(NEW_EVENTS_FILE)만 다시 병합해서 올림 (충돌 없이 둘 다 반영)
           for i in 1 2 3 4 5; do
-            git add docs
+            git add docs crews.json crews_discovered.txt
             git diff --cached --quiet && exit 0
             git commit -q -m "data: $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
             git push && exit 0
