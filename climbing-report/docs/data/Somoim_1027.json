@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-10-27",
-  "collected_at": "2026-10-21T22:59+09:00",
+  "collected_at": "2026-10-21T23:08+09:00",
   "crews": 118,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -161,7 +161,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "22:59:35"
+   "seen_at": "23:08:47"
   },
   {
    "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
@@ -178,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "22:59:26"
+   "seen_at": "23:08:39"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|화_서울숲 클라이밍 영등포",
@@ -195,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "22:59:24"
+   "seen_at": "23:08:36"
   },
   {
    "key": "a6dbc2ec-cac2-11ee-9c28-0af124dcc1231|1900|용인 더그릿",
@@ -212,7 +212,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "22:59:48"
+   "seen_at": "23:08:59"
   },
   {
    "key": "eb2d2cc7-0b42-4182-a827-485cc36ce07f1|1900|피크닉 정모",
@@ -229,7 +229,7 @@
    "place_type": "암장",
    "gym_id": "GGI-087",
    "gym_name": "피크닉클라이밍",
-   "seen_at": "22:59:56"
+   "seen_at": "23:09:06"
   },
   {
    "key": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01|1900|더클라임 장이수",
@@ -246,7 +246,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "22:59:58"
+   "seen_at": "23:09:08"
   }
  ]
 }
