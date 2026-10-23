@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-10-26",
-  "collected_at": "2026-10-23T09:56+09:00",
+  "collected_at": "2026-10-23T14:13+09:00",
   "crews": 120,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 7,
    "events_at_gyms": 5,
    "gyms": 5,
-   "joined_total": 18
+   "joined_total": 19
   }
  },
  "gyms": [
@@ -93,15 +93,15 @@
    "mix": false
   },
   {
-   "gym_id": "SEL-005",
-   "name": "클라이밍파크 강남점",
+   "gym_id": "SEL-140",
+   "name": "서울숲클라이밍 종로점",
    "sido": "서울",
-   "sigungu": "강남구",
-   "lat": 37.495538,
-   "lng": 127.029196,
+   "sigungu": "종로구",
+   "lat": 37.569705,
+   "lng": 126.990024,
    "day": {
     "events": 1,
-    "joined": 2,
+    "joined": 3,
     "joined_unknown": 0
    },
    "eve": {
@@ -114,7 +114,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 2
+    "joined": 3
    },
    "mix": false
   },
@@ -147,21 +147,21 @@
  ],
  "events": [
   {
-   "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1200|강남 클라이밍파크 낮클",
+   "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1100|종로 서울숲 낮클",
    "date": 20261026,
    "crew_id": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481",
    "crew": "RUSH CLIMB MATE⚡️",
    "crew_url": "https://www.somoim.co.kr/69a1d498-eebd-4bd0-a88a-8ea33ede5c481",
-   "time": "12:00",
+   "time": "11:00",
    "slot": "day",
-   "title": "강남 클라이밍파크 낮클",
-   "place_raw": "강남",
-   "joined": 2,
-   "capacity": 10,
+   "title": "종로 서울숲 낮클",
+   "place_raw": "종로 서울숲",
+   "joined": 3,
+   "capacity": 20,
    "place_type": "암장",
-   "gym_id": "SEL-005",
-   "gym_name": "클라이밍파크 강남점",
-   "seen_at": "09:56:35"
+   "gym_id": "SEL-140",
+   "gym_name": "서울숲클라이밍 종로점",
+   "seen_at": "14:14:19"
   },
   {
    "key": "4bdc7a00-669d-11ee-bad6-0a9b880726bf1|1500|킨디 낮부터 마감",
@@ -178,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "GGI-070",
    "gym_name": "킨디클라이밍",
-   "seen_at": "09:56:07"
+   "seen_at": "14:13:51"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|🖤 옾더월 조하 🖤",
@@ -195,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "09:56:22"
+   "seen_at": "14:14:06"
   },
   {
    "key": "d7471312-29f1-483f-ba28-39846fb49bb41|1830|우리의 자존감을 지켜라 강더클",
@@ -212,7 +212,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "09:56:21"
+   "seen_at": "14:14:05"
   },
   {
    "key": "3c164c92-98d0-496a-a81e-75b4afde2f441|1900|서울숲 클라이밍 영등포점",
@@ -229,7 +229,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "09:56:37"
+   "seen_at": "14:14:22"
   },
   {
    "key": "a6dbc2ec-cac2-11ee-9c28-0af124dcc1231|1900|동탄 클어클",
@@ -241,12 +241,12 @@
    "slot": "eve",
    "title": "동탄 클어클",
    "place_raw": "동탄 클라임어클랃",
-   "joined": 1,
+   "joined": 3,
    "capacity": 30,
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:27"
+   "seen_at": "14:14:12"
   },
   {
    "key": "34026cb4-31bf-4854-a94d-5637468238c51|1900|10/26 잠실 머더파커 정육각형",
@@ -263,7 +263,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:29"
+   "seen_at": "14:14:13"
   }
  ]
 }
