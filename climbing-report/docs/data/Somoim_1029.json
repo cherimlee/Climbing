@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-10-29",
-  "collected_at": "2026-10-23T17:56+09:00",
+  "collected_at": "2026-10-23T22:38+09:00",
   "crews": 120,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 6,
-   "events_at_gyms": 6,
-   "gyms": 6,
-   "joined_total": 15
+   "events_total": 7,
+   "events_at_gyms": 7,
+   "gyms": 7,
+   "joined_total": 16
   }
  },
  "gyms": [
@@ -119,6 +119,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-140",
+   "name": "서울숲클라이밍 종로점",
+   "sido": "서울",
+   "sigungu": "종로구",
+   "lat": 37.569705,
+   "lng": 126.990024,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "초록 클라이밍 크루🦎(초클모)"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-003",
    "name": "더클라임 강남점",
    "sido": "서울",
@@ -187,7 +213,24 @@
    "place_type": "암장",
    "gym_id": "SEL-042",
    "gym_name": "더클라임 사당점",
-   "seen_at": "17:56:37"
+   "seen_at": "22:39:26"
+  },
+  {
+   "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1800|은) 서울숲 종로",
+   "date": 20261029,
+   "crew_id": "d43c64ba-097c-11ee-9787-0a22884291a11",
+   "crew": "초록 클라이밍 크루🦎(초클모)",
+   "crew_url": "https://www.somoim.co.kr/d43c64ba-097c-11ee-9787-0a22884291a11",
+   "time": "18:00",
+   "slot": "eve",
+   "title": "은) 서울숲 종로",
+   "place_raw": "서울숲 종로점",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-140",
+   "gym_name": "서울숲클라이밍 종로점",
+   "seen_at": "22:38:59"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_담장 클라이밍 신촌",
@@ -204,7 +247,7 @@
    "place_type": "암장",
    "gym_id": "SEL-094",
    "gym_name": "신촌담장",
-   "seen_at": "17:56:05"
+   "seen_at": "22:38:53"
   },
   {
    "key": "481cdbd0-7128-43f6-a6c9-1ad6711795b91|1900|더클 강남 퇴근클",
@@ -221,7 +264,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "17:56:23"
+   "seen_at": "22:39:12"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|목요_리드🧗_영등포외벽🍲🍡",
@@ -238,7 +281,7 @@
    "place_type": "암장",
    "gym_id": "SEL-131",
    "gym_name": "영등포스포츠클라이밍경기장",
-   "seen_at": "17:56:03"
+   "seen_at": "22:38:52"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1900|더클 이수 퇴근클!!,.!.!!!!!",
@@ -255,7 +298,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "17:56:20"
+   "seen_at": "22:39:09"
   },
   {
    "key": "8bb41720-fc82-11ee-9db1-0a50f190de831|1900|양재 더클 정모",
@@ -272,7 +315,7 @@
    "place_type": "암장",
    "gym_id": "SEL-004",
    "gym_name": "더클라임 양재점",
-   "seen_at": "17:56:16"
+   "seen_at": "22:39:04"
   }
  ]
 }
