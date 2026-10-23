@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-10-28",
-  "collected_at": "2026-10-22T23:08+09:00",
-  "crews": 118,
+  "collected_at": "2026-10-23T09:56+09:00",
+  "crews": 120,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 6,
-   "events_at_gyms": 6,
-   "gyms": 5,
-   "joined_total": 19
+   "events_total": 8,
+   "events_at_gyms": 7,
+   "gyms": 6,
+   "joined_total": 22
   }
  },
  "gyms": [
@@ -120,6 +120,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-040",
+   "name": "투이얼즈클라임하우스",
+   "sido": "서울",
+   "sigungu": "강서구",
+   "lat": 37.548504,
+   "lng": 126.876192,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "홀드메이트 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-128",
    "name": "서울숲클라이밍 영등포점",
    "sido": "서울",
@@ -148,6 +174,23 @@
  ],
  "events": [
   {
+   "key": "eec354ff-f696-406d-8ae0-94691a95b9f51|1200|시즌 막바지 리드 달리기",
+   "date": 20261028,
+   "crew_id": "eec354ff-f696-406d-8ae0-94691a95b9f51",
+   "crew": "ASCENT 클라이밍",
+   "crew_url": "https://www.somoim.co.kr/eec354ff-f696-406d-8ae0-94691a95b9f51",
+   "time": "12:00",
+   "slot": "day",
+   "title": "시즌 막바지 리드 달리기",
+   "place_raw": "미정",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "09:56:39"
+  },
+  {
    "key": "26219d50-6fc6-4549-8c87-29680d0af1261|1800|논현더클 가보작오",
    "date": 20261028,
    "crew_id": "26219d50-6fc6-4549-8c87-29680d0af1261",
@@ -162,7 +205,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "23:08:55"
+   "seen_at": "09:56:27"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|설숲 종로 퇴근클",
@@ -179,7 +222,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "23:09:01"
+   "seen_at": "09:56:31"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1800|영등포 서울숲 퇴근클",
@@ -196,7 +239,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "23:09:02"
+   "seen_at": "09:56:35"
   },
   {
    "key": "0c0d0f0f-e6d8-4be8-987d-41ac38da6f0e1|1900|옾더월",
@@ -213,7 +256,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "23:08:45"
+   "seen_at": "09:56:17"
   },
   {
    "key": "96c52982-522e-11ee-8be7-0a24a87ab69d1|1900|수플릭 정모",
@@ -230,7 +273,24 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "23:08:39"
+   "seen_at": "09:56:12"
+  },
+  {
+   "key": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01|1900|현명이의 투이얼즈 수면클",
+   "date": 20261028,
+   "crew_id": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
+   "crew": "홀드메이트 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "현명이의 투이얼즈 수면클",
+   "place_raw": "투이얼즈클라임하우스",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-040",
+   "gym_name": "투이얼즈클라임하우스",
+   "seen_at": "09:56:37"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|이태원 오프더월! 신입/초보모임!",
@@ -247,7 +307,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "23:08:25"
+   "seen_at": "09:56:01"
   }
  ]
 }

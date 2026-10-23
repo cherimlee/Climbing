@@ -1,0 +1,106 @@
+{
+ "meta": {
+  "date": "2026-10-29",
+  "collected_at": "2026-10-23T09:56+09:00",
+  "crews": 120,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 2,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 4
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "SEL-094",
+   "name": "신촌담장",
+   "sido": "서울",
+   "sigungu": "서대문구",
+   "lat": 37.557559,
+   "lng": 126.943174,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "오를레이 클라이밍🔥2030친목🔥"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-003",
+   "name": "더클라임 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.497589,
+   "lng": 127.031992,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🔥 여성 클라이밍 크루 🔥"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_담장 클라이밍 신촌",
+   "date": 20261029,
+   "crew_id": "6e19e03a-8943-11ee-9c66-0ac1857694111",
+   "crew": "오를레이 클라이밍🔥2030친목🔥",
+   "crew_url": "https://www.somoim.co.kr/6e19e03a-8943-11ee-9c66-0ac1857694111",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "목_담장 클라이밍 신촌",
+   "place_raw": "담장 신촌점",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-094",
+   "gym_name": "신촌담장",
+   "seen_at": "09:56:05"
+  },
+  {
+   "key": "481cdbd0-7128-43f6-a6c9-1ad6711795b91|1900|더클 강남 퇴근클",
+   "date": 20261029,
+   "crew_id": "481cdbd0-7128-43f6-a6c9-1ad6711795b91",
+   "crew": "🔥 여성 클라이밍 크루 🔥",
+   "crew_url": "https://www.somoim.co.kr/481cdbd0-7128-43f6-a6c9-1ad6711795b91",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "더클 강남 퇴근클",
+   "place_raw": "더클라임 강남점",
+   "joined": 1,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-003",
+   "gym_name": "더클라임 강남점",
+   "seen_at": "09:56:23"
+  }
+ ]
+}
