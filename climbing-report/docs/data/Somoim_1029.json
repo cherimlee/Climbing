@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-10-29",
-  "collected_at": "2026-10-23T14:27+09:00",
+  "collected_at": "2026-10-23T17:56+09:00",
   "crews": 120,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 4,
-   "events_at_gyms": 4,
-   "gyms": 4,
-   "joined_total": 7
+   "events_total": 6,
+   "events_at_gyms": 6,
+   "gyms": 6,
+   "joined_total": 15
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 3,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,7 +36,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 3
+    "joined": 4
    },
    "mix": false
   },
@@ -54,11 +54,63 @@
    },
    "eve": {
     "events": 1,
-    "joined": 2,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
     "Since 2020 노텐션 클라이밍"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-042",
+   "name": "더클라임 사당점",
+   "sido": "서울",
+   "sigungu": "관악구",
+   "lat": 37.474479,
+   "lng": 126.98148,
+   "day": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "해적 클라이밍 크루 🐧신생크루🐧"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-004",
+   "name": "더클라임 양재점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.485185,
+   "lng": 127.035884,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "돌파민 클라이밍 크루🧗🏻‍♀️🧗"
    ],
    "total": {
     "events": 1,
@@ -121,6 +173,23 @@
  ],
  "events": [
   {
+   "key": "71d78b63-28d8-4c08-8d4b-728be2ddde141|1200|사당 더클 평일 낮클",
+   "date": 20261029,
+   "crew_id": "71d78b63-28d8-4c08-8d4b-728be2ddde141",
+   "crew": "해적 클라이밍 크루 🐧신생크루🐧",
+   "crew_url": "https://www.somoim.co.kr/71d78b63-28d8-4c08-8d4b-728be2ddde141",
+   "time": "12:00",
+   "slot": "day",
+   "title": "사당 더클 평일 낮클",
+   "place_raw": "사당 더클라임",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-042",
+   "gym_name": "더클라임 사당점",
+   "seen_at": "17:56:37"
+  },
+  {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_담장 클라이밍 신촌",
    "date": 20261029,
    "crew_id": "6e19e03a-8943-11ee-9c66-0ac1857694111",
@@ -130,12 +199,12 @@
    "slot": "eve",
    "title": "목_담장 클라이밍 신촌",
    "place_raw": "담장 신촌점",
-   "joined": 3,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-094",
    "gym_name": "신촌담장",
-   "seen_at": "14:27:55"
+   "seen_at": "17:56:05"
   },
   {
    "key": "481cdbd0-7128-43f6-a6c9-1ad6711795b91|1900|더클 강남 퇴근클",
@@ -152,7 +221,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "14:28:13"
+   "seen_at": "17:56:23"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|목요_리드🧗_영등포외벽🍲🍡",
@@ -164,12 +233,12 @@
    "slot": "eve",
    "title": "목요_리드🧗_영등포외벽🍲🍡",
    "place_raw": "영등포클라이밍경기장",
-   "joined": 2,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-131",
    "gym_name": "영등포스포츠클라이밍경기장",
-   "seen_at": "14:27:53"
+   "seen_at": "17:56:03"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1900|더클 이수 퇴근클!!,.!.!!!!!",
@@ -186,7 +255,24 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "14:28:10"
+   "seen_at": "17:56:20"
+  },
+  {
+   "key": "8bb41720-fc82-11ee-9db1-0a50f190de831|1900|양재 더클 정모",
+   "date": 20261029,
+   "crew_id": "8bb41720-fc82-11ee-9db1-0a50f190de831",
+   "crew": "돌파민 클라이밍 크루🧗🏻‍♀️🧗",
+   "crew_url": "https://www.somoim.co.kr/8bb41720-fc82-11ee-9db1-0a50f190de831",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "양재 더클 정모",
+   "place_raw": ".",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-004",
+   "gym_name": "더클라임 양재점",
+   "seen_at": "17:56:16"
   }
  ]
 }
