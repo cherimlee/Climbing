@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-10-30",
-  "collected_at": "2026-10-24T21:55+09:00",
+  "collected_at": "2026-10-25T09:56+09:00",
   "crews": 123,
-  "errors": 1,
+  "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 11,
-   "events_at_gyms": 10,
-   "gyms": 10,
-   "joined_total": 30
+   "events_total": 12,
+   "events_at_gyms": 11,
+   "gyms": 11,
+   "joined_total": 31
   }
  },
  "gyms": [
@@ -249,6 +249,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-004",
+   "name": "더클라임 양재점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.485185,
+   "lng": 127.035884,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "Since 2020 노텐션 클라이밍"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  },
+  {
    "gym_id": "GGI-070",
    "name": "킨디클라이밍",
    "sido": "경기",
@@ -291,7 +317,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "21:56:41"
+   "seen_at": "09:56:40"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1800|이태원 오프더월 퇴근클",
@@ -308,7 +334,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "21:56:36"
+   "seen_at": "09:56:34"
   },
   {
    "key": "d3609c72-6a8b-4f9a-8ac9-88911cd09ade1|1900|잠실숲",
@@ -325,7 +351,7 @@
    "place_type": "암장",
    "gym_id": "SEL-116",
    "gym_name": "서울숲클라이밍 잠실점",
-   "seen_at": "21:56:22"
+   "seen_at": "09:56:20"
   },
   {
    "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1900|평일클X지구력 뿌시기(끝나고 치킨고)",
@@ -342,7 +368,7 @@
    "place_type": "암장",
    "gym_id": "GGI-045",
    "gym_name": "퍼즐클라이밍",
-   "seen_at": "21:56:23"
+   "seen_at": "09:56:23"
   },
   {
    "key": "68a2751e-1d9e-11ef-8ab7-0af1d1d9d55f1|1900|부천 풀코스🌉(정환, 교육X)",
@@ -359,7 +385,7 @@
    "place_type": "암장",
    "gym_id": "GGI-052",
    "gym_name": "캐치스톤클라이밍짐",
-   "seen_at": "21:56:26"
+   "seen_at": "09:56:24"
   },
   {
    "key": "a6dbc2ec-cac2-11ee-9c28-0af124dcc1231|1900|기흥 볼더메이트",
@@ -376,7 +402,7 @@
    "place_type": "암장",
    "gym_id": "GGI-125",
    "gym_name": "볼더메이트 클라이밍 기흥점",
-   "seen_at": "21:56:28"
+   "seen_at": "09:56:27"
   },
   {
    "key": "10252385-bf83-48c3-b16a-b03dcc00e5851|1900|맵곡... 퇴근클🌶️🔥",
@@ -393,7 +419,7 @@
    "place_type": "암장",
    "gym_id": "SEL-036",
    "gym_name": "더클라임 마곡점",
-   "seen_at": "21:56:29"
+   "seen_at": "09:56:28"
   },
   {
    "key": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1|1900|더렛지+회식🍻",
@@ -410,7 +436,24 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "21:56:31"
+   "seen_at": "09:56:29"
+  },
+  {
+   "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|🌟ALL 텐션🌟_더클라임 양재",
+   "date": 20261030,
+   "crew_id": "8cc91a64-a0bc-11ea-8231-0af22038b75a1",
+   "crew": "Since 2020 노텐션 클라이밍",
+   "crew_url": "https://www.somoim.co.kr/8cc91a64-a0bc-11ea-8231-0af22038b75a1",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "🌟ALL 텐션🌟_더클라임 양재",
+   "place_raw": "더클라임 양재",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-004",
+   "gym_name": "더클라임 양재점",
+   "seen_at": "09:56:03"
   },
   {
    "key": "8cdb8056-69e7-11eb-9d66-0aedd13079e41|1930|할로윈 D-1 🎃 불금논현 더클라임",
@@ -427,7 +470,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "21:56:19"
+   "seen_at": "09:56:17"
   },
   {
    "key": "eb2d2cc7-0b42-4182-a827-485cc36ce07f1|1930|🎃 볼더 파티",
@@ -444,7 +487,7 @@
    "place_type": "암장",
    "gym_id": "GGI-070",
    "gym_name": "킨디클라이밍",
-   "seen_at": "21:56:35"
+   "seen_at": "09:56:34"
   },
   {
    "key": "10252385-bf83-48c3-b16a-b03dcc00e5851|2000|퇴근클 강더클💕",
@@ -461,7 +504,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "21:56:29"
+   "seen_at": "09:56:28"
   }
  ]
 }
