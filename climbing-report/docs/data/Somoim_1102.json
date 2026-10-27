@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-02",
-  "collected_at": "2026-10-27T14:43+09:00",
+  "collected_at": "2026-10-27T17:56+09:00",
   "crews": 127,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -57,7 +57,7 @@
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "14:43:43"
+   "seen_at": "17:56:10"
   }
  ]
 }
