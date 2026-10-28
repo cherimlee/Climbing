@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-03",
-  "collected_at": "2026-10-28T09:56+09:00",
+  "collected_at": "2026-10-28T15:07+09:00",
   "crews": 129,
-  "errors": 1,
+  "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 7,
-   "events_at_gyms": 7,
-   "gyms": 7,
-   "joined_total": 23
+   "events_total": 8,
+   "events_at_gyms": 8,
+   "gyms": 8,
+   "joined_total": 28
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 8,
+    "joined": 10,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,7 +36,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 8
+    "joined": 10
    },
    "mix": false
   },
@@ -54,7 +54,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 4,
+    "joined": 5,
     "joined_unknown": 0
    },
    "crews": [
@@ -62,7 +62,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 4
+    "joined": 5
    },
    "mix": false
   },
@@ -89,6 +89,32 @@
    "total": {
     "events": 1,
     "joined": 4
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "GGI-070",
+   "name": "킨디클라이밍",
+   "sido": "경기",
+   "sigungu": "수원시 권선구",
+   "lat": 37.263606,
+   "lng": 126.998918,
+   "day": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "👑 WEE 클라이밍 크루 👑"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
    },
    "mix": false
   },
@@ -199,6 +225,23 @@
  ],
  "events": [
   {
+   "key": "b61f64d7-d551-4925-b72c-4728827774df1|1200|킨디 낮클 ⭐게스트환영/시간협의⭐️",
+   "date": 20261103,
+   "crew_id": "b61f64d7-d551-4925-b72c-4728827774df1",
+   "crew": "👑 WEE 클라이밍 크루 👑",
+   "crew_url": "https://www.somoim.co.kr/b61f64d7-d551-4925-b72c-4728827774df1",
+   "time": "12:00",
+   "slot": "day",
+   "title": "킨디 낮클 ⭐게스트환영/시간협의⭐️",
+   "place_raw": "킨디클라이밍",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "GGI-070",
+   "gym_name": "킨디클라이밍",
+   "seen_at": "15:08:16"
+  },
+  {
    "key": "0ecddca1-18ca-48b8-8570-4af0281dbdfe1|1700|바람이 분당",
    "date": 20261103,
    "crew_id": "0ecddca1-18ca-48b8-8570-4af0281dbdfe1",
@@ -213,7 +256,7 @@
    "place_type": "암장",
    "gym_id": "GGI-057",
    "gym_name": "락트리클라이밍 분당",
-   "seen_at": "09:56:26"
+   "seen_at": "15:08:12"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|그루트 성수 퇴근클",
@@ -225,12 +268,12 @@
    "slot": "eve",
    "title": "그루트 성수 퇴근클",
    "place_raw": "성수",
-   "joined": 8,
-   "capacity": 10,
+   "joined": 10,
+   "capacity": 15,
    "place_type": "암장",
    "gym_id": "SEL-104",
    "gym_name": "그루트클라이밍",
-   "seen_at": "09:56:31"
+   "seen_at": "15:08:18"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|화_ 더클라임 강남",
@@ -247,7 +290,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "09:56:04"
+   "seen_at": "15:07:49"
   },
   {
    "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
@@ -259,12 +302,12 @@
    "slot": "eve",
    "title": "화요정모",
    "place_raw": "범계 더렛지",
-   "joined": 4,
+   "joined": 5,
    "capacity": 200,
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "09:56:06"
+   "seen_at": "15:07:51"
   },
   {
    "key": "df37f674-a41c-11e8-9c0a-0aea8443ad341|1900|입문초보 대환영 클린이🐕",
@@ -281,7 +324,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:09"
+   "seen_at": "15:07:54"
   },
   {
    "key": "0c0d0f0f-e6d8-4be8-987d-41ac38da6f0e1|1900|천플릭💙",
@@ -298,7 +341,7 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "09:56:18"
+   "seen_at": "15:08:04"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1930|신촌 피커스 퇴근클",
@@ -315,7 +358,7 @@
    "place_type": "암장",
    "gym_id": "SEL-095",
    "gym_name": "피커스 신촌점",
-   "seen_at": "09:56:37"
+   "seen_at": "15:08:24"
   }
  ]
 }
