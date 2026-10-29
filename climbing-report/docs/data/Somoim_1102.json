@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-02",
-  "collected_at": "2026-10-29T00:28+09:00",
+  "collected_at": "2026-10-29T09:56+09:00",
   "crews": 130,
-  "errors": 0,
+  "errors": 1,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
    "events_total": 3,
    "events_at_gyms": 3,
    "gyms": 3,
-   "joined_total": 6
+   "joined_total": 7
   }
  },
  "gyms": [
@@ -54,7 +54,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 2,
+    "joined": 3,
     "joined_unknown": 0
    },
    "crews": [
@@ -62,7 +62,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 2
+    "joined": 3
    },
    "mix": false
   },
@@ -109,7 +109,7 @@
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "00:28:52"
+   "seen_at": "09:56:09"
   },
   {
    "key": "77a2b63f-557d-46b7-9de2-d6b58b587e481|1900|더클 벙 안열어주고 싶은데..",
@@ -126,7 +126,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "00:29:09"
+   "seen_at": "09:56:27"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|월요병 퇴치엔 영등🌳",
@@ -138,12 +138,12 @@
    "slot": "eve",
    "title": "월요병 퇴치엔 영등🌳",
    "place_raw": "서울숲클라이밍 영등포점",
-   "joined": 2,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "00:29:15"
+   "seen_at": "09:56:34"
   }
  ]
 }

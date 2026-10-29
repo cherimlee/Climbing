@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-04",
-  "collected_at": "2026-10-29T00:28+09:00",
+  "collected_at": "2026-10-29T09:56+09:00",
   "crews": 130,
-  "errors": 0,
+  "errors": 1,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 4,
-   "events_at_gyms": 4,
-   "gyms": 4,
-   "joined_total": 11
+   "events_total": 5,
+   "events_at_gyms": 5,
+   "gyms": 5,
+   "joined_total": 12
   }
  },
  "gyms": [
@@ -117,6 +117,32 @@
     "joined": 1
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-021",
+   "name": "온플릭클라이밍 천호점",
+   "sido": "서울",
+   "sigungu": "강동구",
+   "lat": 37.540805,
+   "lng": 127.124557,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🍎오르닝저러닝🍎🧗‍♂️🧗‍♀️"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -135,7 +161,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "00:29:03"
+   "seen_at": "09:56:21"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|성수더클🙂",
@@ -152,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "00:28:44"
+   "seen_at": "09:56:01"
   },
   {
    "key": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01|1900|선호의 논현 수업",
@@ -169,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "00:29:21"
+   "seen_at": "09:56:39"
   },
   {
    "key": "01bc91bf-acf3-46ff-a23d-f394c572d6341|1900|퇴근클⚡️더클 신림💜",
@@ -186,7 +212,24 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "00:29:24"
+   "seen_at": "09:56:42"
+  },
+  {
+   "key": "96c52982-522e-11ee-8be7-0a24a87ab69d1|1900|2026.11.4 수플릭정모",
+   "date": 20261104,
+   "crew_id": "96c52982-522e-11ee-8be7-0a24a87ab69d1",
+   "crew": "🍎오르닝저러닝🍎🧗‍♂️🧗‍♀️",
+   "crew_url": "https://www.somoim.co.kr/96c52982-522e-11ee-8be7-0a24a87ab69d1",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "2026.11.4 수플릭정모",
+   "place_raw": "천호 온플릭",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-021",
+   "gym_name": "온플릭클라이밍 천호점",
+   "seen_at": "09:56:13"
   }
  ]
 }
