@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-02",
-  "collected_at": "2026-10-30T00:33+09:00",
+  "collected_at": "2026-10-30T09:56+09:00",
   "crews": 130,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 5,
-   "events_at_gyms": 4,
-   "gyms": 4,
-   "joined_total": 14
+   "events_total": 6,
+   "events_at_gyms": 5,
+   "gyms": 5,
+   "joined_total": 18
   }
  },
  "gyms": [
@@ -63,6 +63,32 @@
    "total": {
     "events": 1,
     "joined": 5
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-146",
+   "name": "손상원 클라이밍짐 을지로점",
+   "sido": "서울",
+   "sigungu": "중구",
+   "lat": 37.568377,
+   "lng": 126.982327,
+   "day": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "WALL클 : 낮 클라이밍🧗‍♀️"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
    },
    "mix": false
   },
@@ -121,6 +147,23 @@
  ],
  "events": [
   {
+   "key": "fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31|1300|뛰뛰맛집 을손",
+   "date": 20261102,
+   "crew_id": "fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31",
+   "crew": "WALL클 : 낮 클라이밍🧗‍♀️",
+   "crew_url": "https://www.somoim.co.kr/fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31",
+   "time": "13:00",
+   "slot": "day",
+   "title": "뛰뛰맛집 을손",
+   "place_raw": "손상원클라이밍 을지로",
+   "joined": 4,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-146",
+   "gym_name": "손상원 클라이밍짐 을지로점",
+   "seen_at": "09:56:02"
+  },
+  {
    "key": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481|1800|월요병 퇴근클 천플릭",
    "date": 20261102,
    "crew_id": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481",
@@ -135,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "00:33:57"
+   "seen_at": "09:56:17"
   },
   {
    "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1900|벙) 더클라임 성수",
@@ -152,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "00:33:49"
+   "seen_at": "09:56:09"
   },
   {
    "key": "77a2b63f-557d-46b7-9de2-d6b58b587e481|1900|더클 벙 안열어주고 싶은데..",
@@ -169,7 +212,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "00:34:09"
+   "seen_at": "09:56:26"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|월요병 퇴치엔 영등🌳",
@@ -186,7 +229,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "00:34:14"
+   "seen_at": "09:56:33"
   },
   {
    "key": "5c682801-1f1d-4579-85ad-90abd45313271|1930|11/02 어거스트🍯🍯",
@@ -203,7 +246,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "00:33:46"
+   "seen_at": "09:56:05"
   }
  ]
 }
