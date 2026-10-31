@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "date": "2026-11-06",
+  "collected_at": "2026-10-31T23:37+09:00",
+  "crews": 130,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 1,
+   "events_at_gyms": 1,
+   "gyms": 1,
+   "joined_total": 1
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "SEL-136",
+   "name": "오프더월클라이밍",
+   "sido": "서울",
+   "sigungu": "용산구",
+   "lat": 37.53433,
+   "lng": 126.994934,
+   "day": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🐈‍⬛크로캣(CROQUET) 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "617d3002-90c5-4c27-b939-d12ac42b096b1|1500|옾더월 낮클🐈‍⬛",
+   "date": 20261106,
+   "crew_id": "617d3002-90c5-4c27-b939-d12ac42b096b1",
+   "crew": "🐈‍⬛크로캣(CROQUET) 크루",
+   "crew_url": "https://www.somoim.co.kr/617d3002-90c5-4c27-b939-d12ac42b096b1",
+   "time": "15:00",
+   "slot": "day",
+   "title": "옾더월 낮클🐈‍⬛",
+   "place_raw": "오프더월 이태원점",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-136",
+   "gym_name": "오프더월클라이밍",
+   "seen_at": "23:37:59"
+  }
+ ]
+}
