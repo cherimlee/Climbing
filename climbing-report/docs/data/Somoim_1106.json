@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-06",
-  "collected_at": "2026-10-31T23:37+09:00",
+  "collected_at": "2026-10-31T23:46+09:00",
   "crews": 130,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -57,7 +57,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "23:37:59"
+   "seen_at": "23:46:51"
   }
  ]
 }
