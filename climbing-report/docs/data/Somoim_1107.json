@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-07",
-  "collected_at": "2026-11-01T15:54+09:00",
+  "collected_at": "2026-11-01T17:56+09:00",
   "crews": 130,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 11,
    "events_at_gyms": 6,
    "gyms": 6,
-   "joined_total": 26
+   "joined_total": 27
   }
  },
  "gyms": [
@@ -67,6 +67,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-128",
+   "name": "서울숲클라이밍 영등포점",
+   "sido": "서울",
+   "sigungu": "영등포구",
+   "lat": 37.517735,
+   "lng": 126.900243,
+   "day": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "클라이밍 크루 😊해피니스"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-094",
    "name": "신촌담장",
    "sido": "서울",
@@ -119,32 +145,6 @@
    "mix": false
   },
   {
-   "gym_id": "SEL-128",
-   "name": "서울숲클라이밍 영등포점",
-   "sido": "서울",
-   "sigungu": "영등포구",
-   "lat": 37.517735,
-   "lng": 126.900243,
-   "day": {
-    "events": 1,
-    "joined": 2,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "클라이밍 크루 😊해피니스"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 2
-   },
-   "mix": false
-  },
-  {
    "gym_id": "GGI-070",
    "name": "킨디클라이밍",
    "sido": "경기",
@@ -187,7 +187,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "15:55:21"
+   "seen_at": "17:56:39"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1100|옾더월 이태원 주말클",
@@ -204,7 +204,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "15:55:08"
+   "seen_at": "17:56:26"
   },
   {
    "key": "498adbc8-103c-44ec-ad12-c9a78cf960321|1200|라스트 영알🐰🩸",
@@ -221,7 +221,7 @@
    "place_type": "암장",
    "gym_id": "SEL-130",
    "gym_name": "알레클라임 영등포점",
-   "seen_at": "15:55:08"
+   "seen_at": "17:56:26"
   },
   {
    "key": "7d280940-e6dc-4d85-b8cb-d43b8816a7951|1300|토욜 바위~",
@@ -238,7 +238,7 @@
    "place_type": "자연암장",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "15:55:11"
+   "seen_at": "17:56:29"
   },
   {
    "key": "931fc75f-06f7-4df6-bdd4-5083f032d8b41|1300|11.07 토요일",
@@ -255,7 +255,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "15:55:04"
+   "seen_at": "17:56:22"
   },
   {
    "key": "6ac31632-b806-11ec-86d8-0ac3336fc2b91|1330|딥스테이션 자율연습 (딥탱크O)",
@@ -272,7 +272,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "딥스테이션(용인)",
-   "seen_at": "15:54:44"
+   "seen_at": "17:56:01"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1400|영등숲",
@@ -284,12 +284,12 @@
    "slot": "day",
    "title": "영등숲",
    "place_raw": "영등숲",
-   "joined": 2,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "15:55:02"
+   "seen_at": "17:56:19"
   },
   {
    "key": "31c39d79-3e52-4578-8433-0de9f3797adc1|1400|킨디 클라이밍",
@@ -306,7 +306,7 @@
    "place_type": "암장",
    "gym_id": "GGI-070",
    "gym_name": "킨디클라이밍",
-   "seen_at": "15:55:19"
+   "seen_at": "17:56:37"
   },
   {
    "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1500|림) 신촌 담장",
@@ -323,7 +323,7 @@
    "place_type": "암장",
    "gym_id": "SEL-094",
    "gym_name": "신촌담장",
-   "seen_at": "15:54:52"
+   "seen_at": "17:56:09"
   },
   {
    "key": "496803bb-1186-44a1-a3c2-adac54fb7d5a1|1500|손상원 클라이밍 을지로점",
@@ -340,7 +340,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "15:55:04"
+   "seen_at": "17:56:22"
   },
   {
    "key": "17460018-d862-11ee-80ab-0a711a16bf4f1|2000|🎉🎉대관행사🎉🎉",
@@ -357,7 +357,7 @@
    "place_type": "암장",
    "gym_id": "SEL-095",
    "gym_name": "피커스 신촌점",
-   "seen_at": "15:55:03"
+   "seen_at": "17:56:20"
   }
  ]
 }
