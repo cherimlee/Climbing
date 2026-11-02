@@ -1,0 +1,63 @@
+{
+ "meta": {
+  "date": "2026-11-09",
+  "collected_at": "2026-11-03T03:36+09:00",
+  "crews": 130,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 1,
+   "events_at_gyms": 1,
+   "gyms": 1,
+   "joined_total": 3
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "SEL-130",
+   "name": "알레클라임 영등포점",
+   "sido": "서울",
+   "sigungu": "영등포구",
+   "lat": 37.521576,
+   "lng": 126.902855,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "무제(舞制) 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "c7bf97c2-f8a8-4485-bd47-b3814763c1781|1900|[월] 진짜 마지막 영알,, 😭",
+   "date": 20261109,
+   "crew_id": "c7bf97c2-f8a8-4485-bd47-b3814763c1781",
+   "crew": "무제(舞制) 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/c7bf97c2-f8a8-4485-bd47-b3814763c1781",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "[월] 진짜 마지막 영알,, 😭",
+   "place_raw": "영등포알레",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-130",
+   "gym_name": "알레클라임 영등포점",
+   "seen_at": "03:36:59"
+  }
+ ]
+}
