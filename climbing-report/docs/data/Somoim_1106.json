@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-06",
-  "collected_at": "2026-11-02T00:28+09:00",
+  "collected_at": "2026-11-02T09:56+09:00",
   "crews": 130,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 3,
-   "events_at_gyms": 3,
-   "gyms": 3,
-   "joined_total": 4
+   "events_total": 4,
+   "events_at_gyms": 4,
+   "gyms": 4,
+   "joined_total": 5
   }
  },
  "gyms": [
@@ -91,6 +91,32 @@
     "joined": 1
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-083",
+   "name": "더클라임 연남점",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "lat": 37.557667,
+   "lng": 126.925892,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "클라임하이!! 클라이밍 모임!"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -109,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "00:28:43"
+   "seen_at": "09:56:34"
   },
   {
    "key": "e267ecc4-6b3d-4dec-843b-2ea523b087961|1900|강남 더클라임",
@@ -126,7 +152,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "00:28:36"
+   "seen_at": "09:56:25"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|불금에 전완근 털러 가자💪",
@@ -143,7 +169,24 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "00:28:44"
+   "seen_at": "09:56:35"
+  },
+  {
+   "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|연남 더클라임! 신입/초보모임!",
+   "date": 20261106,
+   "crew_id": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "crew": "클라임하이!! 클라이밍 모임!",
+   "crew_url": "https://www.somoim.co.kr/9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "time": "19:20",
+   "slot": "eve",
+   "title": "연남 더클라임! 신입/초보모임!",
+   "place_raw": "연남 더클라임!",
+   "joined": 1,
+   "capacity": 1,
+   "place_type": "암장",
+   "gym_id": "SEL-083",
+   "gym_name": "더클라임 연남점",
+   "seen_at": "09:56:00"
   }
  ]
 }
