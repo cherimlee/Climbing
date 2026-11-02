@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-06",
-  "collected_at": "2026-11-02T15:55+09:00",
+  "collected_at": "2026-11-02T17:56+09:00",
   "crews": 130,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 7,
    "events_at_gyms": 7,
    "gyms": 7,
-   "joined_total": 13
+   "joined_total": 14
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 4,
+    "joined": 5,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,7 +36,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 4
+    "joined": 5
    },
    "mix": false
   },
@@ -213,7 +213,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "15:55:49"
+   "seen_at": "17:56:32"
   },
   {
    "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|1500|11/06 논현 더클",
@@ -230,7 +230,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "15:55:25"
+   "seen_at": "17:56:07"
   },
   {
    "key": "8286e672-7df4-40b2-a04b-c64ac815d5421|1500|클라임어스",
@@ -247,7 +247,7 @@
    "place_type": "암장",
    "gym_id": "GGI-065",
    "gym_name": "클라임 어스 모란점",
-   "seen_at": "15:55:57"
+   "seen_at": "17:56:40"
   },
   {
    "key": "e267ecc4-6b3d-4dec-843b-2ea523b087961|1900|강남 더클라임",
@@ -264,7 +264,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "15:55:41"
+   "seen_at": "17:56:24"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|불금에 전완근 털러 가자💪",
@@ -281,7 +281,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "15:55:50"
+   "seen_at": "17:56:33"
   },
   {
    "key": "25204944-2b8c-4226-b509-39997d4601101|1900|더클 성수",
@@ -293,12 +293,12 @@
    "slot": "eve",
    "title": "더클 성수",
    "place_raw": "더클 성수",
-   "joined": 4,
+   "joined": 5,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "15:55:18"
+   "seen_at": "17:56:00"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|연남 더클라임! 신입/초보모임!",
@@ -315,7 +315,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "15:55:17"
+   "seen_at": "17:56:01"
   }
  ]
 }
