@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-10",
-  "collected_at": "2026-11-04T09:56+09:00",
+  "collected_at": "2026-11-04T15:54+09:00",
   "crews": 131,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 6,
-   "events_at_gyms": 6,
-   "gyms": 4,
-   "joined_total": 14
+   "events_total": 9,
+   "events_at_gyms": 8,
+   "gyms": 6,
+   "joined_total": 19
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 3,
-    "joined": 7,
+    "joined": 8,
     "joined_unknown": 0
    },
    "crews": [
@@ -38,7 +38,7 @@
    ],
    "total": {
     "events": 3,
-    "joined": 7
+    "joined": 8
    },
    "mix": false
   },
@@ -95,6 +95,58 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-083",
+   "name": "더클라임 연남점",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "lat": 37.557667,
+   "lng": 126.925892,
+   "day": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "플래시⚡️크루 🧗🏃⛰️🎨"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "GGI-106",
+   "name": "더렛지 클라이밍",
+   "sido": "경기",
+   "sigungu": "안양시 동안구",
+   "lat": 37.387452,
+   "lng": 126.945339,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🐱아냥 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-127",
    "name": "서울볼더스 선유",
    "sido": "서울",
@@ -137,7 +189,24 @@
    "place_type": "암장",
    "gym_id": "SEL-095",
    "gym_name": "피커스 신촌점",
-   "seen_at": "09:56:02"
+   "seen_at": "15:54:06"
+  },
+  {
+   "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1500|연남 낮클 오면 수민이가 한정선을..",
+   "date": 20261110,
+   "crew_id": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1",
+   "crew": "플래시⚡️크루 🧗🏃⛰️🎨",
+   "crew_url": "https://www.somoim.co.kr/964c7508-26ba-11ef-8d39-0a7ff4a8d46b1",
+   "time": "15:00",
+   "slot": "day",
+   "title": "연남 낮클 오면 수민이가 한정선을..",
+   "place_raw": "더클라임 연남점",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-083",
+   "gym_name": "더클라임 연남점",
+   "seen_at": "15:54:36"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|더클 논현 퇴근클",
@@ -154,7 +223,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "09:56:29"
+   "seen_at": "15:54:30"
   },
   {
    "key": "f0961ac3-0f4b-40c7-b329-141c38b16cf41|1846|서볼 선유🔥",
@@ -171,7 +240,7 @@
    "place_type": "암장",
    "gym_id": "SEL-127",
    "gym_name": "서울볼더스 선유",
-   "seen_at": "09:56:01"
+   "seen_at": "15:54:04"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|🌟정기모임🌟_더클논현",
@@ -183,12 +252,12 @@
    "slot": "eve",
    "title": "🌟정기모임🌟_더클논현",
    "place_raw": "더클라임논현",
-   "joined": 1,
+   "joined": 2,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "09:56:03"
+   "seen_at": "15:54:07"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|화_더클라임 논현",
@@ -205,7 +274,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "09:56:05"
+   "seen_at": "15:54:08"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|종로 서울숲 퇴근클",
@@ -222,7 +291,41 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "09:56:37"
+   "seen_at": "15:54:39"
+  },
+  {
+   "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
+   "date": 20261110,
+   "crew_id": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "crew": "🐱아냥 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "화요정모",
+   "place_raw": "범계 더렛지",
+   "joined": 2,
+   "capacity": 200,
+   "place_type": "암장",
+   "gym_id": "GGI-106",
+   "gym_name": "더렛지 클라이밍",
+   "seen_at": "15:54:09"
+  },
+  {
+   "key": "7d280940-e6dc-4d85-b8cb-d43b8816a7951|1911|야볼~~",
+   "date": 20261110,
+   "crew_id": "7d280940-e6dc-4d85-b8cb-d43b8816a7951",
+   "crew": "ROCKSHIP 자연볼더링크루🧗",
+   "crew_url": "https://www.somoim.co.kr/7d280940-e6dc-4d85-b8cb-d43b8816a7951",
+   "time": "19:11",
+   "slot": "eve",
+   "title": "야볼~~",
+   "place_raw": "참석 카톡방",
+   "joined": 1,
+   "capacity": 2,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "15:54:32"
   }
  ]
 }
