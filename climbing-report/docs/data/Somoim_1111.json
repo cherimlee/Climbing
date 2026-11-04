@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-11",
-  "collected_at": "2026-11-05T01:30+09:00",
+  "collected_at": "2026-11-05T01:36+09:00",
   "crews": 132,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -83,7 +83,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "01:31:02"
+   "seen_at": "01:36:24"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|숲으로 가자",
@@ -100,7 +100,7 @@
    "place_type": "암장",
    "gym_id": "SEL-116",
    "gym_name": "서울숲클라이밍 잠실점",
-   "seen_at": "01:31:25"
+   "seen_at": "01:36:43"
   },
   {
    "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1900|평일클X지구력 뿌시기",
@@ -117,7 +117,7 @@
    "place_type": "암장",
    "gym_id": "GGI-045",
    "gym_name": "퍼즐클라이밍",
-   "seen_at": "01:31:21"
+   "seen_at": "01:36:40"
   }
  ]
 }
