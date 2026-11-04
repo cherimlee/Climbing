@@ -1,0 +1,123 @@
+{
+ "meta": {
+  "date": "2026-11-11",
+  "collected_at": "2026-11-05T01:30+09:00",
+  "crews": 132,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 3,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 8
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "SEL-116",
+   "name": "서울숲클라이밍 잠실점",
+   "sido": "서울",
+   "sigungu": "송파구",
+   "lat": 37.51103,
+   "lng": 127.084156,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "[신입모집⭐️] 별오름 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 5
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "GGI-045",
+   "name": "퍼즐클라이밍",
+   "sido": "경기",
+   "sigungu": "남양주시",
+   "lat": 37.614275,
+   "lng": 127.154011,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "더클라이머"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "f3f97dd0-4896-11ed-bc88-0a66ca2177e31|1300|수볼메 낮클",
+   "date": 20261111,
+   "crew_id": "f3f97dd0-4896-11ed-bc88-0a66ca2177e31",
+   "crew": "고래 클라이밍 크루 🐳",
+   "crew_url": "https://www.somoim.co.kr/f3f97dd0-4896-11ed-bc88-0a66ca2177e31",
+   "time": "13:00",
+   "slot": "day",
+   "title": "수볼메 낮클",
+   "place_raw": "볼더메이트 수지점",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "01:31:02"
+  },
+  {
+   "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|숲으로 가자",
+   "date": 20261111,
+   "crew_id": "4517f26f-7590-4fe5-95d4-939a25129fe71",
+   "crew": "[신입모집⭐️] 별오름 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/4517f26f-7590-4fe5-95d4-939a25129fe71",
+   "time": "18:00",
+   "slot": "eve",
+   "title": "숲으로 가자",
+   "place_raw": "서울숲 잠실",
+   "joined": 5,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-116",
+   "gym_name": "서울숲클라이밍 잠실점",
+   "seen_at": "01:31:25"
+  },
+  {
+   "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1900|평일클X지구력 뿌시기",
+   "date": 20261111,
+   "crew_id": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1",
+   "crew": "더클라이머",
+   "crew_url": "https://www.somoim.co.kr/d5080f80-5c59-11ef-866f-0ac1fc6d3adb1",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "평일클X지구력 뿌시기",
+   "place_raw": "다산 퍼즐",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "GGI-045",
+   "gym_name": "퍼즐클라이밍",
+   "seen_at": "01:31:21"
+  }
+ ]
+}
