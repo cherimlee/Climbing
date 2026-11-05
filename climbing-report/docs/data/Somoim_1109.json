@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-09",
-  "collected_at": "2026-11-05T16:13+09:00",
+  "collected_at": "2026-11-05T16:27+09:00",
   "crews": 132,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 4,
    "events_at_gyms": 4,
    "gyms": 4,
-   "joined_total": 11
+   "joined_total": 12
   }
  },
  "gyms": [
@@ -41,6 +41,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-125",
+   "name": "더클라임 문래점",
+   "sido": "서울",
+   "sigungu": "영등포구",
+   "lat": 37.520567,
+   "lng": 126.895005,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "오르렁 클라이밍  🐯"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-053",
    "name": "서울숲클라이밍 구로점",
    "sido": "서울",
@@ -59,32 +85,6 @@
    },
    "crews": [
     "크럭시(Cruxy)클라이밍🫯"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 3
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-125",
-   "name": "더클라임 문래점",
-   "sido": "서울",
-   "sigungu": "영등포구",
-   "lat": 37.520567,
-   "lng": 126.895005,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 3,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "오르렁 클라이밍  🐯"
    ],
    "total": {
     "events": 1,
@@ -135,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "16:13:13"
+   "seen_at": "16:27:47"
   },
   {
    "key": "c7bf97c2-f8a8-4485-bd47-b3814763c1781|1900|[월] 진짜 마지막 영알,, 😭",
@@ -152,7 +152,7 @@
    "place_type": "암장",
    "gym_id": "SEL-130",
    "gym_name": "알레클라임 영등포점",
-   "seen_at": "16:13:21"
+   "seen_at": "16:27:55"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|종숲",
@@ -169,7 +169,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "16:13:01"
+   "seen_at": "16:27:34"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 문래 평일",
@@ -181,12 +181,12 @@
    "slot": "eve",
    "title": "더클 문래 평일",
    "place_raw": "더클라임 문래",
-   "joined": 3,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "16:13:16"
+   "seen_at": "16:27:49"
   }
  ]
 }
