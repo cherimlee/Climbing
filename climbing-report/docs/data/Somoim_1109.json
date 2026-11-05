@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-09",
-  "collected_at": "2026-11-05T16:27+09:00",
+  "collected_at": "2026-11-05T17:56+09:00",
   "crews": 132,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 4,
-   "events_at_gyms": 4,
+   "events_total": 5,
+   "events_at_gyms": 5,
    "gyms": 4,
-   "joined_total": 12
+   "joined_total": 13
   }
  },
  "gyms": [
@@ -100,8 +100,8 @@
    "lat": 37.569705,
    "lng": 126.990024,
    "day": {
-    "events": 0,
-    "joined": 0,
+    "events": 1,
+    "joined": 1,
     "joined_unknown": 0
    },
    "eve": {
@@ -110,16 +110,34 @@
     "joined_unknown": 0
    },
    "crews": [
+    "WALL클 : 낮 클라이밍🧗‍♀️",
     "우당탕 클라이밍 크루🔥"
    ],
    "total": {
-    "events": 1,
-    "joined": 1
+    "events": 2,
+    "joined": 2
    },
-   "mix": false
+   "mix": true
   }
  ],
  "events": [
+  {
+   "key": "fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31|1300|종숲",
+   "date": 20261109,
+   "crew_id": "fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31",
+   "crew": "WALL클 : 낮 클라이밍🧗‍♀️",
+   "crew_url": "https://www.somoim.co.kr/fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31",
+   "time": "13:00",
+   "slot": "day",
+   "title": "종숲",
+   "place_raw": "종로 서울숲",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-140",
+   "gym_name": "서울숲클라이밍 종로점",
+   "seen_at": "17:56:02"
+  },
   {
    "key": "d3609c72-6a8b-4f9a-8ac9-88911cd09ade1|1400|낮클 부럽지용? 🤭🤭",
    "date": 20261109,
@@ -135,7 +153,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "16:27:47"
+   "seen_at": "17:56:14"
   },
   {
    "key": "c7bf97c2-f8a8-4485-bd47-b3814763c1781|1900|[월] 진짜 마지막 영알,, 😭",
@@ -152,7 +170,7 @@
    "place_type": "암장",
    "gym_id": "SEL-130",
    "gym_name": "알레클라임 영등포점",
-   "seen_at": "16:27:55"
+   "seen_at": "17:56:22"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|종숲",
@@ -169,7 +187,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "16:27:34"
+   "seen_at": "17:56:01"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 문래 평일",
@@ -186,7 +204,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "16:27:49"
+   "seen_at": "17:56:17"
   }
  ]
 }
