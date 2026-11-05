@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-11",
-  "collected_at": "2026-11-05T01:36+09:00",
+  "collected_at": "2026-11-05T09:56+09:00",
   "crews": 132,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
    "events_total": 3,
-   "events_at_gyms": 2,
-   "gyms": 2,
-   "joined_total": 8
+   "events_at_gyms": 3,
+   "gyms": 3,
+   "joined_total": 10
   }
  },
  "gyms": [
@@ -54,7 +54,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 3,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
@@ -62,29 +62,38 @@
    ],
    "total": {
     "events": 1,
-    "joined": 3
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-097",
+   "name": "더클라임 논현점",
+   "sido": "서울",
+   "sigungu": "서초구",
+   "lat": 37.508374,
+   "lng": 127.022219,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "홀드메이트 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
    },
    "mix": false
   }
  ],
  "events": [
-  {
-   "key": "f3f97dd0-4896-11ed-bc88-0a66ca2177e31|1300|수볼메 낮클",
-   "date": 20261111,
-   "crew_id": "f3f97dd0-4896-11ed-bc88-0a66ca2177e31",
-   "crew": "고래 클라이밍 크루 🐳",
-   "crew_url": "https://www.somoim.co.kr/f3f97dd0-4896-11ed-bc88-0a66ca2177e31",
-   "time": "13:00",
-   "slot": "day",
-   "title": "수볼메 낮클",
-   "place_raw": "볼더메이트 수지점",
-   "joined": 3,
-   "capacity": 20,
-   "place_type": "미상",
-   "gym_id": null,
-   "gym_name": null,
-   "seen_at": "01:36:24"
-  },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|숲으로 가자",
    "date": 20261111,
@@ -100,7 +109,7 @@
    "place_type": "암장",
    "gym_id": "SEL-116",
    "gym_name": "서울숲클라이밍 잠실점",
-   "seen_at": "01:36:43"
+   "seen_at": "09:56:24"
   },
   {
    "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1900|평일클X지구력 뿌시기",
@@ -112,12 +121,29 @@
    "slot": "eve",
    "title": "평일클X지구력 뿌시기",
    "place_raw": "다산 퍼즐",
-   "joined": 3,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "GGI-045",
    "gym_name": "퍼즐클라이밍",
-   "seen_at": "01:36:40"
+   "seen_at": "09:56:21"
+  },
+  {
+   "key": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01|1900|세강의 논현행",
+   "date": 20261111,
+   "crew_id": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
+   "crew": "홀드메이트 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "세강의 논현행",
+   "place_raw": "더클라임 논현",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-097",
+   "gym_name": "더클라임 논현점",
+   "seen_at": "09:56:39"
   }
  ]
 }
