@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-13",
-  "collected_at": "2026-11-08T00:11+09:00",
+  "collected_at": "2026-11-08T09:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 3,
-   "events_at_gyms": 3,
-   "gyms": 3,
-   "joined_total": 8
+   "events_total": 4,
+   "events_at_gyms": 4,
+   "gyms": 4,
+   "joined_total": 9
   }
  },
  "gyms": [
@@ -91,6 +91,32 @@
     "joined": 1
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-078",
+   "name": "더클라임 이수점",
+   "sido": "서울",
+   "sigungu": "동작구",
+   "lat": 37.482011,
+   "lng": 126.981487,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🧈Butter Climbing🧈"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -109,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "00:11:50"
+   "seen_at": "09:56:23"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|뛰뛰 을손상(벙주: 정지은)",
@@ -126,7 +152,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "00:11:25"
+   "seen_at": "09:56:01"
   },
   {
    "key": "df37f674-a41c-11e8-9c0a-0aea8443ad341|1900|17기 신입 입문초보 특화반",
@@ -143,7 +169,24 @@
    "place_type": "암장",
    "gym_id": "SEL-142",
    "gym_name": "클라이밍파크 종로점",
-   "seen_at": "00:11:43"
+   "seen_at": "09:56:17"
+  },
+  {
+   "key": "2be2855d-9487-48d2-b58e-989777229ecf1|1900|더클 이수",
+   "date": 20261113,
+   "crew_id": "2be2855d-9487-48d2-b58e-989777229ecf1",
+   "crew": "🧈Butter Climbing🧈",
+   "crew_url": "https://www.somoim.co.kr/2be2855d-9487-48d2-b58e-989777229ecf1",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "더클 이수",
+   "place_raw": "더클 이수",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-078",
+   "gym_name": "더클라임 이수점",
+   "seen_at": "09:56:19"
   }
  ]
 }
