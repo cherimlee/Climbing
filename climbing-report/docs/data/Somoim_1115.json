@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-15",
-  "collected_at": "2026-11-09T17:56+09:00",
+  "collected_at": "2026-11-10T03:58+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 20,
-   "events_at_gyms": 17,
+   "events_total": 23,
+   "events_at_gyms": 18,
    "gyms": 13,
-   "joined_total": 74
+   "joined_total": 78
   }
  },
  "gyms": [
@@ -71,6 +71,33 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-044",
+   "name": "스톤즈클라이밍",
+   "sido": "서울",
+   "sigungu": "관악구",
+   "lat": 37.475069,
+   "lng": 126.970141,
+   "day": {
+    "events": 2,
+    "joined": 9,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "Corgi 크루 신입 모집",
+    "🧗‍♀️오주클라이밍:오직 주말만"
+   ],
+   "total": {
+    "events": 2,
+    "joined": 9
+   },
+   "mix": false
+  },
+  {
    "gym_id": "GGI-033",
    "name": "스파이시 클라이밍",
    "sido": "경기",
@@ -79,7 +106,7 @@
    "lng": 126.944906,
    "day": {
     "events": 1,
-    "joined": 7,
+    "joined": 8,
     "joined_unknown": 0
    },
    "eve": {
@@ -92,33 +119,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 7
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-044",
-   "name": "스톤즈클라이밍",
-   "sido": "서울",
-   "sigungu": "관악구",
-   "lat": 37.475069,
-   "lng": 126.970141,
-   "day": {
-    "events": 1,
-    "joined": 7,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "Corgi 크루 신입 모집"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 7
+    "joined": 8
    },
    "mix": false
   },
@@ -227,6 +228,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-098",
+   "name": "손상원클라이밍짐 강남점",
+   "sido": "서울",
+   "sigungu": "서초구",
+   "lat": 37.492625,
+   "lng": 127.029581,
+   "day": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "다이노 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-128",
    "name": "서울숲클라이밍 영등포점",
    "sido": "서울",
@@ -249,32 +276,6 @@
    "total": {
     "events": 1,
     "joined": 3
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-146",
-   "name": "손상원 클라이밍짐 을지로점",
-   "sido": "서울",
-   "sigungu": "중구",
-   "lat": 37.568377,
-   "lng": 126.982327,
-   "day": {
-    "events": 1,
-    "joined": 2,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "🧗‍♀️오주클라이밍:오직 주말만"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 2
    },
    "mix": false
   },
@@ -373,7 +374,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:56:28"
+   "seen_at": "03:58:33"
   },
   {
    "key": "94c2a512-3c7c-47da-9f35-626404fc333c1|1030|일욜정모 더클라임 이수",
@@ -390,24 +391,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "17:56:38"
-  },
-  {
-   "key": "85640799-05d9-41d6-9f33-8583fc5ea1961|1100|손짐을지로",
-   "date": 20261115,
-   "crew_id": "85640799-05d9-41d6-9f33-8583fc5ea1961",
-   "crew": "🧗‍♀️오주클라이밍:오직 주말만",
-   "crew_url": "https://www.somoim.co.kr/85640799-05d9-41d6-9f33-8583fc5ea1961",
-   "time": "11:00",
-   "slot": "day",
-   "title": "손짐을지로",
-   "place_raw": "손상원클라이밍 을지로점",
-   "joined": 2,
-   "capacity": 20,
-   "place_type": "암장",
-   "gym_id": "SEL-146",
-   "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "17:56:10"
+   "seen_at": "03:58:44"
   },
   {
    "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1100|주말클×더클라이머",
@@ -424,7 +408,7 @@
    "place_type": "암장",
    "gym_id": "GGI-045",
    "gym_name": "퍼즐클라이밍",
-   "seen_at": "17:56:21"
+   "seen_at": "03:58:27"
   },
   {
    "key": "26219d50-6fc6-4549-8c87-29680d0af1261|1100|두번째 원정? 킨디 가봅쉬닷 !",
@@ -441,7 +425,24 @@
    "place_type": "암장",
    "gym_id": "GGI-070",
    "gym_name": "킨디클라이밍",
-   "seen_at": "17:56:28"
+   "seen_at": "03:58:34"
+  },
+  {
+   "key": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1|1200|주말클 더클사댕",
+   "date": 20261115,
+   "crew_id": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1",
+   "crew": "스코빌 클라이밍 크루🔥",
+   "crew_url": "https://www.somoim.co.kr/4acf03c3-b5cd-4638-aa71-1dab812dbb2b1",
+   "time": "12:00",
+   "slot": "day",
+   "title": "주말클 더클사댕",
+   "place_raw": "더클 사댕",
+   "joined": 4,
+   "capacity": 20,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "03:58:39"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1300|🌶️🔥",
@@ -453,12 +454,12 @@
    "slot": "day",
    "title": "🌶️🔥",
    "place_raw": "스파이시 클라이밍",
-   "joined": 7,
+   "joined": 8,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "GGI-033",
    "gym_name": "스파이시 클라이밍",
-   "seen_at": "17:56:25"
+   "seen_at": "03:58:31"
   },
   {
    "key": "d308c3e1-76a4-46ba-a951-d1415d4cdbf61|1300|더클 연남",
@@ -475,7 +476,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "17:56:35"
+   "seen_at": "03:58:41"
   },
   {
    "key": "3c164c92-98d0-496a-a81e-75b4afde2f441|1300|더클라임 연남점 주말 정모",
@@ -492,7 +493,24 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "17:56:39"
+   "seen_at": "03:58:44"
+  },
+  {
+   "key": "bb51e506-2a0a-11ef-8806-0a9a496e97c11|1300|여유롭게 원정가자! 일요클!",
+   "date": 20261115,
+   "crew_id": "bb51e506-2a0a-11ef-8806-0a9a496e97c11",
+   "crew": "클라이밍크루 오름  🌱신규모집🌱",
+   "crew_url": "https://www.somoim.co.kr/bb51e506-2a0a-11ef-8806-0a9a496e97c11",
+   "time": "13:00",
+   "slot": "day",
+   "title": "여유롭게 원정가자! 일요클!",
+   "place_raw": "추천받아요",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "03:58:29"
   },
   {
    "key": "df37f674-a41c-11e8-9c0a-0aea8443ad341|1330|🐣17기 입문초보 모여락😍",
@@ -509,7 +527,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "17:56:18"
+   "seen_at": "03:58:23"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1400|더클마곡",
@@ -526,7 +544,7 @@
    "place_type": "암장",
    "gym_id": "SEL-036",
    "gym_name": "더클라임 마곡점",
-   "seen_at": "17:56:19"
+   "seen_at": "03:58:25"
   },
   {
    "key": "d7471312-29f1-483f-ba28-39846fb49bb41|1400|준우업는 옾더월",
@@ -543,7 +561,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "17:56:24"
+   "seen_at": "03:58:29"
   },
   {
    "key": "635940d4-33a5-11ef-8546-0a89b92bc1151|1400|스톤즈",
@@ -560,7 +578,7 @@
    "place_type": "암장",
    "gym_id": "SEL-044",
    "gym_name": "스톤즈클라이밍",
-   "seen_at": "17:56:25"
+   "seen_at": "03:58:30"
   },
   {
    "key": "f32bc05e-ac08-11ed-a6b9-0a8401e210771|1400|연남 더클🌍",
@@ -577,7 +595,41 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "17:56:26"
+   "seen_at": "03:58:31"
+  },
+  {
+   "key": "85640799-05d9-41d6-9f33-8583fc5ea1961|1400|스톤즈 낙성대🗿",
+   "date": 20261115,
+   "crew_id": "85640799-05d9-41d6-9f33-8583fc5ea1961",
+   "crew": "🧗‍♀️오주클라이밍:오직 주말만",
+   "crew_url": "https://www.somoim.co.kr/85640799-05d9-41d6-9f33-8583fc5ea1961",
+   "time": "14:00",
+   "slot": "day",
+   "title": "스톤즈 낙성대🗿",
+   "place_raw": "[카카오맵] 스톤즈클라이밍 https",
+   "joined": 2,
+   "capacity": 25,
+   "place_type": "암장",
+   "gym_id": "SEL-044",
+   "gym_name": "스톤즈클라이밍",
+   "seen_at": "03:58:17"
+  },
+  {
+   "key": "c1fb15d2-2e84-11ec-b271-0acbb058eab51|1400|강손 🙌🏻",
+   "date": 20261115,
+   "crew_id": "c1fb15d2-2e84-11ec-b271-0acbb058eab51",
+   "crew": "다이노 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/c1fb15d2-2e84-11ec-b271-0acbb058eab51",
+   "time": "14:00",
+   "slot": "day",
+   "title": "강손 🙌🏻",
+   "place_raw": "손짐 강남점",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-098",
+   "gym_name": "손상원클라이밍짐 강남점",
+   "seen_at": "03:58:25"
   },
   {
    "key": "496803bb-1186-44a1-a3c2-adac54fb7d5a1|1500|킨디 클라이밍 수원",
@@ -594,7 +646,7 @@
    "place_type": "암장",
    "gym_id": "GGI-070",
    "gym_name": "킨디클라이밍",
-   "seen_at": "17:56:24"
+   "seen_at": "03:58:30"
   },
   {
    "key": "c4e68af8-7272-4bb6-9564-3b2cfb6bc3b21|1500|클밍 아니고 보드게임!",
@@ -611,7 +663,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:56:35"
+   "seen_at": "03:58:41"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1500|종로 서울숲! 신입/초보모임!",
@@ -628,7 +680,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "17:56:01"
+   "seen_at": "03:58:07"
   },
   {
    "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|1500|11/15 강동알레🐎",
@@ -645,7 +697,7 @@
    "place_type": "암장",
    "gym_id": "SEL-019",
    "gym_name": "알레클라임 강동점",
-   "seen_at": "17:56:07"
+   "seen_at": "03:58:14"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1500|영등포 숲",
@@ -662,7 +714,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "17:56:14"
+   "seen_at": "03:58:20"
   },
   {
    "key": "25204944-2b8c-4226-b509-39997d4601101|1600|투이어즈 염창",
@@ -679,7 +731,7 @@
    "place_type": "암장",
    "gym_id": "SEL-040",
    "gym_name": "투이얼즈클라임하우스",
-   "seen_at": "17:56:03"
+   "seen_at": "03:58:10"
   },
   {
    "key": "0a89054d-0cfd-4491-a376-93620bbf3a861|2200|모임 일정은 오픈톡에서 확인🌽",
@@ -696,7 +748,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:56:41"
+   "seen_at": "03:58:48"
   }
  ]
 }
