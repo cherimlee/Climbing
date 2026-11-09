@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-16",
-  "collected_at": "2026-11-10T03:58+09:00",
+  "collected_at": "2026-11-10T04:10+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -57,7 +57,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "03:58:20"
+   "seen_at": "04:10:32"
   }
  ]
 }
