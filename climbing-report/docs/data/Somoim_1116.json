@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-16",
-  "collected_at": "2026-11-10T09:56+09:00",
+  "collected_at": "2026-11-10T16:39+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 1,
-   "events_at_gyms": 1,
-   "gyms": 1,
-   "joined_total": 7
+   "events_total": 2,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 8
   }
  },
  "gyms": [
@@ -39,9 +39,52 @@
     "joined": 7
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-141",
+   "name": "알레클라임 혜화점",
+   "sido": "서울",
+   "sigungu": "종로구",
+   "lat": 37.584091,
+   "lng": 127.000706,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "초록 클라이밍 크루🦎(초클모)"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
+  {
+   "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1830|벙) 알레 혜화",
+   "date": 20261116,
+   "crew_id": "d43c64ba-097c-11ee-9787-0a22884291a11",
+   "crew": "초록 클라이밍 크루🦎(초클모)",
+   "crew_url": "https://www.somoim.co.kr/d43c64ba-097c-11ee-9787-0a22884291a11",
+   "time": "18:30",
+   "slot": "eve",
+   "title": "벙) 알레 혜화",
+   "place_raw": "단톡참고",
+   "joined": 1,
+   "capacity": 1,
+   "place_type": "암장",
+   "gym_id": "SEL-141",
+   "gym_name": "알레클라임 혜화점",
+   "seen_at": "16:39:18"
+  },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|을손짐✨️",
    "date": 20261116,
@@ -57,7 +100,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "09:56:12"
+   "seen_at": "16:39:23"
   }
  ]
 }
