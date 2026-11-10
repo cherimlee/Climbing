@@ -1,0 +1,106 @@
+{
+ "meta": {
+  "date": "2026-11-17",
+  "collected_at": "2026-11-11T01:30+09:00",
+  "crews": 133,
+  "errors": 0,
+  "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
+  "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
+  "summary": {
+   "events_total": 2,
+   "events_at_gyms": 2,
+   "gyms": 2,
+   "joined_total": 8
+  }
+ },
+ "gyms": [
+  {
+   "gym_id": "SEL-083",
+   "name": "더클라임 연남점",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "lat": 37.557667,
+   "lng": 126.925892,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "클라이밍 크루 😊해피니스"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-003",
+   "name": "더클라임 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.497589,
+   "lng": 127.031992,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "💥플래시클라임"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  }
+ ],
+ "events": [
+  {
+   "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1800|연남 퇴근클",
+   "date": 20261117,
+   "crew_id": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+   "crew": "클라이밍 크루 😊해피니스",
+   "crew_url": "https://www.somoim.co.kr/fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+   "time": "18:00",
+   "slot": "eve",
+   "title": "연남 퇴근클",
+   "place_raw": "더클연남",
+   "joined": 4,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-083",
+   "gym_name": "더클라임 연남점",
+   "seen_at": "01:30:26"
+  },
+  {
+   "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|더클 강남 퇴근클",
+   "date": 20261117,
+   "crew_id": "54defadc-136d-11f0-bcce-0ac1539a03c91",
+   "crew": "💥플래시클라임",
+   "crew_url": "https://www.somoim.co.kr/54defadc-136d-11f0-bcce-0ac1539a03c91",
+   "time": "18:00",
+   "slot": "eve",
+   "title": "더클 강남 퇴근클",
+   "place_raw": "강남",
+   "joined": 4,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-003",
+   "gym_name": "더클라임 강남점",
+   "seen_at": "01:30:32"
+  }
+ ]
+}

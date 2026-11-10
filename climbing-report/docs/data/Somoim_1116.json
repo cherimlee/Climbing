@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-16",
-  "collected_at": "2026-11-10T17:56+09:00",
+  "collected_at": "2026-11-11T01:30+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 2,
-   "events_at_gyms": 2,
-   "gyms": 2,
-   "joined_total": 8
+   "events_total": 4,
+   "events_at_gyms": 4,
+   "gyms": 4,
+   "joined_total": 14
   }
  },
  "gyms": [
@@ -37,6 +37,58 @@
    "total": {
     "events": 1,
     "joined": 7
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-078",
+   "name": "더클라임 이수점",
+   "sido": "서울",
+   "sigungu": "동작구",
+   "lat": 37.482011,
+   "lng": 126.981487,
+   "day": {
+    "events": 1,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "햅삐클루🧗‍♂️ - 초보자도 가능!"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 5
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-125",
+   "name": "더클라임 문래점",
+   "sido": "서울",
+   "sigungu": "영등포구",
+   "lat": 37.520567,
+   "lng": 126.895005,
+   "day": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "💪Heet Climbing🪨"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
    },
    "mix": false
   },
@@ -69,6 +121,40 @@
  ],
  "events": [
   {
+   "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|1000|11/16월 오전문래더클라임🧗‍♂️",
+   "date": 20261116,
+   "crew_id": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1",
+   "crew": "💪Heet Climbing🪨",
+   "crew_url": "https://www.somoim.co.kr/7aa183a0-cf4c-11ed-b5d2-0a67493c793b1",
+   "time": "10:00",
+   "slot": "day",
+   "title": "11/16월 오전문래더클라임🧗‍♂️",
+   "place_raw": "문래 더클라임",
+   "joined": 1,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-125",
+   "gym_name": "더클라임 문래점",
+   "seen_at": "01:30:14"
+  },
+  {
+   "key": "5d84d253-d850-4680-8447-fd159c54abb71|1200|🍯더클 이수🍇",
+   "date": 20261116,
+   "crew_id": "5d84d253-d850-4680-8447-fd159c54abb71",
+   "crew": "햅삐클루🧗‍♂️ - 초보자도 가능!",
+   "crew_url": "https://www.somoim.co.kr/5d84d253-d850-4680-8447-fd159c54abb71",
+   "time": "12:00",
+   "slot": "day",
+   "title": "🍯더클 이수🍇",
+   "place_raw": "더클라임 클라이밍 이수점",
+   "joined": 5,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-078",
+   "gym_name": "더클라임 이수점",
+   "seen_at": "01:30:12"
+  },
+  {
    "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1830|벙) 알레 혜화",
    "date": 20261116,
    "crew_id": "d43c64ba-097c-11ee-9787-0a22884291a11",
@@ -83,7 +169,7 @@
    "place_type": "암장",
    "gym_id": "SEL-141",
    "gym_name": "알레클라임 혜화점",
-   "seen_at": "17:56:09"
+   "seen_at": "01:30:17"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|을손짐✨️",
@@ -100,7 +186,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "17:56:14"
+   "seen_at": "01:30:20"
   }
  ]
 }
