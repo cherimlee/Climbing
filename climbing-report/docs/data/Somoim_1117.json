@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-17",
-  "collected_at": "2026-11-11T16:15+09:00",
+  "collected_at": "2026-11-11T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,10 +10,36 @@
    "events_total": 4,
    "events_at_gyms": 4,
    "gyms": 4,
-   "joined_total": 12
+   "joined_total": 15
   }
  },
  "gyms": [
+  {
+   "gym_id": "SEL-003",
+   "name": "더클라임 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.497589,
+   "lng": 127.031992,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 7,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "💥플래시클라임"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 7
+   },
+   "mix": false
+  },
   {
    "gym_id": "SEL-083",
    "name": "더클라임 연남점",
@@ -33,32 +59,6 @@
    },
    "crews": [
     "클라이밍 크루 😊해피니스"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 4
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-003",
-   "name": "더클라임 강남점",
-   "sido": "서울",
-   "sigungu": "강남구",
-   "lat": 37.497589,
-   "lng": 127.031992,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 4,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "💥플래시클라임"
    ],
    "total": {
     "events": 1,
@@ -135,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "16:16:10"
+   "seen_at": "17:56:18"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|더클 강남 퇴근클",
@@ -147,12 +147,12 @@
    "slot": "eve",
    "title": "더클 강남 퇴근클",
    "place_raw": "강남",
-   "joined": 4,
+   "joined": 7,
    "capacity": 10,
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "16:16:17"
+   "seen_at": "17:56:24"
   },
   {
    "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
@@ -169,7 +169,7 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "16:15:58"
+   "seen_at": "17:56:05"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|염창 투이얼즈! 신입/초보모임!",
@@ -186,7 +186,7 @@
    "place_type": "암장",
    "gym_id": "SEL-040",
    "gym_name": "투이얼즈클라임하우스",
-   "seen_at": "16:15:53"
+   "seen_at": "17:56:00"
   }
  ]
 }
