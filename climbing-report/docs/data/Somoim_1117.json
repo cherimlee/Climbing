@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-17",
-  "collected_at": "2026-11-11T09:56+09:00",
+  "collected_at": "2026-11-11T15:58+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 2,
-   "events_at_gyms": 2,
-   "gyms": 2,
-   "joined_total": 8
+   "events_total": 4,
+   "events_at_gyms": 4,
+   "gyms": 4,
+   "joined_total": 12
   }
  },
  "gyms": [
@@ -65,6 +65,58 @@
     "joined": 4
    },
    "mix": false
+  },
+  {
+   "gym_id": "GGI-106",
+   "name": "더렛지 클라이밍",
+   "sido": "경기",
+   "sigungu": "안양시 동안구",
+   "lat": 37.387452,
+   "lng": 126.945339,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🐱아냥 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-040",
+   "name": "투이얼즈클라임하우스",
+   "sido": "서울",
+   "sigungu": "강서구",
+   "lat": 37.548504,
+   "lng": 126.876192,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "클라임하이!! 클라이밍 모임!"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -83,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:19"
+   "seen_at": "15:58:29"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|더클 강남 퇴근클",
@@ -100,7 +152,41 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "09:56:25"
+   "seen_at": "15:58:36"
+  },
+  {
+   "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
+   "date": 20261117,
+   "crew_id": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "crew": "🐱아냥 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "화요정모",
+   "place_raw": "범계 더렛지",
+   "joined": 3,
+   "capacity": 200,
+   "place_type": "암장",
+   "gym_id": "GGI-106",
+   "gym_name": "더렛지 클라이밍",
+   "seen_at": "15:58:17"
+  },
+  {
+   "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|염창 투이얼즈! 신입/초보모임!",
+   "date": 20261117,
+   "crew_id": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "crew": "클라임하이!! 클라이밍 모임!",
+   "crew_url": "https://www.somoim.co.kr/9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "time": "19:20",
+   "slot": "eve",
+   "title": "염창 투이얼즈! 신입/초보모임!",
+   "place_raw": "염창 투이얼즈!",
+   "joined": 1,
+   "capacity": 1,
+   "place_type": "암장",
+   "gym_id": "SEL-040",
+   "gym_name": "투이얼즈클라임하우스",
+   "seen_at": "15:58:12"
   }
  ]
 }
