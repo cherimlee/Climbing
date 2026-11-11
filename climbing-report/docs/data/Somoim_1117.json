@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-17",
-  "collected_at": "2026-11-11T01:37+09:00",
+  "collected_at": "2026-11-11T09:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -83,7 +83,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "01:37:41"
+   "seen_at": "09:56:19"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|더클 강남 퇴근클",
@@ -100,7 +100,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "01:37:47"
+   "seen_at": "09:56:25"
   }
  ]
 }
