@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-19",
-  "collected_at": "2026-11-13T09:56+09:00",
+  "collected_at": "2026-11-13T16:05+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 6,
-   "events_at_gyms": 4,
-   "gyms": 4,
-   "joined_total": 15
+   "events_total": 7,
+   "events_at_gyms": 5,
+   "gyms": 5,
+   "joined_total": 17
   }
  },
  "gyms": [
@@ -117,6 +117,32 @@
     "joined": 2
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-097",
+   "name": "더클라임 논현점",
+   "sido": "서울",
+   "sigungu": "서초구",
+   "lat": 37.508374,
+   "lng": 127.022219,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "돌파민 클라이밍 크루🧗🏻‍♀️🧗"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -135,7 +161,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "09:56:29"
+   "seen_at": "16:06:08"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_손상원클라이밍 을지로",
@@ -152,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "09:56:05"
+   "seen_at": "16:05:41"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|피커스 구로",
@@ -169,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-056",
    "gym_name": "피커스클라이밍 구로",
-   "seen_at": "09:56:11"
+   "seen_at": "16:05:48"
   },
   {
    "key": "5fc11836-57bb-4164-843c-dbc1d4c501c51|1900|11/19 더클라임 연남 정기 모임",
@@ -186,7 +212,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:28"
+   "seen_at": "16:06:06"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|구로 에이스 퇴근클",
@@ -203,7 +229,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:33"
+   "seen_at": "16:06:13"
   },
   {
    "key": "0a89054d-0cfd-4491-a376-93620bbf3a861|1900|영화 폭설 볼까용?",
@@ -220,7 +246,24 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:38"
+   "seen_at": "16:06:18"
+  },
+  {
+   "key": "8bb41720-fc82-11ee-9db1-0a50f190de831|1900|논현 더클 정모",
+   "date": 20261119,
+   "crew_id": "8bb41720-fc82-11ee-9db1-0a50f190de831",
+   "crew": "돌파민 클라이밍 크루🧗🏻‍♀️🧗",
+   "crew_url": "https://www.somoim.co.kr/8bb41720-fc82-11ee-9db1-0a50f190de831",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "논현 더클 정모",
+   "place_raw": ".",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-097",
+   "gym_name": "더클라임 논현점",
+   "seen_at": "16:05:56"
   }
  ]
 }

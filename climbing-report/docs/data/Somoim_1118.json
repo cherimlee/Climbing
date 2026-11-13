@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-18",
-  "collected_at": "2026-11-13T09:56+09:00",
+  "collected_at": "2026-11-13T16:05+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 9,
    "events_at_gyms": 9,
    "gyms": 8,
-   "joined_total": 24
+   "joined_total": 26
   }
  },
  "gyms": [
@@ -68,6 +68,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-005",
+   "name": "클라이밍파크 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.495538,
+   "lng": 127.029196,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "Since 2020 노텐션 클라이밍"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "GGI-045",
    "name": "퍼즐클라이밍",
    "sido": "경기",
@@ -120,32 +146,6 @@
    "mix": false
   },
   {
-   "gym_id": "SEL-005",
-   "name": "클라이밍파크 강남점",
-   "sido": "서울",
-   "sigungu": "강남구",
-   "lat": 37.495538,
-   "lng": 127.029196,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 2,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "Since 2020 노텐션 클라이밍"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 2
-   },
-   "mix": false
-  },
-  {
    "gym_id": "SEL-042",
    "name": "더클라임 사당점",
    "sido": "서울",
@@ -185,7 +185,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 1,
+    "joined": 2,
     "joined_unknown": 0
    },
    "crews": [
@@ -193,7 +193,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 1
+    "joined": 2
    },
    "mix": false
   },
@@ -240,7 +240,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "09:56:09"
+   "seen_at": "16:05:45"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1800|🔥수요일🔥클팍강남",
@@ -252,12 +252,12 @@
    "slot": "eve",
    "title": "🔥수요일🔥클팍강남",
    "place_raw": "클라이밍파크 강남",
-   "joined": 2,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-005",
    "gym_name": "클라이밍파크 강남점",
-   "seen_at": "09:56:02"
+   "seen_at": "16:05:39"
   },
   {
    "key": "25184ef7-8160-4273-a51d-dd2c7da5adf41|1830|스페셜 사당 퇴근클",
@@ -274,7 +274,7 @@
    "place_type": "암장",
    "gym_id": "SEL-042",
    "gym_name": "더클라임 사당점",
-   "seen_at": "09:56:02"
+   "seen_at": "16:05:38"
   },
   {
    "key": "d5080f80-5c59-11ef-866f-0ac1fc6d3adb1|1900|평일클X핫존뉴세팅 맛보기",
@@ -291,7 +291,7 @@
    "place_type": "암장",
    "gym_id": "GGI-045",
    "gym_name": "퍼즐클라이밍",
-   "seen_at": "09:56:18"
+   "seen_at": "16:05:55"
   },
   {
    "key": "635940d4-33a5-11ef-8546-0a89b92bc1151|1900|2years",
@@ -308,7 +308,7 @@
    "place_type": "암장",
    "gym_id": "SEL-040",
    "gym_name": "투이얼즈클라임하우스",
-   "seen_at": "09:56:22"
+   "seen_at": "16:05:59"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|염창 2년집",
@@ -325,7 +325,7 @@
    "place_type": "암장",
    "gym_id": "SEL-040",
    "gym_name": "투이얼즈클라임하우스",
-   "seen_at": "09:56:33"
+   "seen_at": "16:06:13"
   },
   {
    "key": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551|1900|진짜 꿀밭 양재🍯🐝",
@@ -342,7 +342,7 @@
    "place_type": "암장",
    "gym_id": "SEL-004",
    "gym_name": "더클라임 양재점",
-   "seen_at": "09:56:06"
+   "seen_at": "16:05:43"
   },
   {
    "key": "8286e672-7df4-40b2-a04b-c64ac815d5421|1900|천호 온플릭",
@@ -354,12 +354,12 @@
    "slot": "eve",
    "title": "천호 온플릭",
    "place_raw": "[네이버지도]\n온플릭클라이밍짐 천호점",
-   "joined": 1,
+   "joined": 2,
    "capacity": 10,
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "09:56:35"
+   "seen_at": "16:06:15"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|신촌 담장! 신입/초보모임!",
@@ -376,7 +376,7 @@
    "place_type": "암장",
    "gym_id": "SEL-094",
    "gym_name": "신촌담장",
-   "seen_at": "09:56:01"
+   "seen_at": "16:05:37"
   }
  ]
 }
