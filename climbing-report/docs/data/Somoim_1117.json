@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-17",
-  "collected_at": "2026-11-13T16:25+09:00",
+  "collected_at": "2026-11-13T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 8,
-   "events_at_gyms": 8,
-   "gyms": 8,
-   "joined_total": 39
+   "events_total": 10,
+   "events_at_gyms": 10,
+   "gyms": 10,
+   "joined_total": 45
   }
  },
  "gyms": [
@@ -171,6 +171,58 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-116",
+   "name": "서울숲클라이밍 잠실점",
+   "sido": "서울",
+   "sigungu": "송파구",
+   "lat": 37.51103,
+   "lng": 127.084156,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🌱 MINT 클라이밍"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-112",
+   "name": "닷클라이밍짐",
+   "sido": "서울",
+   "sigungu": "송파구",
+   "lat": 37.484334,
+   "lng": 127.121799,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "스티키 클라이밍 크루 🧗‍♂️"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-040",
    "name": "투이얼즈클라임하우스",
    "sido": "서울",
@@ -239,7 +291,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "16:25:28"
+   "seen_at": "17:56:27"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1800|연남 퇴근클",
@@ -256,7 +308,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "16:25:22"
+   "seen_at": "17:56:20"
   },
   {
    "key": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351|1900|화요정모",
@@ -273,7 +325,7 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "16:25:10"
+   "seen_at": "17:56:08"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|화_ 더클라임 이수",
@@ -290,7 +342,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "16:25:08"
+   "seen_at": "17:56:07"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|그녀들의 구숲 이야기👸",
@@ -307,7 +359,41 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "16:25:38"
+   "seen_at": "17:56:37"
+  },
+  {
+   "key": "25204944-2b8c-4226-b509-39997d4601101|1900|잠실숲 (창연님 생일)",
+   "date": 20261117,
+   "crew_id": "25204944-2b8c-4226-b509-39997d4601101",
+   "crew": "🌱 MINT 클라이밍",
+   "crew_url": "https://www.somoim.co.kr/25204944-2b8c-4226-b509-39997d4601101",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "잠실숲 (창연님 생일)",
+   "place_raw": "서울숲 잠실",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-116",
+   "gym_name": "서울숲클라이밍 잠실점",
+   "seen_at": "17:56:03"
+  },
+  {
+   "key": "8cdb8056-69e7-11eb-9d66-0aedd13079e41|1900|정기 클라이밍",
+   "date": 20261117,
+   "crew_id": "8cdb8056-69e7-11eb-9d66-0aedd13079e41",
+   "crew": "스티키 클라이밍 크루 🧗‍♂️",
+   "crew_url": "https://www.somoim.co.kr/8cdb8056-69e7-11eb-9d66-0aedd13079e41",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "정기 클라이밍",
+   "place_raw": "닷 클라이밍짐",
+   "joined": 3,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-112",
+   "gym_name": "닷클라이밍짐",
+   "seen_at": "17:56:30"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|염창 투이얼즈! 신입/초보모임!",
@@ -324,7 +410,7 @@
    "place_type": "암장",
    "gym_id": "SEL-040",
    "gym_name": "투이얼즈클라임하우스",
-   "seen_at": "16:25:04"
+   "seen_at": "17:56:01"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1930|해삐을담",
@@ -341,7 +427,7 @@
    "place_type": "암장",
    "gym_id": "SEL-147",
    "gym_name": "을지로 담장 클라이밍",
-   "seen_at": "16:25:27"
+   "seen_at": "17:56:24"
   },
   {
    "key": "5d84d253-d850-4680-8447-fd159c54abb71|1930|서울볼더스 선유",
@@ -358,7 +444,7 @@
    "place_type": "암장",
    "gym_id": "SEL-127",
    "gym_name": "서울볼더스 선유",
-   "seen_at": "16:25:06"
+   "seen_at": "17:56:03"
   }
  ]
 }
