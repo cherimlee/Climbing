@@ -19,7 +19,7 @@
   "crew_id": "f0961ac3-0f4b-40c7-b329-141c38b16cf41",
   "name": "ORR 클라이밍 크루",
   "url": "https://www.somoim.co.kr/f0961ac3-0f4b-40c7-b329-141c38b16cf41",
-  "members": 117,
+  "members": 116,
   "sido": "서울",
   "sigungu": "성동구"
  },
@@ -35,7 +35,7 @@
   "crew_id": "25184ef7-8160-4273-a51d-dd2c7da5adf41",
   "name": "가나디 클라이밍 모임👻",
   "url": "https://www.somoim.co.kr/25184ef7-8160-4273-a51d-dd2c7da5adf41",
-  "members": 110,
+  "members": 109,
   "sido": "서울",
   "sigungu": "강남구"
  },
@@ -75,7 +75,7 @@
   "crew_id": "25204944-2b8c-4226-b509-39997d4601101",
   "name": "🌱 MINT 클라이밍",
   "url": "https://www.somoim.co.kr/25204944-2b8c-4226-b509-39997d4601101",
-  "members": 98,
+  "members": 100,
   "sido": "서울",
   "sigungu": "강남구"
  },
@@ -83,7 +83,7 @@
   "crew_id": "5d84d253-d850-4680-8447-fd159c54abb71",
   "name": "햅삐클루🧗‍♂️ - 초보자도 가능!",
   "url": "https://www.somoim.co.kr/5d84d253-d850-4680-8447-fd159c54abb71",
-  "members": 90,
+  "members": 91,
   "sido": "서울",
   "sigungu": "마포구"
  },
@@ -91,7 +91,7 @@
   "crew_id": "2a31550c-b67c-4dde-b6db-a6ed968117ef1",
   "name": "올데이 클라이밍 🧗",
   "url": "https://www.somoim.co.kr/2a31550c-b67c-4dde-b6db-a6ed968117ef1",
-  "members": 87,
+  "members": 85,
   "sido": "서울",
   "sigungu": "관악구"
  },
@@ -123,7 +123,7 @@
   "crew_id": "0740c078-3a55-11ee-977d-0ab8928b37711",
   "name": "뽈락 클라이밍 크루",
   "url": "https://www.somoim.co.kr/0740c078-3a55-11ee-977d-0ab8928b37711",
-  "members": 72,
+  "members": 73,
   "sido": "서울",
   "sigungu": "강남구"
  },
@@ -136,18 +136,10 @@
   "sigungu": "영등포구"
  },
  {
-  "crew_id": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
-  "name": "🐱아냥 클라이밍 크루",
-  "url": "https://www.somoim.co.kr/79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
-  "members": 69,
-  "sido": "경기",
-  "sigungu": "안양시"
- },
- {
   "crew_id": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551",
   "name": "또라이밍 크루",
   "url": "https://www.somoim.co.kr/7ef0d5f6-9e84-11ef-9c06-0af95269a4551",
-  "members": 69,
+  "members": 70,
   "sido": "서울",
   "sigungu": "강남구"
  },
@@ -156,6 +148,14 @@
   "name": "Canary클라이밍크루",
   "url": "https://www.somoim.co.kr/4bdc7a00-669d-11ee-bad6-0a9b880726bf1",
   "members": 69,
+  "sido": "경기",
+  "sigungu": "안양시"
+ },
+ {
+  "crew_id": "79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+  "name": "🐱아냥 클라이밍 크루",
+  "url": "https://www.somoim.co.kr/79bc86e2-0061-11ee-bf0f-0a6f0f3b09351",
+  "members": 67,
   "sido": "경기",
   "sigungu": "안양시"
  },
@@ -192,20 +192,20 @@
   "sigungu": "수원시"
  },
  {
+  "crew_id": "85640799-05d9-41d6-9f33-8583fc5ea1961",
+  "name": "🧗‍♀️오주클라이밍:오직 주말만",
+  "url": "https://www.somoim.co.kr/85640799-05d9-41d6-9f33-8583fc5ea1961",
+  "members": 60,
+  "sido": "서울",
+  "sigungu": "관악구"
+ },
+ {
   "crew_id": "a635b8b8-7aad-11ed-ae40-0a327c15cc4d1",
   "name": "댑(DAB) 클라이밍 크루!",
   "url": "https://www.somoim.co.kr/a635b8b8-7aad-11ed-ae40-0a327c15cc4d1",
   "members": 59,
   "sido": "서울",
   "sigungu": "광진구"
- },
- {
-  "crew_id": "85640799-05d9-41d6-9f33-8583fc5ea1961",
-  "name": "🧗‍♀️오주클라이밍:오직 주말만",
-  "url": "https://www.somoim.co.kr/85640799-05d9-41d6-9f33-8583fc5ea1961",
-  "members": 58,
-  "sido": "서울",
-  "sigungu": "관악구"
  },
  {
   "crew_id": "9f93151e-5e78-11ee-8589-0a6f076839211",
@@ -264,20 +264,20 @@
   "sigungu": "강서구"
  },
  {
-  "crew_id": "11ab186a-1c1d-11ef-83fa-0a75e2a94a6f1",
-  "name": "다이노덕 클라이밍 크루🐣",
-  "url": "https://www.somoim.co.kr/11ab186a-1c1d-11ef-83fa-0a75e2a94a6f1",
-  "members": 54,
-  "sido": "경기",
-  "sigungu": "수원시"
- },
- {
   "crew_id": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1",
   "name": "오르렁 클라이밍  🐯",
   "url": "https://www.somoim.co.kr/9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1",
   "members": 54,
   "sido": "서울",
   "sigungu": "영등포구"
+ },
+ {
+  "crew_id": "11ab186a-1c1d-11ef-83fa-0a75e2a94a6f1",
+  "name": "다이노덕 클라이밍 크루🐣",
+  "url": "https://www.somoim.co.kr/11ab186a-1c1d-11ef-83fa-0a75e2a94a6f1",
+  "members": 53,
+  "sido": "경기",
+  "sigungu": "수원시"
  },
  {
   "crew_id": "96c52982-522e-11ee-8be7-0a24a87ab69d1",
@@ -353,20 +353,20 @@
   "sigungu": "부천시"
  },
  {
+  "crew_id": "e2dd285c-af29-11ef-948c-0a05213f71fb1",
+  "name": "클라이밍 크루 ✊쥐락펴락 ✋🧗",
+  "url": "https://www.somoim.co.kr/e2dd285c-af29-11ef-948c-0a05213f71fb1",
+  "members": 48,
+  "sido": "서울",
+  "sigungu": "강남구"
+ },
+ {
   "crew_id": "df37f674-a41c-11e8-9c0a-0aea8443ad341",
   "name": "🌙벽헤는밤 입문*초보크루",
   "url": "https://www.somoim.co.kr/df37f674-a41c-11e8-9c0a-0aea8443ad341",
   "members": 47,
   "sido": "서울",
   "sigungu": "마포구"
- },
- {
-  "crew_id": "e2dd285c-af29-11ef-948c-0a05213f71fb1",
-  "name": "클라이밍 크루 ✊쥐락펴락 ✋🧗",
-  "url": "https://www.somoim.co.kr/e2dd285c-af29-11ef-948c-0a05213f71fb1",
-  "members": 47,
-  "sido": "서울",
-  "sigungu": "강남구"
  },
  {
   "crew_id": "32676878-589e-11ec-815b-0a2290366c731",
@@ -428,6 +428,14 @@
   "sigungu": "강서구"
  },
  {
+  "crew_id": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+  "name": "클라이밍 크루 😊해피니스",
+  "url": "https://www.somoim.co.kr/fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+  "members": 44,
+  "sido": "서울",
+  "sigungu": "마포구"
+ },
+ {
   "crew_id": "5dbe47a4-b2ae-11ef-b4dd-0a0ae1e02fa91",
   "name": "휴우 클라이밍🐢",
   "url": "https://www.somoim.co.kr/5dbe47a4-b2ae-11ef-b4dd-0a0ae1e02fa91",
@@ -442,14 +450,6 @@
   "members": 42,
   "sido": "서울",
   "sigungu": "강남구"
- },
- {
-  "crew_id": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
-  "name": "클라이밍 크루 😊해피니스",
-  "url": "https://www.somoim.co.kr/fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
-  "members": 42,
-  "sido": "서울",
-  "sigungu": "마포구"
  },
  {
   "crew_id": "2be2855d-9487-48d2-b58e-989777229ecf1",
@@ -476,6 +476,15 @@
   "sigungu": "남양주시"
  },
  {
+  "crew_id": "56e91e6c-e1b4-47a6-b700-3cc334b458a71",
+  "name": "😈마인클라이밍크루😈",
+  "url": "https://www.somoim.co.kr/56e91e6c-e1b4-47a6-b700-3cc334b458a71",
+  "members": 42,
+  "sido": "인천",
+  "sigungu": "남동구",
+  "found": "2026-10-21"
+ },
+ {
   "crew_id": "8bb41720-fc82-11ee-9db1-0a50f190de831",
   "name": "돌파민 클라이밍 크루🧗🏻‍♀️🧗",
   "url": "https://www.somoim.co.kr/8bb41720-fc82-11ee-9db1-0a50f190de831",
@@ -490,15 +499,6 @@
   "members": 41,
   "sido": "서울",
   "sigungu": "강남구"
- },
- {
-  "crew_id": "56e91e6c-e1b4-47a6-b700-3cc334b458a71",
-  "name": "😈마인클라이밍크루😈",
-  "url": "https://www.somoim.co.kr/56e91e6c-e1b4-47a6-b700-3cc334b458a71",
-  "members": 41,
-  "sido": "인천",
-  "sigungu": "남동구",
-  "found": "2026-10-21"
  },
  {
   "crew_id": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481",
@@ -542,20 +542,20 @@
   "sigungu": "강남구"
  },
  {
+  "crew_id": "496803bb-1186-44a1-a3c2-adac54fb7d5a1",
+  "name": "오르락내리락 클라이밍🧗‍♂️",
+  "url": "https://www.somoim.co.kr/496803bb-1186-44a1-a3c2-adac54fb7d5a1",
+  "members": 39,
+  "sido": "서울",
+  "sigungu": "종로구"
+ },
+ {
   "crew_id": "d7471312-29f1-483f-ba28-39846fb49bb41",
   "name": "🔥신규모집🔥르마 클라이밍 크루",
   "url": "https://www.somoim.co.kr/d7471312-29f1-483f-ba28-39846fb49bb41",
   "members": 38,
   "sido": "서울",
   "sigungu": "마포구"
- },
- {
-  "crew_id": "496803bb-1186-44a1-a3c2-adac54fb7d5a1",
-  "name": "오르락내리락 클라이밍🧗‍♂️",
-  "url": "https://www.somoim.co.kr/496803bb-1186-44a1-a3c2-adac54fb7d5a1",
-  "members": 38,
-  "sido": "서울",
-  "sigungu": "종로구"
  },
  {
   "crew_id": "635940d4-33a5-11ef-8546-0a89b92bc1151",
@@ -577,7 +577,7 @@
   "crew_id": "39b9b128-61e5-11ea-81ba-0a02a41a0f5a1",
   "name": "Rocciatore/클라이밍🧗‍♂️",
   "url": "https://www.somoim.co.kr/39b9b128-61e5-11ea-81ba-0a02a41a0f5a1",
-  "members": 36,
+  "members": 37,
   "sido": "인천",
   "sigungu": "연수구",
   "found": "2026-10-21"
@@ -589,6 +589,14 @@
   "members": 36,
   "sido": "서울",
   "sigungu": "중구"
+ },
+ {
+  "crew_id": "26219d50-6fc6-4549-8c87-29680d0af1261",
+  "name": "🌊락플로우 클라이밍🪨",
+  "url": "https://www.somoim.co.kr/26219d50-6fc6-4549-8c87-29680d0af1261",
+  "members": 36,
+  "sido": "서울",
+  "sigungu": "강남구"
  },
  {
   "crew_id": "e267ecc4-6b3d-4dec-843b-2ea523b087961",
@@ -603,14 +611,6 @@
   "crew_id": "d4020d7e-94e7-48a3-ae05-9701e4db1dd11",
   "name": "크레센도 클라이밍",
   "url": "https://www.somoim.co.kr/d4020d7e-94e7-48a3-ae05-9701e4db1dd11",
-  "members": 35,
-  "sido": "서울",
-  "sigungu": "강남구"
- },
- {
-  "crew_id": "26219d50-6fc6-4549-8c87-29680d0af1261",
-  "name": "🌊락플로우 클라이밍🪨",
-  "url": "https://www.somoim.co.kr/26219d50-6fc6-4549-8c87-29680d0af1261",
   "members": 35,
   "sido": "서울",
   "sigungu": "강남구"
@@ -682,21 +682,21 @@
   "sigungu": "용인시"
  },
  {
-  "crew_id": "7d280940-e6dc-4d85-b8cb-d43b8816a7951",
-  "name": "ROCKSHIP 자연볼더링크루🧗",
-  "url": "https://www.somoim.co.kr/7d280940-e6dc-4d85-b8cb-d43b8816a7951",
-  "members": 32,
-  "sido": "서울",
-  "sigungu": "관악구"
- },
- {
   "crew_id": "f9553664-80ae-4824-92ec-2e69bd3f9c641",
   "name": "🥔감자크루🧗🏻‍♂️",
   "url": "https://www.somoim.co.kr/f9553664-80ae-4824-92ec-2e69bd3f9c641",
-  "members": 31,
+  "members": 32,
   "sido": "인천",
   "sigungu": "연수구",
   "found": "2026-10-21"
+ },
+ {
+  "crew_id": "7d280940-e6dc-4d85-b8cb-d43b8816a7951",
+  "name": "ROCKSHIP 자연볼더링크루🧗",
+  "url": "https://www.somoim.co.kr/7d280940-e6dc-4d85-b8cb-d43b8816a7951",
+  "members": 31,
+  "sido": "서울",
+  "sigungu": "관악구"
  },
  {
   "crew_id": "57df6bd8-adeb-11ee-9ef5-0a3ccac7f38f1",
@@ -785,6 +785,15 @@
   "found": "2026-10-21"
  },
  {
+  "crew_id": "f7691648-1f0d-11ef-9ca0-0a3ea4c2f7371",
+  "name": "🤎돈두댑 클라이밍🤎남자마감🥲",
+  "url": "https://www.somoim.co.kr/f7691648-1f0d-11ef-9ca0-0a3ea4c2f7371",
+  "members": 28,
+  "sido": "경기",
+  "sigungu": "고양시",
+  "found": "2026-10-21"
+ },
+ {
   "crew_id": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1",
   "name": "스코빌 클라이밍 크루🔥",
   "url": "https://www.somoim.co.kr/4acf03c3-b5cd-4638-aa71-1dab812dbb2b1",
@@ -800,15 +809,6 @@
   "sido": "서울",
   "sigungu": "송파구",
   "found": "2026-10-24"
- },
- {
-  "crew_id": "f7691648-1f0d-11ef-9ca0-0a3ea4c2f7371",
-  "name": "🤎돈두댑 클라이밍🤎남자마감🥲",
-  "url": "https://www.somoim.co.kr/f7691648-1f0d-11ef-9ca0-0a3ea4c2f7371",
-  "members": 27,
-  "sido": "경기",
-  "sigungu": "고양시",
-  "found": "2026-10-21"
  },
  {
   "crew_id": "9fcefacd-a1a4-40de-b624-06366581b0c81",
@@ -885,7 +885,7 @@
   "crew_id": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1",
   "name": "플래시⚡️크루 🧗🏃⛰️🎨",
   "url": "https://www.somoim.co.kr/964c7508-26ba-11ef-8d39-0a7ff4a8d46b1",
-  "members": 25,
+  "members": 26,
   "sido": "서울",
   "sigungu": "영등포구"
  },
@@ -899,21 +899,30 @@
   "found": "2026-10-21"
  },
  {
+  "crew_id": "3c164c92-98d0-496a-a81e-75b4afde2f441",
+  "name": "락쿤 클라이밍 크루",
+  "url": "https://www.somoim.co.kr/3c164c92-98d0-496a-a81e-75b4afde2f441",
+  "members": 25,
+  "sido": "서울",
+  "sigungu": "종로구",
+  "found": "2026-10-21"
+ },
+ {
+  "crew_id": "8286e672-7df4-40b2-a04b-c64ac815d5421",
+  "name": "홀드온 클라이밍(Hold On)",
+  "url": "https://www.somoim.co.kr/8286e672-7df4-40b2-a04b-c64ac815d5421",
+  "members": 25,
+  "sido": "서울",
+  "sigungu": "강동구",
+  "found": "2026-10-28"
+ },
+ {
   "crew_id": "94c2a512-3c7c-47da-9f35-626404fc333c1",
   "name": "홀드락",
   "url": "https://www.somoim.co.kr/94c2a512-3c7c-47da-9f35-626404fc333c1",
   "members": 24,
   "sido": "서울",
   "sigungu": "강남구",
-  "found": "2026-10-21"
- },
- {
-  "crew_id": "3c164c92-98d0-496a-a81e-75b4afde2f441",
-  "name": "락쿤 클라이밍 크루",
-  "url": "https://www.somoim.co.kr/3c164c92-98d0-496a-a81e-75b4afde2f441",
-  "members": 24,
-  "sido": "서울",
-  "sigungu": "종로구",
   "found": "2026-10-21"
  },
  {
@@ -924,15 +933,6 @@
   "sido": "서울",
   "sigungu": "강남구",
   "found": "2026-10-23"
- },
- {
-  "crew_id": "8286e672-7df4-40b2-a04b-c64ac815d5421",
-  "name": "홀드온 클라이밍(Hold On)",
-  "url": "https://www.somoim.co.kr/8286e672-7df4-40b2-a04b-c64ac815d5421",
-  "members": 23,
-  "sido": "서울",
-  "sigungu": "강동구",
-  "found": "2026-10-28"
  },
  {
   "crew_id": "a5822eb1-893d-4180-87bf-985a1e9aa4b81",
@@ -980,6 +980,15 @@
   "found": "2026-10-21"
  },
  {
+  "crew_id": "24e6a044-c837-11eb-8f1d-0ab12bf153991",
+  "name": "오르밍 클라이밍크루🧗‍♂️",
+  "url": "https://www.somoim.co.kr/24e6a044-c837-11eb-8f1d-0ab12bf153991",
+  "members": 18,
+  "sido": "서울",
+  "sigungu": "광진구",
+  "found": "2026-10-21"
+ },
+ {
   "crew_id": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
   "name": "홀드메이트 클라이밍 크루",
   "url": "https://www.somoim.co.kr/5fcf0b33-eed4-4be2-9d11-b261bd219ff01",
@@ -1014,15 +1023,6 @@
   "sido": "서울",
   "sigungu": "동작구",
   "found": "2026-11-05"
- },
- {
-  "crew_id": "24e6a044-c837-11eb-8f1d-0ab12bf153991",
-  "name": "오르밍 클라이밍크루🧗‍♂️",
-  "url": "https://www.somoim.co.kr/24e6a044-c837-11eb-8f1d-0ab12bf153991",
-  "members": 17,
-  "sido": "서울",
-  "sigungu": "광진구",
-  "found": "2026-10-21"
  },
  {
   "crew_id": "b3b82222-c2c6-4b27-86a4-64d50ea7534e1",
