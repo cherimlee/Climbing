@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-19",
-  "collected_at": "2026-11-13T02:05+09:00",
+  "collected_at": "2026-11-13T09:56+09:00",
   "crews": 133,
-  "errors": 1,
+  "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
    "events_total": 6,
    "events_at_gyms": 4,
    "gyms": 4,
-   "joined_total": 14
+   "joined_total": 15
   }
  },
  "gyms": [
@@ -54,7 +54,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 3,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
@@ -62,7 +62,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 3
+    "joined": 4
    },
    "mix": false
   },
@@ -135,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "02:06:16"
+   "seen_at": "09:56:29"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_손상원클라이밍 을지로",
@@ -147,12 +147,12 @@
    "slot": "eve",
    "title": "목_손상원클라이밍 을지로",
    "place_raw": "손상원클라이밍 을지로",
-   "joined": 3,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "02:05:49"
+   "seen_at": "09:56:05"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|피커스 구로",
@@ -169,7 +169,7 @@
    "place_type": "암장",
    "gym_id": "SEL-056",
    "gym_name": "피커스클라이밍 구로",
-   "seen_at": "02:05:55"
+   "seen_at": "09:56:11"
   },
   {
    "key": "5fc11836-57bb-4164-843c-dbc1d4c501c51|1900|11/19 더클라임 연남 정기 모임",
@@ -186,7 +186,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "02:06:14"
+   "seen_at": "09:56:28"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|구로 에이스 퇴근클",
@@ -203,7 +203,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "02:06:20"
+   "seen_at": "09:56:33"
   },
   {
    "key": "0a89054d-0cfd-4491-a376-93620bbf3a861|1900|영화 폭설 볼까용?",
@@ -220,7 +220,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "02:06:25"
+   "seen_at": "09:56:38"
   }
  ]
 }
