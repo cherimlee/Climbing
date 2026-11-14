@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-19",
-  "collected_at": "2026-11-14T09:56+09:00",
+  "collected_at": "2026-11-14T15:54+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 9,
-   "events_at_gyms": 7,
-   "gyms": 6,
-   "joined_total": 22
+   "events_total": 11,
+   "events_at_gyms": 9,
+   "gyms": 8,
+   "joined_total": 23
   }
  },
  "gyms": [
@@ -170,6 +170,58 @@
     "joined": 1
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-098",
+   "name": "손상원클라이밍짐 강남점",
+   "sido": "서울",
+   "sigungu": "서초구",
+   "lat": 37.492625,
+   "lng": 127.029581,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "초록 클라이밍 크루🦎(초클모)"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "GGI-052",
+   "name": "캐치스톤클라이밍짐",
+   "sido": "경기",
+   "sigungu": "부천시 원미구",
+   "lat": 37.485571,
+   "lng": 126.782299,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "벽차오름 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 0
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -188,7 +240,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "09:56:32"
+   "seen_at": "15:55:15"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_손상원클라이밍 을지로",
@@ -205,7 +257,7 @@
    "place_type": "암장",
    "gym_id": "SEL-146",
    "gym_name": "손상원 클라이밍짐 을지로점",
-   "seen_at": "09:56:07"
+   "seen_at": "15:54:48"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|피커스 구로",
@@ -222,7 +274,7 @@
    "place_type": "암장",
    "gym_id": "SEL-056",
    "gym_name": "피커스클라이밍 구로",
-   "seen_at": "09:56:13"
+   "seen_at": "15:54:54"
   },
   {
    "key": "5fc11836-57bb-4164-843c-dbc1d4c501c51|1900|11/19 더클라임 연남 정기 모임",
@@ -239,7 +291,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:31"
+   "seen_at": "15:55:12"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|구로 에이스 퇴근클",
@@ -256,7 +308,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:36"
+   "seen_at": "15:55:18"
   },
   {
    "key": "0a89054d-0cfd-4491-a376-93620bbf3a861|1900|영화 폭설 볼까용?",
@@ -273,7 +325,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "09:56:41"
+   "seen_at": "15:55:24"
   },
   {
    "key": "8bb41720-fc82-11ee-9db1-0a50f190de831|1900|논현 더클 정모",
@@ -290,7 +342,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "09:56:21"
+   "seen_at": "15:55:04"
   },
   {
    "key": "e267ecc4-6b3d-4dec-843b-2ea523b087961|1900|더클 연남 퇴근클",
@@ -307,7 +359,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:26"
+   "seen_at": "15:55:09"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|오랜만에 돌아온 종숲",
@@ -324,7 +376,41 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "09:56:00"
+   "seen_at": "15:54:44"
+  },
+  {
+   "key": "d43c64ba-097c-11ee-9787-0a22884291a11|1900|벙) 손상원 강남",
+   "date": 20261119,
+   "crew_id": "d43c64ba-097c-11ee-9787-0a22884291a11",
+   "crew": "초록 클라이밍 크루🦎(초클모)",
+   "crew_url": "https://www.somoim.co.kr/d43c64ba-097c-11ee-9787-0a22884291a11",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "벙) 손상원 강남",
+   "place_raw": "단톡참고(벙주빠참)",
+   "joined": 1,
+   "capacity": 1,
+   "place_type": "암장",
+   "gym_id": "SEL-098",
+   "gym_name": "손상원클라이밍짐 강남점",
+   "seen_at": "15:54:52"
+  },
+  {
+   "key": "31c39d79-3e52-4578-8433-0de9f3797adc1|1930|캐치스톤",
+   "date": 20261119,
+   "crew_id": "31c39d79-3e52-4578-8433-0de9f3797adc1",
+   "crew": "벽차오름 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/31c39d79-3e52-4578-8433-0de9f3797adc1",
+   "time": "19:30",
+   "slot": "eve",
+   "title": "캐치스톤",
+   "place_raw": "캐치스톤 부천역",
+   "joined": 0,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "GGI-052",
+   "gym_name": "캐치스톤클라이밍짐",
+   "seen_at": "15:55:21"
   }
  ]
 }
