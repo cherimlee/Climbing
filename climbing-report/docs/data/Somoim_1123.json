@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-23",
-  "collected_at": "2026-11-17T03:43+09:00",
+  "collected_at": "2026-11-17T03:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -83,7 +83,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "03:44:10"
+   "seen_at": "03:56:46"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 신림 ✨️",
@@ -100,7 +100,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "03:43:59"
+   "seen_at": "03:56:35"
   }
  ]
 }
