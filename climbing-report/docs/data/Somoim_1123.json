@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-23",
-  "collected_at": "2026-11-17T09:56+09:00",
+  "collected_at": "2026-11-17T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,10 +10,36 @@
    "events_total": 2,
    "events_at_gyms": 2,
    "gyms": 2,
-   "joined_total": 8
+   "joined_total": 9
   }
  },
  "gyms": [
+  {
+   "gym_id": "SEL-043",
+   "name": "더클라임 신림점",
+   "sido": "서울",
+   "sigungu": "관악구",
+   "lat": 37.482309,
+   "lng": 126.929019,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "오르렁 클라이밍  🐯"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 5
+   },
+   "mix": false
+  },
   {
    "gym_id": "SEL-136",
    "name": "오프더월클라이밍",
@@ -39,32 +65,6 @@
     "joined": 4
    },
    "mix": false
-  },
-  {
-   "gym_id": "SEL-043",
-   "name": "더클라임 신림점",
-   "sido": "서울",
-   "sigungu": "관악구",
-   "lat": 37.482309,
-   "lng": 126.929019,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 4,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "오르렁 클라이밍  🐯"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 4
-   },
-   "mix": false
   }
  ],
  "events": [
@@ -83,7 +83,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "09:56:20"
+   "seen_at": "17:56:20"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 신림 ✨️",
@@ -95,12 +95,12 @@
    "slot": "eve",
    "title": "더클 신림 ✨️",
    "place_raw": "더클라임 신림점",
-   "joined": 4,
+   "joined": 5,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "09:56:10"
+   "seen_at": "17:56:09"
   }
  ]
 }
