@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-25",
-  "collected_at": "2026-11-19T02:24+09:00",
+  "collected_at": "2026-11-19T02:34+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -84,7 +84,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "킨디클라이밍 수원역점",
-   "seen_at": "02:24:35"
+   "seen_at": "02:34:48"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1800|🔥수요일🔥더클연남",
@@ -101,7 +101,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "02:24:26"
+   "seen_at": "02:34:38"
   },
   {
    "key": "a7a02f70-cbc0-4328-92ee-9ab1a4ecd4bd1|1900|(클렉스 앱에서 모임 운영 중입니다)",
@@ -118,7 +118,7 @@
    "place_type": "기타",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "02:24:25"
+   "seen_at": "02:34:37"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 이수",
@@ -135,7 +135,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "02:24:32"
+   "seen_at": "02:34:44"
   },
   {
    "key": "77984be4-b973-11eb-bbce-0ad82640e4931|1900|허브클라이밍",
@@ -152,7 +152,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "허브클라이밍",
-   "seen_at": "02:24:49"
+   "seen_at": "02:35:00"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|연남 핑크 별거 없다 💘",
@@ -169,7 +169,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "02:24:55"
+   "seen_at": "02:35:06"
   }
  ]
 }
