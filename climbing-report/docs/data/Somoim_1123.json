@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-23",
-  "collected_at": "2026-11-19T17:56+09:00",
+  "collected_at": "2026-11-20T02:29+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -23,7 +23,7 @@
    "lng": 126.994934,
    "day": {
     "events": 1,
-    "joined": 1,
+    "joined": 2,
     "joined_unknown": 0
    },
    "eve": {
@@ -37,7 +37,7 @@
    ],
    "total": {
     "events": 2,
-    "joined": 5
+    "joined": 6
    },
    "mix": true
   },
@@ -55,7 +55,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 5,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
@@ -63,7 +63,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 5
+    "joined": 4
    },
    "mix": false
   },
@@ -131,12 +131,12 @@
    "slot": "day",
    "title": "낮클이지롱 부럽지?😝",
    "place_raw": "오프더월 클라이밍",
-   "joined": 1,
+   "joined": 2,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "17:56:30"
+   "seen_at": "02:29:38"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|옾더월 가쟈",
@@ -153,7 +153,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "17:56:21"
+   "seen_at": "02:29:28"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 신림 ✨️",
@@ -165,12 +165,12 @@
    "slot": "eve",
    "title": "더클 신림 ✨️",
    "place_raw": "더클라임 신림점",
-   "joined": 5,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "17:56:10"
+   "seen_at": "02:29:17"
   },
   {
    "key": "2a31550c-b67c-4dde-b6db-a6ed968117ef1|1900|더클라임 연남",
@@ -187,7 +187,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "17:56:05"
+   "seen_at": "02:29:11"
   },
   {
    "key": "617d3002-90c5-4c27-b939-d12ac42b096b1|1900|사람제발zero🌲",
@@ -204,7 +204,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "17:56:30"
+   "seen_at": "02:29:38"
   }
  ]
 }
