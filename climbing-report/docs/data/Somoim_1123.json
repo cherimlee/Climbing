@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-23",
-  "collected_at": "2026-11-20T16:49+09:00",
+  "collected_at": "2026-11-20T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 7,
    "events_at_gyms": 7,
    "gyms": 6,
-   "joined_total": 18
+   "joined_total": 19
   }
  },
  "gyms": [
@@ -42,6 +42,32 @@
    "mix": true
   },
   {
+   "gym_id": "SEL-083",
+   "name": "더클라임 연남점",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "lat": 37.557667,
+   "lng": 126.925892,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "올데이 클라이밍 🧗"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 5
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-043",
    "name": "더클라임 신림점",
    "sido": "서울",
@@ -60,32 +86,6 @@
    },
    "crews": [
     "오르렁 클라이밍  🐯"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 4
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-083",
-   "name": "더클라임 연남점",
-   "sido": "서울",
-   "sigungu": "마포구",
-   "lat": 37.557667,
-   "lng": 126.925892,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 4,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "올데이 클라이밍 🧗"
    ],
    "total": {
     "events": 1,
@@ -188,7 +188,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "16:50:10"
+   "seen_at": "17:56:31"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|옾더월 가쟈",
@@ -205,7 +205,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "16:50:01"
+   "seen_at": "17:56:21"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 신림 ✨️",
@@ -222,7 +222,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "16:49:52"
+   "seen_at": "17:56:11"
   },
   {
    "key": "2a31550c-b67c-4dde-b6db-a6ed968117ef1|1900|더클라임 연남",
@@ -234,12 +234,12 @@
    "slot": "eve",
    "title": "더클라임 연남",
    "place_raw": "더클라임 연남",
-   "joined": 4,
+   "joined": 5,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "16:49:47"
+   "seen_at": "17:56:05"
   },
   {
    "key": "617d3002-90c5-4c27-b939-d12ac42b096b1|1900|사람제발zero🌲",
@@ -256,7 +256,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "16:50:10"
+   "seen_at": "17:56:31"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|월욜_ 더클 양재👍🏻",
@@ -273,7 +273,7 @@
    "place_type": "암장",
    "gym_id": "SEL-004",
    "gym_name": "더클라임 양재점",
-   "seen_at": "16:49:47"
+   "seen_at": "17:56:05"
   },
   {
    "key": "9f93151e-5e78-11ee-8589-0a6f076839211|1900|월욜벙_캐치스톤 부천",
@@ -290,7 +290,7 @@
    "place_type": "암장",
    "gym_id": "GGI-052",
    "gym_name": "캐치스톤클라이밍짐",
-   "seen_at": "16:49:57"
+   "seen_at": "17:56:18"
   }
  ]
 }
