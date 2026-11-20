@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-25",
-  "collected_at": "2026-11-20T02:40+09:00",
+  "collected_at": "2026-11-20T09:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 10,
-   "events_at_gyms": 7,
-   "gyms": 6,
-   "joined_total": 22
+   "events_total": 11,
+   "events_at_gyms": 8,
+   "gyms": 7,
+   "joined_total": 24
   }
  },
  "gyms": [
@@ -94,6 +94,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-105",
+   "name": "더클라임 성수점",
+   "sido": "서울",
+   "sigungu": "성동구",
+   "lat": 37.546768,
+   "lng": 127.06528,
+   "day": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "Marmot 클라이밍⛰️"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 3
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-021",
    "name": "온플릭클라이밍 천호점",
    "sido": "서울",
@@ -120,28 +146,28 @@
    "mix": false
   },
   {
-   "gym_id": "SEL-105",
-   "name": "더클라임 성수점",
+   "gym_id": "SEL-136",
+   "name": "오프더월클라이밍",
    "sido": "서울",
-   "sigungu": "성동구",
-   "lat": 37.546768,
-   "lng": 127.06528,
+   "sigungu": "용산구",
+   "lat": 37.53433,
+   "lng": 126.994934,
    "day": {
-    "events": 1,
-    "joined": 2,
-    "joined_unknown": 0
-   },
-   "eve": {
     "events": 0,
     "joined": 0,
     "joined_unknown": 0
    },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
    "crews": [
-    "Marmot 클라이밍⛰️"
+    "클라임하이!! 클라이밍 모임!"
    ],
    "total": {
     "events": 1,
-    "joined": 2
+    "joined": 1
    },
    "mix": false
   },
@@ -188,7 +214,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "킨디클라이밍 수원역점",
-   "seen_at": "02:40:43"
+   "seen_at": "09:56:13"
   },
   {
    "key": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481|1400|수요일 낮클 더클 성수쓰",
@@ -200,12 +226,12 @@
    "slot": "day",
    "title": "수요일 낮클 더클 성수쓰",
    "place_raw": "더클라임 성수",
-   "joined": 2,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "02:40:48"
+   "seen_at": "09:56:21"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1800|🔥수요일🔥더클연남",
@@ -222,7 +248,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "02:40:33"
+   "seen_at": "09:56:05"
   },
   {
    "key": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491|1800|물래",
@@ -239,7 +265,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "02:40:48"
+   "seen_at": "09:56:17"
   },
   {
    "key": "d7471312-29f1-483f-ba28-39846fb49bb41|1800|1000🐯 온플릭(🐙🐙🐙)",
@@ -256,7 +282,7 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "02:40:53"
+   "seen_at": "09:56:26"
   },
   {
    "key": "a7a02f70-cbc0-4328-92ee-9ab1a4ecd4bd1|1900|(클렉스 앱에서 모임 운영 중입니다)",
@@ -273,7 +299,7 @@
    "place_type": "기타",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "02:40:30"
+   "seen_at": "09:56:02"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 이수",
@@ -290,7 +316,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "02:40:38"
+   "seen_at": "09:56:10"
   },
   {
    "key": "77984be4-b973-11eb-bbce-0ad82640e4931|1900|허브클라이밍",
@@ -307,7 +333,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "허브클라이밍",
-   "seen_at": "02:40:56"
+   "seen_at": "09:56:30"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|연남 핑크 별거 없다 💘",
@@ -324,7 +350,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "02:41:03"
+   "seen_at": "09:56:37"
   },
   {
    "key": "6430982c-d6d5-11ee-b236-0aeffe46d1c51|1900|신림 듀얼패스 소진벙🙄🤍",
@@ -341,7 +367,24 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "02:41:01"
+   "seen_at": "09:56:35"
+  },
+  {
+   "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|이태원 오프더월! 신입/초보모임!",
+   "date": 20261125,
+   "crew_id": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "crew": "클라임하이!! 클라이밍 모임!",
+   "crew_url": "https://www.somoim.co.kr/9fb6ab5c-0496-11ec-8d33-0a26f71b196f1",
+   "time": "19:20",
+   "slot": "eve",
+   "title": "이태원 오프더월! 신입/초보모임!",
+   "place_raw": "이태원 오프더월!",
+   "joined": 1,
+   "capacity": 1,
+   "place_type": "암장",
+   "gym_id": "SEL-136",
+   "gym_name": "오프더월클라이밍",
+   "seen_at": "09:56:01"
   }
  ]
 }
