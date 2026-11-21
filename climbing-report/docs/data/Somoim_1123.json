@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-23",
-  "collected_at": "2026-11-21T09:56+09:00",
+  "collected_at": "2026-11-21T16:36+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 9,
-   "events_at_gyms": 9,
-   "gyms": 8,
-   "joined_total": 24
+   "events_total": 11,
+   "events_at_gyms": 11,
+   "gyms": 10,
+   "joined_total": 26
   }
  },
  "gyms": [
@@ -198,6 +198,32 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-146",
+   "name": "손상원 클라이밍짐 을지로점",
+   "sido": "서울",
+   "sigungu": "중구",
+   "lat": 37.568377,
+   "lng": 126.982327,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "클라이밍 크루 😊해피니스"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-004",
    "name": "더클라임 양재점",
    "sido": "서울",
@@ -222,6 +248,32 @@
     "joined": 1
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-123",
+   "name": "서울볼더스 목동",
+   "sido": "서울",
+   "sigungu": "양천구",
+   "lat": 37.520608,
+   "lng": 126.872366,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "🔥신생🚨 올라잇 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 1
+   },
+   "mix": false
   }
  ],
  "events": [
@@ -240,7 +292,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "09:56:31"
+   "seen_at": "16:37:19"
   },
   {
    "key": "fc3513b2-1f5f-11ec-ac6d-0a3c465e1aa31|1300|인바디 측정하러",
@@ -257,7 +309,24 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "09:56:02"
+   "seen_at": "16:36:50"
+  },
+  {
+   "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1700|손상원 을지로",
+   "date": 20261123,
+   "crew_id": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+   "crew": "클라이밍 크루 😊해피니스",
+   "crew_url": "https://www.somoim.co.kr/fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1",
+   "time": "17:00",
+   "slot": "eve",
+   "title": "손상원 을지로",
+   "place_raw": "을손짐",
+   "joined": 1,
+   "capacity": 10,
+   "place_type": "암장",
+   "gym_id": "SEL-146",
+   "gym_name": "손상원 클라이밍짐 을지로점",
+   "seen_at": "16:37:06"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1800|옾더월 가쟈",
@@ -274,7 +343,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "09:56:20"
+   "seen_at": "16:37:09"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 신림 ✨️",
@@ -291,7 +360,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "09:56:10"
+   "seen_at": "16:36:59"
   },
   {
    "key": "2a31550c-b67c-4dde-b6db-a6ed968117ef1|1900|더클라임 연남",
@@ -308,7 +377,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:05"
+   "seen_at": "16:36:53"
   },
   {
    "key": "617d3002-90c5-4c27-b939-d12ac42b096b1|1900|사람제발zero🌲",
@@ -325,7 +394,7 @@
    "place_type": "암장",
    "gym_id": "SEL-128",
    "gym_name": "서울숲클라이밍 영등포점",
-   "seen_at": "09:56:31"
+   "seen_at": "16:37:19"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|월욜_ 더클 양재👍🏻",
@@ -342,7 +411,7 @@
    "place_type": "암장",
    "gym_id": "SEL-004",
    "gym_name": "더클라임 양재점",
-   "seen_at": "09:56:05"
+   "seen_at": "16:36:53"
   },
   {
    "key": "9f93151e-5e78-11ee-8589-0a6f076839211|1900|월욜벙_캐치스톤 부천",
@@ -359,7 +428,7 @@
    "place_type": "암장",
    "gym_id": "GGI-052",
    "gym_name": "캐치스톤클라이밍짐",
-   "seen_at": "09:56:18"
+   "seen_at": "16:37:05"
   },
   {
    "key": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481|1900|월요병 퇴치 퇴근클 강손짐",
@@ -376,7 +445,24 @@
    "place_type": "암장",
    "gym_id": "SEL-098",
    "gym_name": "손상원클라이밍짐 강남점",
-   "seen_at": "09:56:19"
+   "seen_at": "16:37:07"
+  },
+  {
+   "key": "c48a4d02-c5c1-4f9b-abbe-51b620e175611|1900|🚨맵볼 서볼🌶️",
+   "date": 20261123,
+   "crew_id": "c48a4d02-c5c1-4f9b-abbe-51b620e175611",
+   "crew": "🔥신생🚨 올라잇 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/c48a4d02-c5c1-4f9b-abbe-51b620e175611",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "🚨맵볼 서볼🌶️",
+   "place_raw": "서울볼더스 목동",
+   "joined": 1,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-123",
+   "gym_name": "서울볼더스 목동",
+   "seen_at": "16:37:30"
   }
  ]
 }
