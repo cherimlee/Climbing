@@ -1,13 +1,13 @@
 {
  "meta": {
   "date": "2026-11-27",
-  "collected_at": "2026-11-22T01:16+09:00",
+  "collected_at": "2026-11-22T01:23+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 5,
+   "events_total": 6,
    "events_at_gyms": 5,
    "gyms": 5,
    "joined_total": 24
@@ -161,7 +161,7 @@
    "place_type": "암장",
    "gym_id": "SEL-005",
    "gym_name": "클라이밍파크 강남점",
-   "seen_at": "01:16:41"
+   "seen_at": "01:23:56"
   },
   {
    "key": "f0961ac3-0f4b-40c7-b329-141c38b16cf41|1900|금알레❤️‍🔥",
@@ -178,7 +178,7 @@
    "place_type": "암장",
    "gym_id": "SEL-141",
    "gym_name": "알레클라임 혜화점",
-   "seen_at": "01:16:24"
+   "seen_at": "01:23:41"
   },
   {
    "key": "0c0d0f0f-e6d8-4be8-987d-41ac38da6f0e1|1900|🗿스톤즈🗿",
@@ -195,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "SEL-044",
    "gym_name": "스톤즈클라이밍",
-   "seen_at": "01:16:41"
+   "seen_at": "01:23:56"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1900|🍐이수!",
@@ -212,7 +212,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "01:16:45"
+   "seen_at": "01:24:00"
   },
   {
    "key": "68a2751e-1d9e-11ef-8ab7-0af1d1d9d55f1|1900|강남 퇴근클🌉 (의현, 교육X)",
@@ -229,7 +229,24 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "01:16:53"
+   "seen_at": "01:24:06"
+  },
+  {
+   "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|2005|11/27 🐯방어주면안잡아먹지🐯",
+   "date": 20261127,
+   "crew_id": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1",
+   "crew": "💪Heet Climbing🪨",
+   "crew_url": "https://www.somoim.co.kr/7aa183a0-cf4c-11ed-b5d2-0a67493c793b1",
+   "time": "20:05",
+   "slot": "eve",
+   "title": "11/27 🐯방어주면안잡아먹지🐯",
+   "place_raw": "오징어참치",
+   "joined": 10,
+   "capacity": 16,
+   "place_type": "미상",
+   "gym_id": null,
+   "gym_name": null,
+   "seen_at": "01:23:47"
   }
  ]
 }

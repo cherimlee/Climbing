@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-25",
-  "collected_at": "2026-11-22T01:16+09:00",
+  "collected_at": "2026-11-22T01:23+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 18,
-   "events_at_gyms": 15,
+   "events_total": 19,
+   "events_at_gyms": 16,
    "gyms": 11,
-   "joined_total": 42
+   "joined_total": 44
   }
  },
  "gyms": [
@@ -65,6 +65,34 @@
    "total": {
     "events": 1,
     "joined": 6
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-125",
+   "name": "더클라임 문래점",
+   "sido": "서울",
+   "sigungu": "영등포구",
+   "lat": 37.520567,
+   "lng": 126.895005,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 3,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "꼼지락 클라이밍🤟",
+    "💪Heet Climbing🪨",
+    "클라이밍❣️뛰뛰 크루❣️"
+   ],
+   "total": {
+    "events": 3,
+    "joined": 5
    },
    "mix": false
   },
@@ -143,33 +171,6 @@
    "total": {
     "events": 1,
     "joined": 4
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-125",
-   "name": "더클라임 문래점",
-   "sido": "서울",
-   "sigungu": "영등포구",
-   "lat": 37.520567,
-   "lng": 126.895005,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 2,
-    "joined": 3,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "꼼지락 클라이밍🤟",
-    "💪Heet Climbing🪨"
-   ],
-   "total": {
-    "events": 2,
-    "joined": 3
    },
    "mix": false
   },
@@ -321,7 +322,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "킨디클라이밍 수원역점",
-   "seen_at": "01:16:38"
+   "seen_at": "01:23:54"
   },
   {
    "key": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481|1400|수요일 낮클 더클 성수쓰",
@@ -338,7 +339,7 @@
    "place_type": "암장",
    "gym_id": "SEL-105",
    "gym_name": "더클라임 성수점",
-   "seen_at": "01:16:43"
+   "seen_at": "01:23:58"
   },
   {
    "key": "25184ef7-8160-4273-a51d-dd2c7da5adf41|1500|잠숲 낮클",
@@ -355,7 +356,7 @@
    "place_type": "암장",
    "gym_id": "SEL-116",
    "gym_name": "서울숲클라이밍 잠실점",
-   "seen_at": "01:16:25"
+   "seen_at": "01:23:42"
   },
   {
    "key": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491|1800|물래",
@@ -372,7 +373,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "01:16:44"
+   "seen_at": "01:23:57"
   },
   {
    "key": "d7471312-29f1-483f-ba28-39846fb49bb41|1800|1000🐯 온플릭(🐙🐙🐙)",
@@ -389,7 +390,7 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "01:16:49"
+   "seen_at": "01:24:02"
   },
   {
    "key": "d3609c72-6a8b-4f9a-8ac9-88911cd09ade1|1800|강더클 꿀회사냥꾼",
@@ -406,7 +407,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "01:16:37"
+   "seen_at": "01:23:53"
   },
   {
    "key": "a7a02f70-cbc0-4328-92ee-9ab1a4ecd4bd1|1900|(클렉스 앱에서 모임 운영 중입니다)",
@@ -423,7 +424,7 @@
    "place_type": "기타",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "01:16:26"
+   "seen_at": "01:23:43"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|더클 이수",
@@ -440,7 +441,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "01:16:35"
+   "seen_at": "01:23:50"
   },
   {
    "key": "77984be4-b973-11eb-bbce-0ad82640e4931|1900|허브클라이밍",
@@ -457,7 +458,7 @@
    "place_type": "목록외암장",
    "gym_id": null,
    "gym_name": "허브클라이밍",
-   "seen_at": "01:16:53"
+   "seen_at": "01:24:05"
   },
   {
    "key": "6430982c-d6d5-11ee-b236-0aeffe46d1c51|1900|신림 듀얼패스 소진벙🙄🤍",
@@ -474,7 +475,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "01:16:58"
+   "seen_at": "01:24:09"
   },
   {
    "key": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551|1900|강남 난이도 반토막남 진쨔로 내가 ㅂ",
@@ -491,7 +492,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "01:16:29"
+   "seen_at": "01:23:46"
   },
   {
    "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|1900|25일 수요일 문래 더클라임💪",
@@ -508,7 +509,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "01:16:32"
+   "seen_at": "01:23:47"
   },
   {
    "key": "26219d50-6fc6-4549-8c87-29680d0af1261|1900|수요일 강더클?",
@@ -525,7 +526,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "01:16:48"
+   "seen_at": "01:24:02"
   },
   {
    "key": "964c7508-26ba-11ef-8d39-0a7ff4a8d46b1|1900|연남 핑크 별거 있다 😅💘",
@@ -542,7 +543,7 @@
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "01:17:01"
+   "seen_at": "01:24:12"
   },
   {
    "key": "8286e672-7df4-40b2-a04b-c64ac815d5421|1900|천플릭",
@@ -559,7 +560,24 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "01:17:03"
+   "seen_at": "01:24:12"
+  },
+  {
+   "key": "0ecddca1-18ca-48b8-8570-4af0281dbdfe1|1900|뿌셔보자 문래 퇴근클!!",
+   "date": 20261125,
+   "crew_id": "0ecddca1-18ca-48b8-8570-4af0281dbdfe1",
+   "crew": "클라이밍❣️뛰뛰 크루❣️",
+   "crew_url": "https://www.somoim.co.kr/0ecddca1-18ca-48b8-8570-4af0281dbdfe1",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "뿌셔보자 문래 퇴근클!!",
+   "place_raw": "더클라임 문래",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-125",
+   "gym_name": "더클라임 문래점",
+   "seen_at": "01:24:01"
   },
   {
    "key": "26219d50-6fc6-4549-8c87-29680d0af1261|1910|수요일 사당더클?",
@@ -576,7 +594,7 @@
    "place_type": "암장",
    "gym_id": "SEL-042",
    "gym_name": "더클라임 사당점",
-   "seen_at": "01:16:48"
+   "seen_at": "01:24:02"
   },
   {
    "key": "9fb6ab5c-0496-11ec-8d33-0a26f71b196f1|1920|이태원 오프더월! 신입/초보모임!",
@@ -593,7 +611,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "01:16:25"
+   "seen_at": "01:23:41"
   },
   {
    "key": "25184ef7-8160-4273-a51d-dd2c7da5adf41|2000|타임어택이다 종숲⏰",
@@ -610,7 +628,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "01:16:25"
+   "seen_at": "01:23:42"
   }
  ]
 }
