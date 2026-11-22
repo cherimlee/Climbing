@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-11-27",
-  "collected_at": "2026-11-22T17:56+09:00",
+  "collected_at": "2026-11-23T01:29+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 7,
-   "events_at_gyms": 6,
-   "gyms": 6,
-   "joined_total": 25
+   "events_total": 8,
+   "events_at_gyms": 7,
+   "gyms": 7,
+   "joined_total": 29
   }
  },
  "gyms": [
@@ -54,7 +54,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 7,
+    "joined": 8,
     "joined_unknown": 0
    },
    "crews": [
@@ -62,7 +62,33 @@
    ],
    "total": {
     "events": 1,
-    "joined": 7
+    "joined": 8
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-003",
+   "name": "더클라임 강남점",
+   "sido": "서울",
+   "sigungu": "강남구",
+   "lat": 37.497589,
+   "lng": 127.031992,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 5,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "FANXY CREW (입문자환영)"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 5
    },
    "mix": false
   },
@@ -93,12 +119,12 @@
    "mix": false
   },
   {
-   "gym_id": "SEL-003",
-   "name": "더클라임 강남점",
+   "gym_id": "SEL-116",
+   "name": "서울숲클라이밍 잠실점",
    "sido": "서울",
-   "sigungu": "강남구",
-   "lat": 37.497589,
-   "lng": 127.031992,
+   "sigungu": "송파구",
+   "lat": 37.51103,
+   "lng": 127.084156,
    "day": {
     "events": 0,
     "joined": 0,
@@ -106,15 +132,15 @@
    },
    "eve": {
     "events": 1,
-    "joined": 4,
+    "joined": 2,
     "joined_unknown": 0
    },
    "crews": [
-    "FANXY CREW (입문자환영)"
+    "가나디 클라이밍 모임👻"
    ],
    "total": {
     "events": 1,
-    "joined": 4
+    "joined": 2
    },
    "mix": false
   },
@@ -187,7 +213,7 @@
    "place_type": "암장",
    "gym_id": "SEL-005",
    "gym_name": "클라이밍파크 강남점",
-   "seen_at": "17:56:16"
+   "seen_at": "01:29:59"
   },
   {
    "key": "f0961ac3-0f4b-40c7-b329-141c38b16cf41|1900|금알레❤️‍🔥",
@@ -204,7 +230,7 @@
    "place_type": "암장",
    "gym_id": "SEL-141",
    "gym_name": "알레클라임 혜화점",
-   "seen_at": "17:56:00"
+   "seen_at": "01:29:43"
   },
   {
    "key": "0c0d0f0f-e6d8-4be8-987d-41ac38da6f0e1|1900|🗿스톤즈🗿",
@@ -221,7 +247,7 @@
    "place_type": "암장",
    "gym_id": "SEL-044",
    "gym_name": "스톤즈클라이밍",
-   "seen_at": "17:56:16"
+   "seen_at": "01:29:59"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1900|🍐이수!",
@@ -233,12 +259,12 @@
    "slot": "eve",
    "title": "🍐이수!",
    "place_raw": "더클라임 이수",
-   "joined": 7,
+   "joined": 8,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "17:56:20"
+   "seen_at": "01:30:03"
   },
   {
    "key": "68a2751e-1d9e-11ef-8ab7-0af1d1d9d55f1|1900|강남 퇴근클🌉 (의현, 교육X)",
@@ -250,12 +276,12 @@
    "slot": "eve",
    "title": "강남 퇴근클🌉 (의현, 교육X)",
    "place_raw": "더클 강남",
-   "joined": 4,
+   "joined": 5,
    "capacity": 6,
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "17:56:27"
+   "seen_at": "01:30:11"
   },
   {
    "key": "6a4ba5c2-19cd-11ef-b478-0ab94af1591d1|1900|금투정장모!",
@@ -272,7 +298,24 @@
    "place_type": "암장",
    "gym_id": "GGI-076",
    "gym_name": "클라임투게더 수원영통센터",
-   "seen_at": "17:56:12"
+   "seen_at": "01:29:55"
+  },
+  {
+   "key": "25184ef7-8160-4273-a51d-dd2c7da5adf41|1900|잠숲 집합!! 밸런스 꿀검 먹쟈🍯",
+   "date": 20261127,
+   "crew_id": "25184ef7-8160-4273-a51d-dd2c7da5adf41",
+   "crew": "가나디 클라이밍 모임👻",
+   "crew_url": "https://www.somoim.co.kr/25184ef7-8160-4273-a51d-dd2c7da5adf41",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "잠숲 집합!! 밸런스 꿀검 먹쟈🍯",
+   "place_raw": "서울숲클라이밍 잠실점",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-116",
+   "gym_name": "서울숲클라이밍 잠실점",
+   "seen_at": "01:29:44"
   },
   {
    "key": "7aa183a0-cf4c-11ed-b5d2-0a67493c793b1|2005|11/27 🐯방어주면안잡아먹지🐯",
@@ -289,7 +332,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:56:07"
+   "seen_at": "01:29:49"
   }
  ]
 }
