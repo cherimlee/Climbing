@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-30",
-  "collected_at": "2026-11-24T09:56+09:00",
+  "collected_at": "2026-11-24T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 6,
    "events_at_gyms": 6,
    "gyms": 6,
-   "joined_total": 17
+   "joined_total": 16
   }
  },
  "gyms": [
@@ -80,7 +80,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 4,
+    "joined": 3,
     "joined_unknown": 0
    },
    "crews": [
@@ -88,7 +88,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 4
+    "joined": 3
    },
    "mix": false
   },
@@ -187,7 +187,7 @@
    "place_type": "암장",
    "gym_id": "SEL-127",
    "gym_name": "서울볼더스 선유",
-   "seen_at": "09:56:05"
+   "seen_at": "17:56:08"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|오프더월클라이밍 이태원",
@@ -204,7 +204,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "09:56:08"
+   "seen_at": "17:56:10"
   },
   {
    "key": "03023df0-d29e-4c82-9984-5bf229444de41|1900|월) 19시 범계더렛지",
@@ -216,12 +216,12 @@
    "slot": "eve",
    "title": "월) 19시 범계더렛지",
    "place_raw": "더렛지클라이밍",
-   "joined": 4,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "09:56:12"
+   "seen_at": "17:56:14"
   },
   {
    "key": "74009654-c8be-11ef-b138-0a9849a989e51|1900|더클강남",
@@ -238,7 +238,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "09:56:13"
+   "seen_at": "17:56:15"
   },
   {
    "key": "6430982c-d6d5-11ee-b236-0aeffe46d1c51|1900|밥풀이 힘을 받아 나이수벙",
@@ -255,7 +255,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "09:56:30"
+   "seen_at": "17:56:33"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1900|더클 마곡",
@@ -272,7 +272,7 @@
    "place_type": "암장",
    "gym_id": "SEL-036",
    "gym_name": "더클라임 마곡점",
-   "seen_at": "09:56:16"
+   "seen_at": "17:56:19"
   }
  ]
 }
