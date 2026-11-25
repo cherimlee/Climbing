@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-12-01",
-  "collected_at": "2026-11-25T09:56+09:00",
+  "collected_at": "2026-11-25T17:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 6,
-   "events_at_gyms": 6,
+   "events_total": 7,
+   "events_at_gyms": 7,
    "gyms": 6,
-   "joined_total": 22
+   "joined_total": 25
   }
  },
  "gyms": [
@@ -65,6 +65,33 @@
     "joined": 6
    },
    "mix": false
+  },
+  {
+   "gym_id": "SEL-083",
+   "name": "더클라임 연남점",
+   "sido": "서울",
+   "sigungu": "마포구",
+   "lat": 37.557667,
+   "lng": 126.925892,
+   "day": {
+    "events": 1,
+    "joined": 3,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 1,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "또라이밍 크루",
+    "꼼지락 클라이밍🤟"
+   ],
+   "total": {
+    "events": 2,
+    "joined": 4
+   },
+   "mix": true
   },
   {
    "gym_id": "SEL-004",
@@ -143,32 +170,6 @@
     "joined": 2
    },
    "mix": false
-  },
-  {
-   "gym_id": "SEL-083",
-   "name": "더클라임 연남점",
-   "sido": "서울",
-   "sigungu": "마포구",
-   "lat": 37.557667,
-   "lng": 126.925892,
-   "day": {
-    "events": 1,
-    "joined": 1,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "또라이밍 크루"
-   ],
-   "total": {
-    "events": 1,
-    "joined": 1
-   },
-   "mix": false
   }
  ],
  "events": [
@@ -182,12 +183,12 @@
    "slot": "day",
    "title": "더클 연남 횟수권 털이",
    "place_raw": "더클라임 연남점",
-   "joined": 1,
+   "joined": 3,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-083",
    "gym_name": "더클라임 연남점",
-   "seen_at": "09:56:06"
+   "seen_at": "17:56:06"
   },
   {
    "key": "54defadc-136d-11f0-bcce-0ac1539a03c91|1800|온플릭 천호 퇴근클",
@@ -204,7 +205,7 @@
    "place_type": "암장",
    "gym_id": "SEL-021",
    "gym_name": "온플릭클라이밍 천호점",
-   "seen_at": "09:56:26"
+   "seen_at": "17:56:30"
   },
   {
    "key": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551|1900|혜알갈래?",
@@ -221,7 +222,7 @@
    "place_type": "암장",
    "gym_id": "SEL-141",
    "gym_name": "알레클라임 혜화점",
-   "seen_at": "09:56:06"
+   "seen_at": "17:56:06"
   },
   {
    "key": "e267ecc4-6b3d-4dec-843b-2ea523b087961|1900|더클 양재 퇴근클",
@@ -238,7 +239,7 @@
    "place_type": "암장",
    "gym_id": "SEL-004",
    "gym_name": "더클라임 양재점",
-   "seen_at": "09:56:23"
+   "seen_at": "17:56:26"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|더클 논현 퇴근클",
@@ -255,7 +256,24 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "09:56:36"
+   "seen_at": "17:56:40"
+  },
+  {
+   "key": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491|1900|더클연남 갈래말래",
+   "date": 20261201,
+   "crew_id": "93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491",
+   "crew": "꼼지락 클라이밍🤟",
+   "crew_url": "https://www.somoim.co.kr/93250cb8-cf0d-11ef-9ebb-0a11cf6b2d491",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "더클연남 갈래말래",
+   "place_raw": "더클연남",
+   "joined": 1,
+   "capacity": 12,
+   "place_type": "암장",
+   "gym_id": "SEL-083",
+   "gym_name": "더클라임 연남점",
+   "seen_at": "17:56:21"
   },
   {
    "key": "5d84d253-d850-4680-8447-fd159c54abb71|1930|🔔종로숲🌲",
@@ -272,7 +290,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "09:56:04"
+   "seen_at": "17:56:03"
   }
  ]
 }
