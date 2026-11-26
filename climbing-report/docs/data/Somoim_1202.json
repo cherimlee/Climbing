@@ -1,16 +1,16 @@
 {
  "meta": {
   "date": "2026-12-02",
-  "collected_at": "2026-11-26T17:57+09:00",
+  "collected_at": "2026-11-27T03:31+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
   "joined": "정모 카드의 참석 인원(집계 숫자). 이름 등 개인정보 미수집",
   "summary": {
-   "events_total": 5,
-   "events_at_gyms": 5,
-   "gyms": 5,
-   "joined_total": 14
+   "events_total": 8,
+   "events_at_gyms": 8,
+   "gyms": 8,
+   "joined_total": 24
   }
  },
  "gyms": [
@@ -41,6 +41,58 @@
    "mix": false
   },
   {
+   "gym_id": "SEL-136",
+   "name": "오프더월클라이밍",
+   "sido": "서울",
+   "sigungu": "용산구",
+   "lat": 37.53433,
+   "lng": 126.994934,
+   "day": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "다이노 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-021",
+   "name": "온플릭클라이밍 천호점",
+   "sido": "서울",
+   "sigungu": "강동구",
+   "lat": 37.540805,
+   "lng": 127.124557,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 4,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "락쿤 클라이밍 크루"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 4
+   },
+   "mix": false
+  },
+  {
    "gym_id": "SEL-097",
    "name": "더클라임 논현점",
    "sido": "서울",
@@ -63,6 +115,32 @@
    "total": {
     "events": 1,
     "joined": 3
+   },
+   "mix": false
+  },
+  {
+   "gym_id": "SEL-123",
+   "name": "서울볼더스 목동",
+   "sido": "서울",
+   "sigungu": "양천구",
+   "lat": 37.520608,
+   "lng": 126.872366,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 2,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "크럭시(Cruxy)클라이밍🫯"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 2
    },
    "mix": false
   },
@@ -147,6 +225,40 @@
  ],
  "events": [
   {
+   "key": "c1fb15d2-2e84-11ec-b271-0acbb058eab51|1400|오프더월 🕶️",
+   "date": 20261202,
+   "crew_id": "c1fb15d2-2e84-11ec-b271-0acbb058eab51",
+   "crew": "다이노 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/c1fb15d2-2e84-11ec-b271-0acbb058eab51",
+   "time": "14:00",
+   "slot": "day",
+   "title": "오프더월 🕶️",
+   "place_raw": "오프더월 클라이밍",
+   "joined": 4,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-136",
+   "gym_name": "오프더월클라이밍",
+   "seen_at": "03:31:55"
+  },
+  {
+   "key": "d3609c72-6a8b-4f9a-8ac9-88911cd09ade1|1700|뚱채먹고 트레이닝",
+   "date": 20261202,
+   "crew_id": "d3609c72-6a8b-4f9a-8ac9-88911cd09ade1",
+   "crew": "크럭시(Cruxy)클라이밍🫯",
+   "crew_url": "https://www.somoim.co.kr/d3609c72-6a8b-4f9a-8ac9-88911cd09ade1",
+   "time": "17:00",
+   "slot": "eve",
+   "title": "뚱채먹고 트레이닝",
+   "place_raw": "서울볼더스 목동",
+   "joined": 2,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-123",
+   "gym_name": "서울볼더스 목동",
+   "seen_at": "03:31:52"
+  },
+  {
    "key": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551|1900|종앤숲",
    "date": 20261202,
    "crew_id": "7ef0d5f6-9e84-11ef-9c06-0af95269a4551",
@@ -161,7 +273,7 @@
    "place_type": "암장",
    "gym_id": "SEL-140",
    "gym_name": "서울숲클라이밍 종로점",
-   "seen_at": "17:57:15"
+   "seen_at": "03:31:44"
   },
   {
    "key": "4517f26f-7590-4fe5-95d4-939a25129fe71|1900|가자〰️ 숲으로 🌲",
@@ -178,7 +290,7 @@
    "place_type": "암장",
    "gym_id": "SEL-053",
    "gym_name": "서울숲클라이밍 구로점",
-   "seen_at": "17:57:26"
+   "seen_at": "03:31:55"
   },
   {
    "key": "45643ad0-e1e5-4268-9bc7-7bb9bf055d481|1900|수요일 퇴근클 논현더클",
@@ -195,7 +307,7 @@
    "place_type": "암장",
    "gym_id": "SEL-097",
    "gym_name": "더클라임 논현점",
-   "seen_at": "17:57:27"
+   "seen_at": "03:31:56"
   },
   {
    "key": "4bcfa574-84a1-11ee-815b-0aa1fd4220a11|1900|정모",
@@ -212,7 +324,7 @@
    "place_type": "암장",
    "gym_id": "GGI-065",
    "gym_name": "클라임 어스 모란점",
-   "seen_at": "17:57:44"
+   "seen_at": "03:32:13"
   },
   {
    "key": "01bc91bf-acf3-46ff-a23d-f394c572d6341|1900|더클라임 강남 퇴근클!",
@@ -229,7 +341,24 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "17:57:53"
+   "seen_at": "03:32:21"
+  },
+  {
+   "key": "3c164c92-98d0-496a-a81e-75b4afde2f441|1900|온플릭 천호점 퇴근클",
+   "date": 20261202,
+   "crew_id": "3c164c92-98d0-496a-a81e-75b4afde2f441",
+   "crew": "락쿤 클라이밍 크루",
+   "crew_url": "https://www.somoim.co.kr/3c164c92-98d0-496a-a81e-75b4afde2f441",
+   "time": "19:00",
+   "slot": "eve",
+   "title": "온플릭 천호점 퇴근클",
+   "place_raw": "온플릭클라이밍 천호점",
+   "joined": 4,
+   "capacity": 20,
+   "place_type": "암장",
+   "gym_id": "SEL-021",
+   "gym_name": "온플릭클라이밍 천호점",
+   "seen_at": "03:32:10"
   }
  ]
 }
