@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-11-30",
-  "collected_at": "2026-11-27T17:57+09:00",
+  "collected_at": "2026-11-27T18:09+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,10 +10,36 @@
    "events_total": 13,
    "events_at_gyms": 10,
    "gyms": 8,
-   "joined_total": 34
+   "joined_total": 35
   }
  },
  "gyms": [
+  {
+   "gym_id": "SEL-136",
+   "name": "오프더월클라이밍",
+   "sido": "서울",
+   "sigungu": "용산구",
+   "lat": 37.53433,
+   "lng": 126.994934,
+   "day": {
+    "events": 0,
+    "joined": 0,
+    "joined_unknown": 0
+   },
+   "eve": {
+    "events": 1,
+    "joined": 8,
+    "joined_unknown": 0
+   },
+   "crews": [
+    "오르렁 클라이밍  🐯"
+   ],
+   "total": {
+    "events": 1,
+    "joined": 8
+   },
+   "mix": false
+  },
   {
    "gym_id": "SEL-043",
    "name": "더클라임 신림점",
@@ -64,32 +90,6 @@
    ],
    "total": {
     "events": 2,
-    "joined": 7
-   },
-   "mix": false
-  },
-  {
-   "gym_id": "SEL-136",
-   "name": "오프더월클라이밍",
-   "sido": "서울",
-   "sigungu": "용산구",
-   "lat": 37.53433,
-   "lng": 126.994934,
-   "day": {
-    "events": 0,
-    "joined": 0,
-    "joined_unknown": 0
-   },
-   "eve": {
-    "events": 1,
-    "joined": 7,
-    "joined_unknown": 0
-   },
-   "crews": [
-    "오르렁 클라이밍  🐯"
-   ],
-   "total": {
-    "events": 1,
     "joined": 7
    },
    "mix": false
@@ -241,7 +241,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:57:52"
+   "seen_at": "18:09:50"
   },
   {
    "key": "5c682801-1f1d-4579-85ad-90abd45313271|1900|11/30(월) 선유 서울볼더스",
@@ -258,7 +258,7 @@
    "place_type": "암장",
    "gym_id": "SEL-127",
    "gym_name": "서울볼더스 선유",
-   "seen_at": "17:57:56"
+   "seen_at": "18:09:54"
   },
   {
    "key": "9ae395fd-e0f1-4ae1-8a91-19f0f4a59f6d1|1900|오프더월클라이밍 이태원",
@@ -270,12 +270,12 @@
    "slot": "eve",
    "title": "오프더월클라이밍 이태원",
    "place_raw": "오프더월클라이밍 이태원",
-   "joined": 7,
+   "joined": 8,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "17:57:59"
+   "seen_at": "18:09:56"
   },
   {
    "key": "03023df0-d29e-4c82-9984-5bf229444de41|1900|월) 19시 범계더렛지",
@@ -292,7 +292,7 @@
    "place_type": "암장",
    "gym_id": "GGI-106",
    "gym_name": "더렛지 클라이밍",
-   "seen_at": "17:58:03"
+   "seen_at": "18:10:00"
   },
   {
    "key": "74009654-c8be-11ef-b138-0a9849a989e51|1900|더클강남",
@@ -309,7 +309,7 @@
    "place_type": "암장",
    "gym_id": "SEL-003",
    "gym_name": "더클라임 강남점",
-   "seen_at": "17:58:04"
+   "seen_at": "18:10:01"
   },
   {
    "key": "6430982c-d6d5-11ee-b236-0aeffe46d1c51|1900|밥풀이 힘을 받아 나이수벙",
@@ -326,7 +326,7 @@
    "place_type": "암장",
    "gym_id": "SEL-078",
    "gym_name": "더클라임 이수점",
-   "seen_at": "17:58:22"
+   "seen_at": "18:10:18"
   },
   {
    "key": "fed8e240-0988-4b6a-8a5d-6eb0f1b37bfe1|1900|더클 마곡",
@@ -343,7 +343,7 @@
    "place_type": "암장",
    "gym_id": "SEL-036",
    "gym_name": "더클라임 마곡점",
-   "seen_at": "17:58:08"
+   "seen_at": "18:10:04"
   },
   {
    "key": "7b39594a-c105-11ee-80a5-0a3cf65de8e51|1900|패스 쓰러 신림더클",
@@ -360,7 +360,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "17:57:51"
+   "seen_at": "18:09:48"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|가양 어거스트",
@@ -377,7 +377,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:58:27"
+   "seen_at": "18:10:23"
   },
   {
    "key": "8cc91a64-a0bc-11ea-8231-0af22038b75a1|1900|🔥월요일🔥 더클신림",
@@ -394,7 +394,7 @@
    "place_type": "암장",
    "gym_id": "SEL-043",
    "gym_name": "더클라임 신림점",
-   "seen_at": "17:57:55"
+   "seen_at": "18:09:53"
   },
   {
    "key": "34026cb4-31bf-4854-a94d-5637468238c51|1900|11/30 또털어 & 또도와 방탈출",
@@ -411,7 +411,7 @@
    "place_type": "기타",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "17:58:21"
+   "seen_at": "18:10:17"
   },
   {
    "key": "71d78b63-28d8-4c08-8d4b-728be2ddde141|1900|더클라임 문래 평일 퇴근클",
@@ -428,7 +428,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "17:58:27"
+   "seen_at": "18:10:23"
   },
   {
    "key": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1|1930|퇴근클 더클문래",
@@ -445,7 +445,7 @@
    "place_type": "암장",
    "gym_id": "SEL-125",
    "gym_name": "더클라임 문래점",
-   "seen_at": "17:58:25"
+   "seen_at": "18:10:21"
   }
  ]
 }
