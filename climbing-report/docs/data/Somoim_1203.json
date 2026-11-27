@@ -1,7 +1,7 @@
 {
  "meta": {
   "date": "2026-12-03",
-  "collected_at": "2026-11-27T03:39+09:00",
+  "collected_at": "2026-11-27T09:56+09:00",
   "crews": 133,
   "errors": 0,
   "slot_rule": "day = 시작 ~16:59, eve = 17:00~",
@@ -10,7 +10,7 @@
    "events_total": 7,
    "events_at_gyms": 5,
    "gyms": 5,
-   "joined_total": 9
+   "joined_total": 10
   }
  },
  "gyms": [
@@ -28,7 +28,7 @@
    },
    "eve": {
     "events": 1,
-    "joined": 3,
+    "joined": 4,
     "joined_unknown": 0
    },
    "crews": [
@@ -36,7 +36,7 @@
    ],
    "total": {
     "events": 1,
-    "joined": 3
+    "joined": 4
    },
    "mix": false
   },
@@ -161,7 +161,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "03:39:28"
+   "seen_at": "09:56:27"
   },
   {
    "key": "6e19e03a-8943-11ee-9c66-0ac1857694111|1900|목_손상원클라이밍 강남",
@@ -173,12 +173,12 @@
    "slot": "eve",
    "title": "목_손상원클라이밍 강남",
    "place_raw": "손상원클라이밍 강남",
-   "joined": 3,
+   "joined": 4,
    "capacity": 20,
    "place_type": "암장",
    "gym_id": "SEL-098",
    "gym_name": "손상원클라이밍짐 강남점",
-   "seen_at": "03:39:05"
+   "seen_at": "09:56:05"
   },
   {
    "key": "f3f97dd0-4896-11ed-bc88-0a66ca2177e31|1900|손상원클라이밍짐 판교점",
@@ -195,7 +195,7 @@
    "place_type": "암장",
    "gym_id": "GGI-058",
    "gym_name": "손상원클라이밍짐 판교점",
-   "seen_at": "03:39:07"
+   "seen_at": "09:56:06"
   },
   {
    "key": "5fc11836-57bb-4164-843c-dbc1d4c501c51|1900|12/3 을지로 담장 정기 모임",
@@ -212,7 +212,7 @@
    "place_type": "암장",
    "gym_id": "SEL-147",
    "gym_name": "을지로 담장 클라이밍",
-   "seen_at": "03:39:30"
+   "seen_at": "09:56:29"
   },
   {
    "key": "69a1d498-eebd-4bd0-a88a-8ea33ede5c481|1900|이태원 오프더월 퇴근클",
@@ -229,7 +229,7 @@
    "place_type": "암장",
    "gym_id": "SEL-136",
    "gym_name": "오프더월클라이밍",
-   "seen_at": "03:39:37"
+   "seen_at": "09:56:37"
   },
   {
    "key": "5fcf0b33-eed4-4be2-9d11-b261bd219ff01|1900|희진이의 파묘",
@@ -246,7 +246,7 @@
    "place_type": "미상",
    "gym_id": null,
    "gym_name": null,
-   "seen_at": "03:39:39"
+   "seen_at": "09:56:40"
   },
   {
    "key": "4acf03c3-b5cd-4638-aa71-1dab812dbb2b1|1930|슾 고정클",
@@ -263,7 +263,7 @@
    "place_type": "암장",
    "gym_id": "GGI-033",
    "gym_name": "스파이시 클라이밍",
-   "seen_at": "03:39:34"
+   "seen_at": "09:56:35"
   }
  ]
 }
